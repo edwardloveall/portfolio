@@ -1,0 +1,23 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: portfolio_development
+  pool: 5
+  username: <%= ENV['POSTGRES_USERNAME'] %>
+  password:
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: portfolio_test
+  pool: 5
+  username: <%= ENV['POSTGRES_USERNAME'] %>
+  password:
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: portfolio_production
+  pool: 5
+  username: <%= ENV['POSTGRES_USERNAME'] %>
+  password:
