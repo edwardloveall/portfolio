@@ -1,0 +1,58 @@
+$text-color: #141C26;
+$light-orange: #FDE8E4;
+$size-1: 1.5em;
+$page-width: 814px;
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #F2F4F7;
+  color: $text-color;
+  font-family: 'skolar', Georgia, serif;
+}
+
+header {
+  background-color: #F25F40;
+  border-bottom: 10px solid #E44331;
+  color: $light-orange;
+  margin-bottom: golden-ratio($size-1, 3);
+  padding-top: $size-1;
+  text-align: center;
+
+  h1 {
+    font-size: golden-ratio($size-1, 2);
+    margin-bottom: golden-ratio($size-1, -3);
+  }
+
+  h4 {
+    font-size: $size-1;
+    margin-bottom: $size-1;
+  }
+}
+
+h3 {
+  font-weight: 600;
+  font-size: golden-ratio($size-1, 1);
+  margin-bottom: golden-ratio($size-1, -1);
+}
+
+a {
+  color: $text-color;
+  text-decoration: none;
+}
+
+div.inner-wrap,
+div.main-wrap {
+  margin: 0 auto;
+  width: $page-width;
+}
+
+ol.projects-list {
+  li {
+    font-size: $size-1;
+    margin-bottom: $size-1;
+  }
+}
