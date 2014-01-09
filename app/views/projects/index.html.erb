@@ -1,4 +1,6 @@
 <h3>Selected Projects</h3>
 <ol class="projects-list">
-  <%= render @projects %>
+  <% @projects.each do |project| %>
+    <li><%= link_to project.name, project %></li>
+  <% end %>
 </ol>

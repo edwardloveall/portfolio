@@ -1,5 +1,7 @@
 $text-color: #141C26;
 $light-orange: #FDE8E4;
+$bright-orange: #F25F40;
+$hilight-color: $bright-orange;
 $size-1: 1.5em;
 $page-width: 814px;
 
@@ -40,7 +42,7 @@ h3 {
 }
 
 a {
-  color: $text-color;
+  color: $bright-orange;
   text-decoration: none;
 }
 
@@ -52,6 +54,13 @@ div.main-wrap {
 
 ol.projects-list {
   li {
+    font-size: $size-1;
+    margin-bottom: $size-1;
+  }
+}
+
+article {
+  p {
     font-size: $size-1;
     margin-bottom: $size-1;
   }
