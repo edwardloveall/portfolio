@@ -1,0 +1,12 @@
+<section class="featured">
+  <%= render partial: 'featured', collection: @featured %>
+</section>
+
+<section class="regular links">
+  <h4>Other Projects</h4>
+  <ul>
+    <%= render partial: 'project', collection: @regular %>
+  </ul>
+</section>
+
+<%= render 'contact' %>

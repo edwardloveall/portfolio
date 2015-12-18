@@ -10,7 +10,7 @@ FactoryGirl.define do
     DESC
 
     trait :featured do
-      featured { Time.current }
+      featured_at { Time.current }
     end
   end
 end
