@@ -6,7 +6,7 @@ RSpec.feature 'User visits homepage' do
     visit '/'
 
     within('section.featured') do
-      expect(page).to have_link(project.title, href: project.website)
+      expect(page).to have_link(project.title, href: project_path(project))
     end
   end
 
@@ -15,7 +15,7 @@ RSpec.feature 'User visits homepage' do
     visit '/'
 
     within('section.regular') do
-      expect(page).to have_link(project.title, href: project.website)
+      expect(page).to have_link(project.title, href: project_path(project))
     end
   end
 
