@@ -1,0 +1,58 @@
+// Colors
+$white: #fff;
+$light-blue-gray: #e8ebed;
+$light-gray: #fbfbfb;
+$medium-light-gray: #ededed;
+$medium-gray: #b1b1b1;
+$dark-gray: #3c3e42;
+$red: #ef2d27;
+
+$accent-color: $red;
+$body-text-color: $medium-gray;
+$header-text-color: $dark-gray;
+$background-color: $light-gray;
+$secondary-background-color: $light-gray;
+$background-color-ui: $white;
+$border-color: $medium-light-gray;
+
+// Fonts
+$sans-serif: 'proxima-nova', $helvetica;
+$serif: 'garamond-premier-pro-caption', $georgia;
+
+$body-font-family: $serif;
+$header-font-family: $sans-serif;
+$footer-font-family: $sans-serif;
+$ui-font-family: $sans-serif;
+
+// Font Sizes
+$base-font-size: 20px;
+$medium-font-size: 16px;
+$small-font-size: 12px;
+
+$header-font-size: $base-font-size;
+$small-header-font-size: $small-font-size;
+$body-font-size: $base-font-size;
+$forms-font-size: $base-font-size;
+$footer-font-size: $medium-font-size;
+$ui-font-size: $medium-font-size;
+$letter-spacing-header: 2px;
+
+// Font Presets
+$header-font: 700 $header-font-size $header-font-family;
+$small-header-font: 600 $small-header-font-size $header-font-family;
+$body-font: italic 400 $body-font-size $body-font-family;
+$footer-font: 400 $footer-font-size $footer-font-family;
+
+// Forms
+$form-box-shadow: inset 0 1px 3px rgba(#000, 0.06);
+$form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($accent-color, $lightness: -5%, $alpha: -0.3);
+
+// Other
+$border: 1px solid $border-color;
+$border-radius: 3px;
+$base-spacing: 24px;
+$small-spacing: golden-ratio($base-spacing, -1);
+$big-spacing: $base-spacing * 2.5;
+$line-height: 1.3;
+$duration: 0.2s;
+$timing: ease;

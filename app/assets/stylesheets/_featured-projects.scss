@@ -1,0 +1,32 @@
+.featured {
+  @include outer-container;
+}
+
+.project-container {
+  @include display(flex);
+  background-color: $white;
+  border: $border;
+  cursor: pointer;
+  flex-direction: column;
+  height: 260px;
+  margin-bottom: $base-spacing;
+
+  @include media($desktop) {
+    @include span-columns(4);
+    @include display(flex);
+    margin-bottom: 0;
+  }
+
+  img {
+    margin: auto;
+  }
+
+  h3 {
+    margin-bottom: $base-spacing;
+    text-align: center;
+
+    a {
+      @include header-link-style;
+    }
+  }
+}

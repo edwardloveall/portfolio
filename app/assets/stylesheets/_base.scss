@@ -1,0 +1,28 @@
+body {
+  @include display(flex);
+  @include flex-direction(column);
+  background-color: $background-color;
+  color: $medium-gray;
+  font: $body-font;
+  line-height: $line-height;
+  min-height: 100vh;
+}
+
+main {
+  @include flex(1);
+  @include outer-container;
+
+  @include media($desktop) {
+    max-width: 803px;
+  }
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}

@@ -1,0 +1,31 @@
+section.project {
+  h4 {
+    margin-bottom: golden-ratio($base-spacing, -1);
+  }
+
+  @include media($desktop) {
+    h4 {
+      margin-top: 0;
+    }
+
+    .copy {
+      margin: 0;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .role,
+    .website {
+      @include span-columns(4);
+    }
+
+    .website {
+      @include omega;
+    }
+
+    .description {
+      @include span-columns(8);
+      margin-top: golden-ratio($base-spacing, 1);
+    }
+  }
+}

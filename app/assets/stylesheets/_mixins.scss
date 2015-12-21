@@ -1,0 +1,6 @@
+@mixin header-link-style {
+  color: $header-text-color;
+  font: $header-font;
+  letter-spacing: $letter-spacing-header;
+  text-transform: uppercase;
+}

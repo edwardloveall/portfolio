@@ -1,0 +1,12 @@
+footer {
+  background-color: $dark-gray;
+  color: $medium-light-gray;
+  font: $footer-font;
+  margin-top: $big-spacing;
+  padding: $base-spacing;
+  text-align: center;
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
