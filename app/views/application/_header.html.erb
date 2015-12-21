@@ -1,0 +1,8 @@
+<header>
+  <h1>
+    <%= title %>
+    <% 20.times do |n| %>
+      <%= content_tag(:div, nil, class: ['orbit', "orbit-#{n}"]) %>
+    <% end %>
+  </h1>
+</header>

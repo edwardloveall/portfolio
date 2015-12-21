@@ -1,0 +1,89 @@
+$buffer: 20%;
+$diameter: 100% + ($buffer * 2);
+$logo-font-size: 180px;
+$planet-size: 6px;
+$rotation-period: 10s;
+
+header, div.orbit {
+  @include transform-style(preserve-3d);
+}
+
+header {
+  height: golden-ratio($logo-font-size, 1);
+  margin: $base-spacing * 2 auto;
+  padding-top: $base-spacing * 1.1;
+  text-align: center;
+
+  img {
+    margin: 0 auto;
+  }
+}
+
+h1 {
+  @include transform-style(preserve-3d);
+  background: transparent url(image-path('el_logo_text.svg')) no-repeat center;
+  color: transparent;
+  display: inline-block;
+  font-size: $logo-font-size;
+  height: 1em;
+  pointer-events: none;
+  width: 1em;
+}
+
+div.orbit {
+  @each $i, $size, $delay, $height, $orbit-diameter in
+    (1, 4, 0.68, 56, 0.99),
+    (2, 8, 0.03, 77, 0.84),
+    (3, 12, 0.23, 48, 1.00),
+    (4, 5, 0.36, 43, 0.99),
+    (5, 6, 0.72, 27, 0.89),
+    (6, 12, 0.17, 24, 0.86),
+    (7, 5, 0.56, 14, 0.69),
+    (8, 6, 0.50, 4, 0.39),
+    (9, 12, 0.34, 20, 0.80),
+    (10, 9, 0.82, 40, 0.98),
+    (11, 6, 0.22, 83, 0.75),
+    (12, 12, 0.01, 87, 0.67),
+    (13, 6, 0.80, 17, 0.76),
+    (14, 10, 0.34, 92, 0.53),
+    (15, 8, 0.06, 85, 0.71),
+    (16, 8, 0.50, 14, 0.70),
+    (17, 11, 0.96, 79, 0.82),
+    (18, 7, 0.08, 11, 0.63),
+    (19, 5, 0.32, 65, 0.96),
+    (20, 8, 0.97, 30, 0.92) {
+      &.orbit-#{$i} {
+        $width: $diameter * $orbit-diameter;
+
+        @include animation(orbit-rotate $rotation-period linear infinite);
+        @include animation-delay($rotation-period * -$delay);
+        @include position(absolute, ($height * 1.4% - 20%) 0 0 ((100 - $width) / 2));
+        width: $width;
+
+        &:after {
+          @include animation-delay($rotation-period * -$delay);
+          height: $size * 1px;
+          width: $size * 1px;
+        }
+      }
+    }
+
+}
+
+div.orbit:after {
+  @include animation(planet-rotate $rotation-period linear infinite);
+  background-color: hsl(2, 77%, 51%);
+  border-radius: 50%;
+  content: '';
+  display: block;
+}
+
+@include keyframes(orbit-rotate) {
+  from { @include transform(rotateY(0deg)); }
+  to { @include transform(rotateY(360deg)); }
+}
+
+@include keyframes(planet-rotate) {
+  from { @include transform(rotateY(0deg)); }
+  to { @include transform(rotateY(-360deg)); }
+}
