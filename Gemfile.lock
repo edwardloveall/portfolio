@@ -128,6 +128,7 @@ GEM
       sass (>= 3.3)
     nokogiri (1.6.7.1)
       mini_portile2 (~> 2.0.0.rc2)
+    normalize-rails (3.0.3)
     paperclip (4.3.2)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
@@ -266,6 +267,7 @@ DEPENDENCIES
   jquery-rails
   launchy
   neat
+  normalize-rails
   paperclip
   pg
   pry-byebug
