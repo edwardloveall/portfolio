@@ -1,0 +1,15 @@
+nav.main {
+  font-size: 0;
+  a {
+    @include header-link-style;
+    padding: $base-spacing;
+  }
+}
+
+.more {
+  @include hide-text;
+  @include size(27px 10px);
+  background: transparent url(image-path('chevron.svg')) no-repeat center;
+  display: block;
+  margin: golden-ratio($base-spacing, 1) auto;
+}

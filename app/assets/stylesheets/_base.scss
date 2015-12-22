@@ -11,15 +11,11 @@ body {
 main {
   @include flex(1);
   @include outer-container;
+  width: 100%;
 
   @include media($desktop) {
-    max-width: 803px;
+    width: $max-width;
   }
-}
-
-html,
-body {
-  overflow-x: hidden;
 }
 
 a {

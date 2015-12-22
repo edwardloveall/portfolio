@@ -4,6 +4,8 @@
   <meta charset="utf-8" />
   <meta name="ROBOTS" content="NOODP" />
   <meta name="viewport" content="initial-scale=1" />
+  <script src="https://use.typekit.net/bts7vjo.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
   <%#
     Configure default and controller-, and view-specific titles in
     config/locales/en.yml. For more see:
@@ -16,6 +18,7 @@
 <body class="<%= body_class %>">
   <%= render 'header' %>
   <main>
+    <%= render 'navigation' %>
     <%= yield %>
   </main>
   <%= render "javascript" %>
