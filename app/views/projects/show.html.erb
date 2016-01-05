@@ -1,0 +1,18 @@
+<section class="project">
+  <div class="project-container">
+    <%= project_logo(@project) %>
+    <h3><%= link_to @project.title, project_path(@project) %></h3>
+  </div>
+  <div class="copy role">
+    <h4>Role</h4>
+    <p><%= @project.role %></p>
+  </div>
+  <div class="copy website">
+    <h4>Website</h4>
+    <%= link_to @project.website, @project.website, target: '_blank' %>
+  </div>
+  <article class="copy description">
+    <h4>Description</h4>
+    <%= @project.description %>
+  </article>
+</section>

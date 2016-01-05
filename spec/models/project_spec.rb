@@ -2,11 +2,21 @@ require 'rails_helper'
 
 RSpec.describe Project do
   describe 'validations' do
+    it { should validate_attachment_content_type(:logo).allowing('image/png') }
+    it { should validate_attachment_presence(:logo) }
     it { should validate_presence_of :description }
     it { should validate_presence_of :role }
     it { should validate_presence_of :title }
     it { should validate_uniqueness_of :title }
     it { should validate_presence_of :website }
+  end
+
+  it { should have_attached_file :logo }
+
+  describe '::LOGO_SIZE' do
+    it 'returns the size the logo image should be' do
+      expect(Project::LOGO_SIZE).to eq(174)
+    end
   end
 
   describe '.featured' do
