@@ -14,4 +14,8 @@ class Project < ActiveRecord::Base
 
   scope :featured, lambda { where.not(featured_at: nil) }
   scope :regular, lambda { where(featured_at: nil) }
+
+  def to_param
+    slug
+  end
 end

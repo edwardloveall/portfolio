@@ -38,4 +38,13 @@ RSpec.describe Project do
       expect(Project.regular).to match_array(regular)
     end
   end
+
+  describe '.to_param' do
+    it 'uses the slug' do
+      slug = 'pull-feed'
+      project = build(:project, slug: slug)
+
+      expect(project.to_param).to eq(slug)
+    end
+  end
 end

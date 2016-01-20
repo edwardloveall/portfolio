@@ -23,10 +23,13 @@ RSpec.describe ProjectsController do
 
   describe '#show' do
     it 'assigns the right project to @project' do
-      project = double(:project, id: 1)
-      allow(Project).to receive(:find).and_return(project)
+      slug = 'project-1'
+      project = double(:project, slug: slug)
+      allow(Project).to receive(:find_by).
+                        with(hash_including(slug: slug)).
+                        and_return(project)
 
-      get :show, id: project.id
+      get :show, id: slug
 
       expect(assigns[:project]).to eq(project)
     end
