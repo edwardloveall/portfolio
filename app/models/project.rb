@@ -8,6 +8,7 @@ class Project < ActiveRecord::Base
                        presence: true,
                        content_type: { content_type: /png\Z/ }
   validates :role, presence: true
+  validates :slug, presence: true, uniqueness: true
   validates :title, presence: true, uniqueness: true
   validates :website, presence: true
 

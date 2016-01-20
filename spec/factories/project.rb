@@ -5,6 +5,7 @@ FactoryGirl.define do
       fixture_file_upload(file_path, 'image/png')
     end
     sequence(:title) { |n| "Project #{n}" }
+    sequence(:slug) { |n| "project-#{n}" }
     role { [:design, :development, :everything].sample }
     website 'http://example.com'
     description <<-DESC.strip_heredoc

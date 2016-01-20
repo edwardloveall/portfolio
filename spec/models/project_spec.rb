@@ -6,6 +6,8 @@ RSpec.describe Project do
     it { should validate_attachment_presence(:logo) }
     it { should validate_presence_of :description }
     it { should validate_presence_of :role }
+    it { should validate_presence_of :slug }
+    it { should validate_uniqueness_of :slug }
     it { should validate_presence_of :title }
     it { should validate_uniqueness_of :title }
     it { should validate_presence_of :website }
