@@ -19,8 +19,6 @@ RSpec.describe ApplicationHelper do
 
       expect(img[:src]).to eq(project.logo.url(:standard))
       expect(img[:srcset]).to eq("#{project.logo.url} 2x")
-      expect(img[:width]).to eq('174')
-      expect(img[:height]).to eq('174')
       expect(img[:alt]).to eq("#{project.title} Project Logo")
     end
   end

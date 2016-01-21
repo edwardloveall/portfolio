@@ -8,7 +8,8 @@
   border: $border;
   cursor: pointer;
   flex-direction: column;
-  height: 260px;
+  min-height: 260px;
+  padding: $base-spacing 1ex;
   margin-bottom: $base-spacing;
 
   @include media($desktop) {
@@ -22,7 +23,7 @@
   }
 
   h3 {
-    margin-bottom: $base-spacing;
+    margin-top: $base-spacing;
     text-align: center;
 
     a {
