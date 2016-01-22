@@ -12,10 +12,15 @@ header {
   height: golden-ratio($logo-font-size, 1);
   margin: $base-spacing * 2 auto;
   padding-top: $base-spacing * 1.1;
+  position: relative;
   text-align: center;
 
   img {
     margin: 0 auto;
+  }
+
+  .link-target {
+    @include block-link;
   }
 }
 
@@ -26,11 +31,11 @@ h1 {
   display: inline-block;
   font-size: $logo-font-size;
   height: 1em;
-  pointer-events: none;
   width: 1em;
 }
 
 div.orbit {
+  pointer-events: none;
   @each $i, $size, $delay, $height, $orbit-diameter in
     (1, 4, 0.68, 56, 0.99),
     (2, 8, 0.03, 77, 0.84),

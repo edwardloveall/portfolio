@@ -8,9 +8,10 @@
   border: $border;
   cursor: pointer;
   flex-direction: column;
+  margin-bottom: $base-spacing;
   min-height: 260px;
   padding: $small-spacing 1ex;
-  margin-bottom: $base-spacing;
+  position: relative;
 
   @include media($desktop) {
     @include span-columns(4);
@@ -29,5 +30,9 @@
     a {
       @include header-link-style;
     }
+  }
+
+  .link-target {
+    @include block-link;
   }
 }

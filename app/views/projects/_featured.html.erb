@@ -1,4 +1,9 @@
 <div class="project-container">
   <%= project_logo(featured) %>
-  <h3><%= link_to featured.title, project_path(featured) %></h3>
+  <h3>
+    <%= link_to project_path(featured) do %>
+      <%= featured.title %>
+      <span class="link-target"></span>
+    <% end %>
+  </h3>
 </div>
