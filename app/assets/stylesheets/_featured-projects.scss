@@ -9,7 +9,7 @@
   cursor: pointer;
   flex-direction: column;
   min-height: 260px;
-  padding: $base-spacing 1ex;
+  padding: $small-spacing 1ex;
   margin-bottom: $base-spacing;
 
   @include media($desktop) {
