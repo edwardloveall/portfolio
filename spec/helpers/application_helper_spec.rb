@@ -22,4 +22,14 @@ RSpec.describe ApplicationHelper do
       expect(img[:alt]).to eq("#{project.title} Project Logo")
     end
   end
+
+  describe '#convert_markdown' do
+    it 'calls MarkdownRenderer' do
+      allow(MarkdownRenderer).to receive(:to_html).and_return('')
+
+      helper.convert_markdown('')
+
+      expect(MarkdownRenderer).to have_received(:to_html)
+    end
+  end
 end

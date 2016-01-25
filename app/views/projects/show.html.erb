@@ -13,6 +13,6 @@
   </div>
   <article class="copy description">
     <h4>Description</h4>
-    <%= @project.description %>
+    <%= convert_markdown(@project.description) %>
   </article>
 </section>

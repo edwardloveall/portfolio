@@ -8,4 +8,9 @@ module ApplicationHelper
               srcset: "#{project.logo.url} 2x",
               alt: "#{project.title} Project Logo")
   end
+
+  def convert_markdown(markdown)
+    rendered = MarkdownRenderer.to_html(markdown)
+    rendered.html_safe
+  end
 end
