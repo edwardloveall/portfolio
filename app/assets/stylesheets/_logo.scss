@@ -11,6 +11,7 @@ header, div.orbit {
 header {
   height: golden-ratio($logo-font-size, 1);
   margin: $base-spacing * 2 auto;
+  overflow: hidden;
   padding-top: $base-spacing * 1.1;
   position: relative;
   text-align: center;
