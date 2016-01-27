@@ -39,6 +39,15 @@ RSpec.describe Project do
     end
   end
 
+  describe '.in_display_order' do
+    it 'returns projects by date created' do
+      older = create(:project, created_at: 2.days.ago)
+      newer = create(:project, created_at: 1.day.ago)
+
+      expect(Project.in_display_order).to eq([newer, older])
+    end
+  end
+
   describe '.to_param' do
     it 'uses the slug' do
       slug = 'pull-feed'
