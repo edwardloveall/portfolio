@@ -6,7 +6,7 @@ FactoryGirl.define do
     end
     sequence(:title) { |n| "Project #{n}" }
     sequence(:slug) { |n| "project-#{n}" }
-    role { [:design, :development, :everything].sample }
+    role { ['design', 'development', 'everything'].sample }
     website 'http://example.com'
     description <<-DESC.strip_heredoc
     Pull Feed is a tool to keep you up to date with a GitHub repository via a

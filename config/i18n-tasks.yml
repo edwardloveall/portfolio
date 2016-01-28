@@ -11,3 +11,4 @@ ignore_unused:
   - simple_form.*
   - time.*
   - titles.*
+  - helpers.submit.*

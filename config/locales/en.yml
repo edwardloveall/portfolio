@@ -5,6 +5,16 @@ en:
         "%m/%d/%Y"
       with_weekday:
         "%a %m/%d/%y"
+  flashes:
+    project:
+      delete:
+        error: The project could not be deleted.
+  helpers:
+    submit:
+      project:
+        create: Create Project
+        update: Update Project
+        delete: Delete Project
 
   time:
     formats:

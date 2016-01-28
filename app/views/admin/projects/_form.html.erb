@@ -1,0 +1,10 @@
+<%= simple_form_for([:admin, project]) do |form| %>
+  <%= form.input :title %>
+  <%= form.input :slug %>
+  <%= form.input :role %>
+  <%= form.input :website %>
+  <%= form.input :description %>
+  <%= form.input :logo %>
+
+  <%= form.submit %>
+<% end %>

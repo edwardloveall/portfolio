@@ -34,7 +34,7 @@ class Admin::ProjectsController < AdminController
     if project.destroy
       redirect_to admin_projects_path
     else
-      flash[:error] = t('helpers.flash.project.delete.error')
+      flash[:error] = t('flashes.project.delete.error')
       redirect_to admin_projects_path
     end
   end
