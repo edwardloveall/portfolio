@@ -132,6 +132,30 @@ module Admin
           expect(response).to redirect_to(admin_projects_path)
         end
       end
+
+      context 'when a project can not be deleted' do
+        it 'does not delete the project' do
+          project_count = Project.count
+          project = create(:project)
+
+          delete :destroy, id: project.slug
+
+          expect(Project.count).to eq(project_count)
+        end
+
+        it 'shows the flash on the project index' do
+          project = create(:project)
+          allow(project).to receive(:destroy).and_return(false)
+          allow(Project).to receive(:find_by).
+                            with(hash_including(slug: project.slug)).
+                            and_return(project)
+          error_flash = I18n.t('flashes.project.delete.error')
+
+          delete :destroy, id: project.slug
+
+          expect(flash[:error]).to eq(error_flash)
+        end
+      end
     end
   end
 end
