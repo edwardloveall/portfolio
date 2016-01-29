@@ -6,4 +6,4 @@ SMTP_SETTINGS = {
   password: ENV.fetch('SMTP_PASSWORD'),
   port: '587',
   user_name: ENV.fetch('SMTP_USERNAME')
-}
+}.freeze

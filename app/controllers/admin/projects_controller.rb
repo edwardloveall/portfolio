@@ -31,12 +31,10 @@ class Admin::ProjectsController < AdminController
 
   def destroy
     project = find_project
-    if project.destroy
-      redirect_to admin_projects_path
-    else
+    if !project.destroy
       flash[:error] = t('flashes.project.delete.error')
-      redirect_to admin_projects_path
     end
+    redirect_to admin_projects_path
   end
 
   private

@@ -20,12 +20,13 @@ RSpec.feature 'User visits homepage' do
   end
 
   scenario 'user sees contact information' do
+    email_href = 'mailto:edward@edwardloveall.com'
     visit '/'
 
     within('section.contact') do
       expect(page).to have_link('Blog', 'http://blog.edwardloveall.com')
       expect(page).to have_link('Twitter', href: 'https://twitter.com/edwardloveall')
-      expect(page).to have_link('Email', href: 'mailto:edward@edwardloveall.com')
+      expect(page).to have_link('Email', href: email_href)
     end
   end
 end
