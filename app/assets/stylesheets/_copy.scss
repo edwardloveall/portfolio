@@ -1,15 +1,5 @@
 section.links,
 .copy {
-  margin: golden-ratio($base-spacing, -1);
-  text-align: center;
-
-  h4 {
-    font: $small-header-font;
-    letter-spacing: $line-height;
-    margin: $big-spacing 0;
-    text-transform: uppercase;
-  }
-
   ul {
     list-style-type: none;
   }

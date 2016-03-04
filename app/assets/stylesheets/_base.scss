@@ -22,3 +22,10 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+h4 {
+  font: $small-header-font;
+  letter-spacing: $line-height;
+  margin-bottom: golden-ratio($base-spacing, -1);
+  text-transform: uppercase;
+}

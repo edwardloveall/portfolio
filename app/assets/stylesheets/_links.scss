@@ -1,0 +1,9 @@
+.links {
+  @extend .copy;
+  margin: golden-ratio($base-spacing, -1);
+  text-align: center;
+
+  h4 {
+    margin: $big-spacing 0;
+  }
+}

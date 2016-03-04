@@ -1,8 +1,4 @@
 section.project {
-  h4 {
-    margin-bottom: golden-ratio($base-spacing, -1);
-  }
-
   @include media($desktop) {
     h4 {
       margin-top: 0;
