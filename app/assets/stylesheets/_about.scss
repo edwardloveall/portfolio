@@ -1,0 +1,18 @@
+$portrait-width: 529px;
+
+.about {
+  img.portrait {
+    border: $border;
+    margin: 0 auto golden-ratio($base-spacing, 1);
+    max-width: 100%;
+  }
+
+  div.copy {
+    padding: $small-spacing;
+  }
+
+  article {
+    margin: 0 auto;
+    max-width: $portrait-width;
+  }
+}

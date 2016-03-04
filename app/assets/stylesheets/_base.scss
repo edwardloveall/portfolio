@@ -25,7 +25,7 @@ a {
 
 h4 {
   font: $small-header-font;
-  letter-spacing: $line-height;
+  letter-spacing: $letter-spacing-header;
   margin-bottom: golden-ratio($base-spacing, -1);
   text-transform: uppercase;
 }
