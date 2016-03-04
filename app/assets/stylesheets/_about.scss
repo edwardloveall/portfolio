@@ -1,8 +1,9 @@
 $portrait-width: 529px;
 
 .about {
-  img.portrait {
+  video.portrait {
     border: $border;
+    display: block;
     margin: 0 auto golden-ratio($base-spacing, 1);
     max-width: 100%;
   }

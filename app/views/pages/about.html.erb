@@ -1,8 +1,15 @@
 <section class="about">
-  <%= image_tag('portrait.jpg',
-  srcset: 'assets/portrait_2x.jpg 2x',
-  alt: 'Edward Loveall',
-  class: 'portrait') %>
+  <%= video_tag(
+    'portrait.mp4',
+    'portrait.webm',
+    'portrait.ogv',
+    poster: 'portrait.jpg',
+    controls: false,
+    autobuffer: true,
+    autoplay: true,
+    loop: true,
+    class: 'portrait')
+  %>
   <div class="copy">
     <article>
       <h4>About Edward</h4>
