@@ -12,7 +12,3 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require webfontloader.js
-//= require configSly.js
-//= require fonts.js
-//= require sly.js
