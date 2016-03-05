@@ -1,11 +1,15 @@
 $portrait-width: 529px;
 
 .about {
-  video.portrait {
-    border: $border;
+  video.portrait,
+  img.portrait {
     display: block;
     margin: 0 auto golden-ratio($base-spacing, 1);
     max-width: 100%;
+  }
+
+  video.portrait {
+    display: none;
   }
 
   div.copy {
@@ -15,5 +19,13 @@ $portrait-width: 529px;
   article {
     margin: 0 auto;
     max-width: $portrait-width;
+  }
+
+  @include media($desktop) {
+    video.portrait {
+      border: $border;
+      display: block;
+    }
+    img.portrait { display: none; }
   }
 }
