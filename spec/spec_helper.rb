@@ -5,6 +5,8 @@ end
 
 require 'webmock/rspec'
 
+$LOAD_PATH << File.expand_path('../../', __FILE__)
+
 # http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
