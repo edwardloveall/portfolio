@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 ruby '2.2.3'
 
 gem 'autoprefixer-rails'
+gem 'aws-sdk'
 gem 'bourbon'
 gem 'flutie'
 gem 'high_voltage'
