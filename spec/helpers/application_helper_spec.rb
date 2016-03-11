@@ -32,4 +32,15 @@ RSpec.describe ApplicationHelper do
       expect(MarkdownRenderer).to have_received(:to_html)
     end
   end
+
+  describe '#link_to_s3_file' do
+    it 'returns a link based on the aws url and file key and file title' do
+      file = S3File.new(key: 'path/to/file.rb')
+      html = '<a href="http://el-experiments.s3.amazonaws.com/path/to/file.rb">file.rb</a>'
+
+      link = helper.link_to_s3_file(file)
+
+      expect(link).to eq(html)
+    end
+  end
 end

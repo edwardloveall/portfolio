@@ -8,7 +8,7 @@ header, div.orbit {
   @include transform-style(preserve-3d);
 }
 
-header {
+header.main {
   height: golden-ratio($logo-size, 1);
   margin: $base-spacing * 2 auto golden-ratio($base-spacing, 1);
   padding-top: $base-spacing * 1.1;

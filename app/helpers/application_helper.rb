@@ -1,6 +1,11 @@
 module ApplicationHelper
-  def year
-    Date.today.year
+  def convert_markdown(markdown)
+    rendered = MarkdownRenderer.to_html(markdown)
+    rendered.html_safe
+  end
+
+  def link_to_s3_file(file)
+    link_to(file.title, "#{S3::AWS_BASE_URL}/#{file.key}")
   end
 
   def project_logo(project)
@@ -9,8 +14,7 @@ module ApplicationHelper
               alt: "#{project.title} Project Logo")
   end
 
-  def convert_markdown(markdown)
-    rendered = MarkdownRenderer.to_html(markdown)
-    rendered.html_safe
+  def year
+    Date.today.year
   end
 end

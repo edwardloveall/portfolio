@@ -1,0 +1,49 @@
+header.experiments {
+  margin-top: $base-spacing;
+
+  h2 {
+    font: $header-font;
+    letter-spacing: $letter-spacing-header;
+    margin-bottom: $base-spacing;
+  }
+
+  p {
+    margin-bottom: $base-spacing;
+  }
+}
+
+ul.experiments {
+  background-color: white;
+  border: $border;
+  margin-top: $base-spacing;
+
+  li {
+    background-position: golden-ratio($base-spacing, -1) center;
+    background-repeat: no-repeat;
+    margin-bottom: golden-ratio($base-spacing, -1);
+
+    &:hover {
+      background-color: $light-gray;
+    }
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    &.file {
+      background-image: url(asset-path('file.svg'));
+    }
+
+    &.directory {
+      background-image: url(asset-path('directory.svg'));
+    }
+
+    a {
+      display: block;
+      padding: golden-ratio($base-spacing, -2)
+               $base-spacing
+               golden-ratio($base-spacing, -2)
+               golden-ratio($base-spacing, 1);
+    }
+  }
+}
