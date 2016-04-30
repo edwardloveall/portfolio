@@ -1,8 +1,2 @@
-<nav class="main">
-  <div class="track">
-    <%= link_to 'About', about_path %>
-    <%= link_to 'Projects', root_path %>
-    <a>Music</a>
-  </div>
-</nav>
+<%= Navigation.perform(current_path) %>
 <span class="more">See more</span>

@@ -1,12 +1,5 @@
-html.wf-active nav.main {
-  opacity: 1;
-}
-
 nav.main {
-  @include transition(opacity 0.2s ease 0.1s);
-
-  font-size: 0;
-  opacity: 0;
+  text-align: center;
 
   a {
     @include header-link-style;

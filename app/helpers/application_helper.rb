@@ -17,4 +17,8 @@ module ApplicationHelper
   def year
     Date.today.year
   end
+
+  def current_path
+    url_for
+  end
 end
