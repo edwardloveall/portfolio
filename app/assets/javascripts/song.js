@@ -1,0 +1,79 @@
+var Song = function(options) {
+  if (options.audio.nodeName == 'AUDIO') {
+    this.audio = options.audio;
+  } else {
+    console.warn('audio passed to Song must be an <audio> element');
+    return
+  }
+
+  this.button = options.button;
+  this.progress = options.progress;
+  this.elapsed = options.elapsed;
+  this.length = options.length;
+
+  this.button.addEventListener('click', function () {
+    this.toggle();
+  }.bind(this));
+
+  this.audio.addEventListener('timeupdate', function() {
+    this.setProgress();
+  }.bind(this));
+
+  this.audio.addEventListener('loadeddata', function() {
+    this.setProgress();
+  }.bind(this));
+
+  this.audio.addEventListener('ended', function() {
+    this.endProgress();
+  }.bind(this));
+
+  this.play = function() {
+    this.audio.play();
+    this.button.classList.add('playing');
+    this.button.classList.remove('paused');
+  }
+
+  this.pause = function() {
+    this.audio.pause();
+    this.button.classList.add('paused');
+    this.button.classList.remove('playing');
+  }
+
+  this.toggle = function() {
+    if (this.audio.paused) {
+      this.play();
+    } else {
+      this.pause();
+    }
+  }
+
+  this.timeLeft = function() {
+    var length = this.audio.duration;
+    var elapsed = this.audio.currentTime;
+    var seconds = length - elapsed;
+    var percent = (elapsed / length) * 100;
+    return { seconds: seconds, percent: percent }
+  }
+
+  this.setProgress = function() {
+    var timeLeft = this.timeLeft();
+    var timeString = this.secondsToTimeString(timeLeft.seconds)
+    this.progress.style.width = timeLeft.percent + '%';
+    this.elapsed.textContent = timeString;
+  }
+
+  this.endProgress = function() {
+    this.audio.currentTime = 0;
+    this.pause();
+    this.setProgress();
+  }
+
+  this.secondsToTimeString = function(secondsNumber) {
+    var minutes = Math.floor(secondsNumber / 60);
+    var seconds = Math.floor(secondsNumber % 60)
+    if (seconds <= 9) {
+      seconds = '0' + seconds;
+    }
+    return minutes + ':' + seconds;
+  }
+}

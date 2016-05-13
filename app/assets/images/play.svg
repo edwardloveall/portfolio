@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="13px" height="16px" viewBox="0 0 13 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Audio" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Show-Desktop" transform="translate(-141.000000, -652.000000)" fill="#3B3E42">
+            <g id="Player" transform="translate(100.000000, 614.000000)">
+                <g id="Play/Pause" transform="translate(24.000000, 24.000000)">
+                    <polygon id="play" points="17 29.6590909 17 14 30 21.8295455"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

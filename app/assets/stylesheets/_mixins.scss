@@ -2,6 +2,7 @@
   color: $header-text-color;
   font: $header-font;
   letter-spacing: $letter-spacing-header;
+  text-align: center;
   text-transform: uppercase;
 }
 
@@ -12,4 +13,17 @@
   top: 0;
   width: 100%;
   z-index: 1;
+}
+
+@mixin featured-with-logo {
+  cursor: pointer;
+  min-height: 260px;
+}
+
+@mixin title-card {
+  background-color: $white;
+  border: $border;
+  margin-bottom: $base-spacing;
+  padding: $small-spacing 1ex;
+  position: relative;
 }

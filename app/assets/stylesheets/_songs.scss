@@ -1,0 +1,78 @@
+section.songs {
+  @include display(flex);
+}
+
+div.song-title {
+  @include title-card;
+  text-align: center;
+
+  h3 {
+    @include header-link-style;
+  }
+}
+
+div.song {
+  @include title-card;
+
+  padding: $song-padding;
+
+  div.scrubber {
+    padding-left: $song-height / 2;
+    position: relative;
+  }
+
+  div.track,
+  div.progress {
+    height: $song-height;
+    border-bottom-right-radius: $song-height / 2;
+    border-top-right-radius: $song-height / 2;
+  }
+
+  div.track {
+    background-color: $medium-light-gray;
+  }
+
+  div.progress {
+    background-color: $dark-gray;
+  }
+
+  a.button {
+    @include size($song-height);
+
+    background: $white url(asset-path('play.svg')) no-repeat center center;
+    border: 2px solid $medium-light-gray;
+    border-radius: 50%;
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    z-index: 1;
+  }
+
+  a.button.playing {
+    background-image: url(asset-path('pause.svg'));
+    border-color: $dark-gray;
+  }
+
+  span.elapsed {
+    @include position(absolute, $medium-font-size * 0.8 0 0 0px);
+    font-family: $ui-font-family;
+    font-size: $medium-font-size;
+    font-style: normal;
+    padding-right: $medium-font-size * 0.8;
+    pointer-events: none;
+    text-align: right;
+    width: 100%;
+    z-index: 1;
+  }
+}
+
+@include media($desktop) {
+  div.song-title {
+    @include span-columns(4);
+  }
+
+  div.song {
+    @include span-columns(12);
+    @include omega;
+  }
+}
