@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root to: 'projects#index'
   resources :projects, only: [:index, :show]
+  resources :music, controller: :songs, only: [:index, :show]
   get 'experiments', to: 'experiments#index'
   get 'experiments/*path', to: 'experiments#show'
 
