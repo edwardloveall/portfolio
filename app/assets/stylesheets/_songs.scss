@@ -40,7 +40,7 @@ div.song {
     @include size($song-height);
 
     background: $white url(asset-path('play.svg')) no-repeat center center;
-    border: 2px solid $medium-light-gray;
+    border: 2px solid $dark-gray;
     border-radius: 50%;
     cursor: pointer;
     display: block;
@@ -50,7 +50,6 @@ div.song {
 
   a.button.playing {
     background-image: url(asset-path('pause.svg'));
-    border-color: $dark-gray;
   }
 
   span.remaining {
