@@ -9,7 +9,7 @@ var Song = function(options) {
   this.button = options.button;
   this.track = options.track;
   this.progress = options.progress;
-  this.elapsed = options.elapsed;
+  this.remaining = options.remaining;
   this.length = options.length;
 
   this.button.addEventListener('click', function() {
@@ -63,9 +63,9 @@ var Song = function(options) {
 
   this.timeLeft = function() {
     var length = this.audio.duration;
-    var elapsed = this.audio.currentTime;
-    var seconds = length - elapsed;
-    var percent = (elapsed / length) * 100;
+    var remaining = this.audio.currentTime;
+    var seconds = length - remaining;
+    var percent = (remaining / length) * 100;
     return { seconds: seconds, percent: percent }
   }
 
@@ -73,7 +73,7 @@ var Song = function(options) {
     var timeLeft = this.timeLeft();
     var timeString = this.secondsToTimeString(timeLeft.seconds)
     this.progress.style.width = timeLeft.percent + '%';
-    this.elapsed.textContent = timeString;
+    this.remaining.textContent = timeString;
   }
 
   this.endProgress = function() {
