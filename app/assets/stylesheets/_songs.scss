@@ -54,6 +54,7 @@ div.song {
   }
 
   span.elapsed {
+    @include font-feature-settings('tnum');
     @include position(absolute, $medium-font-size * 0.8 0 0 0px);
     font-family: $ui-font-family;
     font-size: $medium-font-size;
