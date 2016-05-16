@@ -7,12 +7,17 @@ var Song = function(options) {
   }
 
   this.button = options.button;
+  this.track = options.track;
   this.progress = options.progress;
   this.elapsed = options.elapsed;
   this.length = options.length;
 
-  this.button.addEventListener('click', function () {
+  this.button.addEventListener('click', function() {
     this.toggle();
+  }.bind(this));
+
+  this.track.addEventListener('click', function(click) {
+    this.seek(click);
   }.bind(this));
 
   this.audio.addEventListener('timeupdate', function() {
@@ -47,6 +52,15 @@ var Song = function(options) {
     }
   }
 
+  this.seek = function(click) {
+    var clickPosition = click.offsetX;
+    var width = this.track.clientWidth;
+    var percent = clickPosition / width;
+    var length = this.audio.duration;
+    var seconds = length * percent;
+    this.audio.currentTime = seconds;
+  }
+
   this.timeLeft = function() {
     var length = this.audio.duration;
     var elapsed = this.audio.currentTime;
@@ -69,11 +83,13 @@ var Song = function(options) {
   }
 
   this.secondsToTimeString = function(secondsNumber) {
-    var minutes = Math.floor(secondsNumber / 60);
-    var seconds = Math.floor(secondsNumber % 60)
+    var minutes = Math.max(Math.floor(secondsNumber / 60), 0);
+    var seconds = Math.max(Math.floor(secondsNumber % 60), 0)
+
     if (seconds <= 9) {
       seconds = '0' + seconds;
     }
+
     return minutes + ':' + seconds;
   }
 }
