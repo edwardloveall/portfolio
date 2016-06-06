@@ -1,0 +1,19 @@
+<section class="song">
+  <div class="song-title">
+    <h3><%= song.title %></h3>
+  </div>
+  <div class="song">
+    <%= audio_tag(song.audio, controls: false) %>
+    <a class="button paused"></a>
+    <div class="scrubber">
+      <div class="track">
+        <div class="progress"></div>
+      </div>
+      <span class="remaining"></span>
+    </div>
+  </div>
+  <article class="copy description">
+    <h4>Description</h4>
+    <%= convert_markdown(song.description) %>
+  </article>
+</section>
