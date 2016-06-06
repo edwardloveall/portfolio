@@ -9,6 +9,9 @@ en:
     project:
       delete:
         error: The project could not be deleted.
+    song:
+      delete:
+        error: The song could not be deleted.
   helpers:
     submit:
       project:
