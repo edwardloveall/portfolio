@@ -5,12 +5,14 @@
 .project-container {
   @include featured-with-logo;
   @include title-card;
-  @include display(flex);
+
   flex-direction: column;
+  display: flex;
 
   @include media($desktop) {
     @include span-columns(4);
-    @include display(flex);
+
+    display: flex;
     margin-bottom: 0;
   }
 

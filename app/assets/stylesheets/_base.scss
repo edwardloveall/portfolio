@@ -1,8 +1,8 @@
 body {
-  @include display(flex);
   @include flex-direction(column);
   background-color: $background-color;
   color: $medium-gray;
+  display: flex;
   font: $body-font;
   line-height: $line-height;
   min-height: 100vh;

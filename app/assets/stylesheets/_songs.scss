@@ -1,5 +1,5 @@
 section.songs {
-  @include display(flex);
+  display: flex;
 }
 
 div.song-title {
