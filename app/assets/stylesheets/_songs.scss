@@ -1,5 +1,7 @@
-section.songs {
-  display: flex;
+section.song {
+  @include clearfix;
+
+  margin-bottom: $large-spacing;
 }
 
 div.song-title {

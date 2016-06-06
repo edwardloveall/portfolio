@@ -51,6 +51,7 @@ $form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($accent-color, $l
 $border: 1px solid $border-color;
 $border-radius: 3px;
 $base-spacing: 24px;
+$large-spacing: $base-spacing * 2;
 $small-spacing: golden-ratio($base-spacing, -1);
 $big-spacing: $base-spacing * 2.5;
 $line-height: 1.3;
