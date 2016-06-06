@@ -10,6 +10,15 @@ RSpec.feature 'User visits songs' do
     expect(page).to have_link(song.title, href: song_path(song))
   end
 
+  scenario 'navigates to a particular song' do
+    song = create(:song)
+
+    visit songs_path
+    click_on song.title
+
+    expect(current_path).to eq(song_path(song))
+  end
+
   scenario 'user sees the song page' do
     song = create(:song)
 

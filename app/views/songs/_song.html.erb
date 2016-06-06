@@ -1,6 +1,6 @@
 <section class="song">
   <div class="song-title">
-    <h3><%= song.title %></h3>
+    <h3><%= link_to song.title, song %></h3>
   </div>
   <div class="song">
     <%= audio_tag(song.audio, controls: false) %>
