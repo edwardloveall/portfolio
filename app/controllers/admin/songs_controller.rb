@@ -12,6 +12,7 @@ class Admin::SongsController < AdminController
     if @song.save
       redirect_to admin_songs_path
     else
+      flash[:error] = t('flashes.song.create.error')
       render :new
     end
   end
@@ -25,6 +26,7 @@ class Admin::SongsController < AdminController
     if @song.update(song_params)
       redirect_to admin_songs_path
     else
+      flash[:error] = t('flashes.song.update.error')
       render :edit
     end
   end

@@ -7,9 +7,17 @@ en:
         "%a %m/%d/%y"
   flashes:
     project:
+      create:
+        error: The project could not be created.
+      update:
+        error: The project could not be updated.
       delete:
         error: The project could not be deleted.
     song:
+      create:
+        error: The song could not be created.
+      update:
+        error: The song could not be updated.
       delete:
         error: The song could not be deleted.
   helpers:

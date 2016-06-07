@@ -12,6 +12,7 @@ class Admin::ProjectsController < AdminController
     if @project.save
       redirect_to admin_projects_path
     else
+      flash[:error] = t('flashes.project.create.error')
       render :new
     end
   end
@@ -25,6 +26,7 @@ class Admin::ProjectsController < AdminController
     if @project.update(project_params)
       redirect_to admin_projects_path
     else
+      flash[:error] = t('flashes.project.update.error')
       render :edit
     end
   end

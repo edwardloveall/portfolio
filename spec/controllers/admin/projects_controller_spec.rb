@@ -54,6 +54,13 @@ RSpec.describe Admin::ProjectsController do
 
         expect(response).to render_template(:new)
       end
+
+      it 'shows the error flash' do
+        post :create, project: { title: nil }
+        error_flash = I18n.t('flashes.project.create.error')
+
+        expect(flash[:error]).to eq(error_flash)
+      end
     end
   end
 
@@ -109,6 +116,16 @@ RSpec.describe Admin::ProjectsController do
 
         expect(response).to render_template(:edit)
       end
+
+      it 'shows the error flash' do
+        project = create(:project)
+        params = { slug: nil }
+        error_flash = I18n.t('flashes.project.update.error')
+
+        put :update, id: project.slug, project: params
+
+        expect(flash[:error]).to eq(error_flash)
+      end
     end
   end
 
@@ -142,7 +159,7 @@ RSpec.describe Admin::ProjectsController do
         expect(Project.count).to eq(project_count)
       end
 
-      it 'shows the flash on the project index' do
+      it 'shows the error flash' do
         project = create(:project)
         allow(project).to receive(:destroy).and_return(false)
         allow(Project).to receive(:find_by).
