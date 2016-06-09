@@ -5,6 +5,12 @@ nav.main {
     @include header-link-style;
     padding: $base-spacing;
   }
+
+  @include media($desktop) {
+    a {
+      display: inline;
+    }
+  }
 }
 
 .more {
