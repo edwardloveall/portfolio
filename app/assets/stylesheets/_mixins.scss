@@ -16,15 +16,11 @@
   z-index: 1;
 }
 
-@mixin featured-with-logo {
-  cursor: pointer;
-  min-height: 260px;
-}
-
 @mixin title-card {
   background-color: $white;
   border: $border;
   margin-bottom: $base-spacing;
+  min-height: 260px;
   padding: $small-spacing 1ex;
   position: relative;
 }

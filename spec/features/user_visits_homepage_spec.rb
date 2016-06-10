@@ -5,7 +5,7 @@ RSpec.feature 'User visits homepage' do
     project = create(:project, :featured, title: 'Magic')
     visit '/'
 
-    within('section.featured') do
+    within('section.featured-projects') do
       expect(page).to have_link(project.title, href: project_path(project))
     end
   end
@@ -14,7 +14,7 @@ RSpec.feature 'User visits homepage' do
     project = create(:project, title: 'Magic')
     visit '/'
 
-    within('section.regular') do
+    within('section.other-projects') do
       expect(page).to have_link(project.title, href: project_path(project))
     end
   end

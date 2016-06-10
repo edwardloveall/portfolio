@@ -1,9 +1,8 @@
-.featured {
+.featured-projects {
   @include outer-container;
 }
 
 .project-container {
-  @include featured-with-logo;
   @include title-card;
 
   flex-direction: column;
