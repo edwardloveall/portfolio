@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.feature 'User visits homepage' do
   scenario 'user sees featured projects' do
     project = create(:project, :featured, title: 'Magic')
+
     visit '/'
 
     within('section.featured-projects') do
@@ -12,6 +13,7 @@ RSpec.feature 'User visits homepage' do
 
   scenario 'user sees regular projects' do
     project = create(:project, title: 'Magic')
+
     visit '/'
 
     within('section.other-projects') do
@@ -21,12 +23,25 @@ RSpec.feature 'User visits homepage' do
 
   scenario 'user sees contact information' do
     email_href = 'mailto:edward@edwardloveall.com'
+
     visit '/'
 
     within('section.contact') do
       expect(page).to have_link('Blog', href: 'http://blog.edwardloveall.com')
       expect(page).to have_link('Twitter', href: 'https://twitter.com/edwardloveall')
       expect(page).to have_link('Email', href: email_href)
+    end
+  end
+
+  scenario 'user sees Hotline Webring links' do
+    next_href = 'https://hotlinewebring.club/edward/next'
+    prev_href = 'https://hotlinewebring.club/edward/previous'
+
+    visit '/'
+
+    within('section.hotline-webring') do
+      expect(page).to have_link('Next', href: next_href)
+      expect(page).to have_link('Previous', href: prev_href)
     end
   end
 end
