@@ -26,6 +26,10 @@ en:
         create: Create Project
         update: Update Project
         delete: Delete Project
+      post:
+        create: Create Post
+        update: Update Post
+        delete: Delete Post
       song:
         create: Create Song
         update: Update Song

@@ -1,0 +1,11 @@
+<%= link_to 'Add post', new_admin_post_path, class: :add %>
+<ul class="posts resource-list">
+  <%= content_tag_for(:li, @posts) do |post| %>
+    <%= link_to post.title, edit_admin_post_path(post) %>
+    <%= link_to t('helpers.submit.post.delete'),
+                [:admin, post],
+                method: :delete,
+                class: :delete,
+                data: { confirm: 'Are you sure?' } %>
+  <% end %>
+</section>
