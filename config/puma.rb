@@ -1,28 +1,27 @@
-# https://devcenter.heroku.com/articles/deploying-rails-applications-with-the-puma-web-server
+# Change to match your CPU core count
+workers 1
 
-# The environment variable WEB_CONCURRENCY may be set to a default value based
-# on dyno size. To manually configure this value use heroku config:set
-# WEB_CONCURRENCY.
-#
-# Increasing the number of workers will increase the amount of resting memory
-# your dynos use. Increasing the number of threads will increase the amount of
-# potential bloat added to your dynos when they are responding to heavy
-# requests.
-#
-# Starting with a low number of workers and threads provides adequate
-# performance for most applications, even under load, while maintaining a low
-# risk of overusing memory.
-workers Integer(ENV.fetch('WEB_CONCURRENCY', 2))
-threads_count = Integer(ENV.fetch('MAX_THREADS', 2))
-threads(threads_count, threads_count)
+# Min and Max threads per worker
+threads 1, 6
 
-preload_app!
+app_dir = File.expand_path('../..', __FILE__)
 
-rackup DefaultRackup
-environment ENV.fetch('RACK_ENV', 'development')
+# Default to production
+rails_env = ENV['RAILS_ENV'] || 'production'
+environment rails_env
 
-on_worker_boot do
-  # Worker specific setup for Rails 4.1+
-  # See: https://devcenter.heroku.com/articles/deploying-rails-applications-with-the-puma-web-server#on-worker-boot
-  ActiveRecord::Base.establish_connection
-end
+# Set up socket location
+bind "unix://#{app_dir}/tmp/sockets/puma.sock"
+
+# Logging
+stdout_redirect "#{app_dir}/log/puma.stdout.log",
+                "#{app_dir}/log/puma.stderr.log",
+                true
+
+# Set master PID and state locations
+pidfile "#{app_dir}/tmp/pids/puma.pid"
+state_path "#{app_dir}/tmp/pids/puma.state"
+activate_control_app
+
+# Run in the background
+daemonize true
