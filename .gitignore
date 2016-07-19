@@ -14,3 +14,4 @@
 /tmp/*
 /spec/test_files
 *.taskpaper
+/vendor/bundle
