@@ -30,6 +30,16 @@ RSpec.describe Project do
     end
   end
 
+  describe '.by_position' do
+    it 'returns projects by position' do
+      c = create(:project, position: 3)
+      a = create(:project, position: 1)
+      b = create(:project, position: 2)
+
+      expect(Project.by_position).to eq([a, b, c])
+    end
+  end
+
   describe '.regular' do
     it 'returns only the regular projects' do
       create(:project, :featured)
