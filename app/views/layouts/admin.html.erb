@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="ROBOTS" content="NOODP" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="initial-scale=1" />
+  <script src="https://use.typekit.net/bts7vjo.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+  <title><%= title %></title>
+  <%= stylesheet_link_tag :application, media: "all" %>
+  <%= javascript_include_tag :admin %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="<%= body_class %>">
+  <main>
+    <%= yield %>
+  </main>
+</body>
+</html>
