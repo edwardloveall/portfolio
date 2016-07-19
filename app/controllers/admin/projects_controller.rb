@@ -1,6 +1,6 @@
 class Admin::ProjectsController < AdminController
   def index
-    @projects = Project.in_display_order
+    @projects = Project.by_position
   end
 
   def new

@@ -4,7 +4,7 @@ RSpec.describe Admin::ProjectsController do
   describe '#index' do
     it 'assigns all projects to @projects' do
       projects = double(:projects)
-      allow(Project).to receive(:in_display_order).and_return(projects)
+      allow(Project).to receive(:by_position).and_return(projects)
 
       get :index
 
