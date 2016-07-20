@@ -36,8 +36,9 @@ RSpec.feature 'Admin project management' do
     project = create(:project)
 
     visit admin_projects_path
-    click_on(project.title)
-    click_on I18n.t('helpers.submit.project.delete')
+    within("#project_#{project.id}") do
+      click_on I18n.t('helpers.submit.project.delete')
+    end
 
     expect(page).not_to have_content(project.title)
   end
