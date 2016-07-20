@@ -8,4 +8,14 @@ RSpec.describe Song do
       should validate_attachment_content_type(:audio).allowing('audio/mpeg')
     end
   end
+
+  describe '.by_position' do
+    it 'returns songs sorted by their position ascending' do
+      a = create(:song, position: 3)
+      b = create(:song, position: 1)
+      c = create(:song, position: 2)
+
+      expect(Song.by_position).to eq([b, c, a])
+    end
+  end
 end

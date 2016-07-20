@@ -5,4 +5,5 @@ class Song < ActiveRecord::Base
   validates_attachment :audio,
                        presence: true,
                        content_type: { content_type: 'audio/mpeg' }
+  scope :by_position, lambda { order(position: :asc) }
 end
