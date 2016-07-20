@@ -1,0 +1,26 @@
+ul.sortable {
+  display: flex;
+  flex-direction: column;
+  margin-top: $base-spacing;
+
+  li {
+    display: flex;
+    align-items: center;
+    flex-basis: $base-spacing * 2;
+
+    a {
+      flex-grow: 1;
+    }
+
+    a.delete {
+      flex: 0 0 auto;
+    }
+  }
+
+
+  li.ui-sortable-helper {
+    box-shadow: 0 0 5px rgba(black, 0.3);
+    border-radius: $border-radius;
+    padding: 0 $small-spacing;
+  }
+}

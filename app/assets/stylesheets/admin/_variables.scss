@@ -1,7 +1,7 @@
 $boston-blue: rgb(76, 151, 183);
 $chestnut: rgb(183, 76, 76);
-$dove-gray: rgb(105, 105, 105);
 $emerald: rgb(47, 183, 89);
+$dove-gray: rgb(105, 105, 105);
 
 $accent-color: $boston-blue;
 $accent-alt-color: darken($accent-color, 10%);
@@ -22,3 +22,4 @@ $column-width: $max-width / 12;
 $base-spacing: 1em;
 $small-spacing: golden-ratio(1em, -1);
 $large-spacing: golden-ratio(1em, 1);
+$border-radius: 5px;
