@@ -1,0 +1,10 @@
+#!/bin/zsh
+
+cd /var/www/portfolio
+git checkout master
+git pull origin master
+bundle
+bundle exec rake db:migrate
+bundle exec rake assets:precompile
+bundle exec pumactl restart
+sudo service nginx restart
