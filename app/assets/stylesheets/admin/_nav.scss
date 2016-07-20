@@ -1,9 +1,7 @@
 nav {
-  display: flex;
-  justify-content: flex-end;
   margin-bottom: $base-spacing;
 
   a {
-    margin-left: $base-spacing;
+    margin-right: $base-spacing;
   }
 }
