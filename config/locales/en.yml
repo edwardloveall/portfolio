@@ -38,3 +38,14 @@ en:
 
   titles:
     application: Edward Loveall
+    admin:
+      sessions:
+        new: Sign in
+      projects:
+        index: Projects
+        new: New project
+        edit: Edit %{project}
+      songs:
+        index: Songs
+        new: New song
+        edit: Edit %{song}

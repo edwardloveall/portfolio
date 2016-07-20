@@ -8,13 +8,14 @@
   <script src="https://use.typekit.net/bts7vjo.js"></script>
   <script>try{Typekit.load({ async: true });}catch(e){}</script>
   <title><%= title %></title>
-  <%= stylesheet_link_tag :application, media: "all" %>
+  <%= stylesheet_link_tag 'admin/admin', media: 'all' %>
   <%= javascript_include_tag :admin %>
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= body_class %>">
   <main>
-    <%= render 'admin/shared/session' %>
+    <h2><%= title %></h2>
+    <%= render 'admin/shared/navigation' %>
     <%= yield %>
   </main>
 </body>

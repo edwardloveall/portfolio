@@ -1,0 +1,45 @@
+body {
+  font-family: $font-family-base;
+}
+
+main {
+  margin: 0 auto;
+  width: $max-width;
+}
+
+h2 {
+  margin-bottom: $small-spacing;
+}
+
+a {
+  color: $link-color;
+  text-decoration: none;
+
+  &:hover {
+    color: $link-hover-color;
+  }
+}
+
+a.delete {
+  color: $warning-color;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  margin-top: $base-spacing;
+}
+
+ul li {
+  display: flex;
+  align-items: center;
+  flex-basis: $base-spacing * 2;
+
+  a {
+    flex-grow: 1;
+  }
+
+  a.delete {
+    flex: 0 0 auto;
+  }
+}

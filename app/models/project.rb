@@ -20,4 +20,8 @@ class Project < ActiveRecord::Base
   def to_param
     slug
   end
+
+  def to_s
+    title
+  end
 end

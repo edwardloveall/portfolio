@@ -6,4 +6,8 @@ class Song < ActiveRecord::Base
                        presence: true,
                        content_type: { content_type: 'audio/mpeg' }
   scope :by_position, lambda { order(position: :asc) }
+
+  def to_s
+    title
+  end
 end

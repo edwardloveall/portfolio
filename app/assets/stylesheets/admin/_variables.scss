@@ -1,0 +1,14 @@
+$boston-blue: rgb(76, 151, 183);
+$chestnut: rgb(183, 76, 76);
+
+$accent-color: $boston-blue;
+$link-color: $accent-color;
+$link-hover-color: darken($link-color, 10%);
+$warning-color: $chestnut;
+
+$sans-serif: 'proxima-nova', $helvetica;
+$base-font-family: $sans-serif;
+
+$max-width: 900px;
+$base-spacing: 1em;
+$small-spacing: golden-ratio(1em, -1);
