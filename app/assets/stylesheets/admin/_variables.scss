@@ -1,14 +1,21 @@
 $boston-blue: rgb(76, 151, 183);
 $chestnut: rgb(183, 76, 76);
+$dove-gray: rgb(105, 105, 105);
 
 $accent-color: $boston-blue;
+$accent-alt-color: darken($accent-color, 10%);
 $link-color: $accent-color;
-$link-hover-color: darken($link-color, 10%);
+$link-hover-color: $accent-alt-color;
 $warning-color: $chestnut;
+$background-color: white;
+$border-color: mix($background-color, $accent-color, 80%);
 
 $sans-serif: 'proxima-nova', $helvetica;
-$base-font-family: $sans-serif;
+$font-family-base: $sans-serif;
+$font-size-base: 16px;
+$font-size-small: $font-size-base * 0.8;
 
-$max-width: 900px;
+$max-width: 700px;
+$column-width: $max-width / 12;
 $base-spacing: 1em;
 $small-spacing: golden-ratio(1em, -1);
