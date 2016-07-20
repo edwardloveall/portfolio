@@ -6,7 +6,11 @@ Rails.application.routes.draw do
   get 'experiments/*path', to: 'experiments#show'
 
   namespace :admin do
-    resources :projects, except: [:show]
+    resources :projects, except: [:show] do
+      collection do
+        post :sort
+      end
+    end
     resources :songs, except: [:show]
   end
   get '/about' => 'high_voltage/pages#show', id: 'about'

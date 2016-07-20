@@ -31,6 +31,13 @@ class Admin::ProjectsController < AdminController
     end
   end
 
+  def sort
+    ids = params[:project]
+    positions = (1..ids.count).map { |index| { position: index } }
+    Project.update(ids, positions)
+    render nothing: true
+  end
+
   def destroy
     project = find_project
     if !project.destroy

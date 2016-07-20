@@ -129,6 +129,19 @@ RSpec.describe Admin::ProjectsController do
     end
   end
 
+  describe '#sort' do
+    it 'changes the position of projects' do
+      a = create(:project, position: 1)
+      b = create(:project, position: 2)
+
+      post :sort, project: [b.id, a.id]
+      a.reload; b.reload
+
+      expect(a.position).to eq(2)
+      expect(b.position).to eq(1)
+    end
+  end
+
   describe '#delete' do
     context 'when a project can be deleted' do
       it 'deletes the project' do
