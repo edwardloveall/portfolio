@@ -1,4 +1,4 @@
-<ul class="projects" data-update-url="<%= sort_admin_projects_url %>">
+<ul class="projects sortable" data-update-url="<%= sort_admin_projects_url %>">
   <%= content_tag_for(:li, @projects) do |project| %>
     <%= link_to project.title, edit_admin_project_path(project) %>
   <% end %>
