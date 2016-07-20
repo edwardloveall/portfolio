@@ -141,8 +141,6 @@ GEM
       bcrypt
       rails
       warden
-    monban-generators (0.0.5)
-      monban (>= 0.0.12)
     neat (1.7.4)
       bourbon (>= 4.0)
       sass (>= 3.3)
@@ -296,7 +294,6 @@ DEPENDENCIES
   jquery-ui-rails
   launchy
   monban
-  monban-generators
   neat
   normalize-rails
   paperclip
