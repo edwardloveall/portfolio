@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe Admin::ProjectsController do
   describe '#index' do
     it 'assigns all projects to @projects' do
+      sign_in(create(:user))
       projects = double(:projects)
       allow(Project).to receive(:by_position).and_return(projects)
 
@@ -14,6 +15,7 @@ RSpec.describe Admin::ProjectsController do
 
   describe '#new' do
     it 'assigns a new @project' do
+      sign_in(create(:user))
       get :new
 
       expect(assigns[:project]).to be_a_new(Project)
@@ -23,6 +25,7 @@ RSpec.describe Admin::ProjectsController do
   describe '#create' do
     context 'with valid attributes' do
       it 'creates a project' do
+        sign_in(create(:user))
         project_count = Project.count
         params = attributes_for(:project)
 
@@ -32,6 +35,7 @@ RSpec.describe Admin::ProjectsController do
       end
 
       it 'redirects to the project index' do
+        sign_in(create(:user))
         params = attributes_for(:project)
 
         post :create, project: params
@@ -42,6 +46,7 @@ RSpec.describe Admin::ProjectsController do
 
     context 'with invalid attributes' do
       it 'does not create a project' do
+        sign_in(create(:user))
         project_count = Project.count
 
         post :create, project: { title: nil }
@@ -50,12 +55,14 @@ RSpec.describe Admin::ProjectsController do
       end
 
       it 'renders the new form' do
+        sign_in(create(:user))
         post :create, project: { title: nil }
 
         expect(response).to render_template(:new)
       end
 
       it 'shows the error flash' do
+        sign_in(create(:user))
         post :create, project: { title: nil }
         error_flash = I18n.t('flashes.project.create.error')
 
@@ -66,6 +73,7 @@ RSpec.describe Admin::ProjectsController do
 
   describe '#edit' do
     it 'assigns the project to @project' do
+      sign_in(create(:user))
       project = create(:project)
 
       get :edit, id: project.slug
@@ -77,6 +85,7 @@ RSpec.describe Admin::ProjectsController do
   describe '#update' do
     context 'with valid parameters' do
       it 'changes the project' do
+        sign_in(create(:user))
         project = create(:project, title: 'A title')
         params = attributes_for(:project)
 
@@ -89,6 +98,7 @@ RSpec.describe Admin::ProjectsController do
       end
 
       it 'redirects to the project index' do
+        sign_in(create(:user))
         project = create(:project, title: 'A title')
         params = attributes_for(:project)
 
@@ -100,6 +110,7 @@ RSpec.describe Admin::ProjectsController do
 
     context 'with invalid parameters' do
       it 'does not edit the project' do
+        sign_in(create(:user))
         project = create(:project)
         params = { slug: nil }
 
@@ -109,6 +120,7 @@ RSpec.describe Admin::ProjectsController do
       end
 
       it 'renders the edit form' do
+        sign_in(create(:user))
         project = create(:project)
         params = { slug: nil }
 
@@ -118,6 +130,7 @@ RSpec.describe Admin::ProjectsController do
       end
 
       it 'shows the error flash' do
+        sign_in(create(:user))
         project = create(:project)
         params = { slug: nil }
         error_flash = I18n.t('flashes.project.update.error')
@@ -131,6 +144,7 @@ RSpec.describe Admin::ProjectsController do
 
   describe '#sort' do
     it 'changes the position of projects' do
+      sign_in(create(:user))
       a = create(:project, position: 1)
       b = create(:project, position: 2)
 
@@ -145,6 +159,7 @@ RSpec.describe Admin::ProjectsController do
   describe '#delete' do
     context 'when a project can be deleted' do
       it 'deletes the project' do
+        sign_in(create(:user))
         project = create(:project)
         project_count = Project.count
 
@@ -154,6 +169,7 @@ RSpec.describe Admin::ProjectsController do
       end
 
       it 'redirects to the project index' do
+        sign_in(create(:user))
         project = create(:project)
 
         delete :destroy, id: project.slug
@@ -164,6 +180,7 @@ RSpec.describe Admin::ProjectsController do
 
     context 'when a project can not be deleted' do
       it 'does not delete the project' do
+        sign_in(create(:user))
         project_count = Project.count
         project = create(:project)
 
@@ -173,6 +190,7 @@ RSpec.describe Admin::ProjectsController do
       end
 
       it 'shows the error flash' do
+        sign_in(create(:user))
         project = create(:project)
         allow(project).to receive(:destroy).and_return(false)
         allow(Project).to receive(:find_by).

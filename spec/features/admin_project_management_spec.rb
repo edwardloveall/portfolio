@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.feature 'Admin project management' do
   scenario 'admin creates a project' do
+    sign_in(create(:user))
     attributes = attributes_for(:project)
     attributes.delete(:logo)
     logo = Rails.root.join('spec', 'fixtures', 'pull_feed_2x.png')
@@ -15,6 +16,7 @@ RSpec.feature 'Admin project management' do
   end
 
   scenario 'admin updates a project' do
+    sign_in(create(:user))
     project = create(:project)
     attributes = attributes_for(:project)
     attributes.delete(:logo)
@@ -30,6 +32,7 @@ RSpec.feature 'Admin project management' do
   end
 
   scenario 'admin deletes a project' do
+    sign_in(create(:user))
     project = create(:project)
 
     visit admin_projects_path

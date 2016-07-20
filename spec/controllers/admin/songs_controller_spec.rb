@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe Admin::SongsController do
   describe '#index' do
     it 'assigns all songs to @songs' do
+      sign_in(create(:user))
       songs = double(:songs)
       allow(Song).to receive(:by_position).and_return(songs)
 
@@ -14,6 +15,7 @@ RSpec.describe Admin::SongsController do
 
   describe '#new' do
     it 'assigns a new @song' do
+      sign_in(create(:user))
       get :new
 
       expect(assigns[:song]).to be_a_new(Song)
@@ -23,6 +25,7 @@ RSpec.describe Admin::SongsController do
   describe '#create' do
     context 'with valid attributes' do
       it 'creates a song' do
+        sign_in(create(:user))
         song_count = Song.count
 
         post :create, song: attributes_for(:song)
@@ -31,6 +34,7 @@ RSpec.describe Admin::SongsController do
       end
 
       it 'redirects to the song index' do
+        sign_in(create(:user))
         post :create, song: attributes_for(:song)
 
         expect(response).to redirect_to(admin_songs_path)
@@ -39,6 +43,7 @@ RSpec.describe Admin::SongsController do
 
     context 'with invalid attributes' do
       it 'does not create a song' do
+        sign_in(create(:user))
         song_count = Song.count
 
         post :create, song: { title: nil }
@@ -47,12 +52,14 @@ RSpec.describe Admin::SongsController do
       end
 
       it 'renders the new form' do
+        sign_in(create(:user))
         post :create, song: { title: nil }
 
         expect(response).to render_template(:new)
       end
 
       it 'shows the error flash' do
+        sign_in(create(:user))
         post :create, song: { title: nil }
         error_flash = I18n.t('flashes.song.create.error')
 
@@ -63,6 +70,7 @@ RSpec.describe Admin::SongsController do
 
   describe '#edit' do
     it 'assigns the song to @song' do
+      sign_in(create(:user))
       song = create(:song)
 
       get :edit, id: song
@@ -74,6 +82,7 @@ RSpec.describe Admin::SongsController do
   describe '#update' do
     context 'with valid parameters' do
       it 'changes the song' do
+        sign_in(create(:user))
         song = create(:song, title: 'A title')
         params = attributes_for(:song)
 
@@ -85,6 +94,7 @@ RSpec.describe Admin::SongsController do
       end
 
       it 'redirects to the song index' do
+        sign_in(create(:user))
         song = create(:song, title: 'A title')
         params = attributes_for(:song)
 
@@ -96,6 +106,7 @@ RSpec.describe Admin::SongsController do
 
     context 'with invalid parameters' do
       it 'does not edit the song' do
+        sign_in(create(:user))
         song = create(:song)
         params = { title: nil }
 
@@ -105,6 +116,7 @@ RSpec.describe Admin::SongsController do
       end
 
       it 'renders the edit form' do
+        sign_in(create(:user))
         song = create(:song)
         params = { title: nil }
 
@@ -114,6 +126,7 @@ RSpec.describe Admin::SongsController do
       end
 
       it 'shows the flash' do
+        sign_in(create(:user))
         song = create(:song)
         params = { title: nil }
         error_flash = I18n.t('flashes.song.update.error')
@@ -127,6 +140,7 @@ RSpec.describe Admin::SongsController do
 
   describe '#sort' do
     it 'changes the position of the songs' do
+      sign_in(create(:user))
       a = create(:song, position: 1)
       b = create(:song, position: 2)
 
@@ -141,6 +155,7 @@ RSpec.describe Admin::SongsController do
   describe '#delete' do
     context 'when a song can be deleted' do
       it 'deletes the song' do
+        sign_in(create(:user))
         song = create(:song)
         song_count = Song.count
 
@@ -150,6 +165,7 @@ RSpec.describe Admin::SongsController do
       end
 
       it 'redirects to the song index' do
+        sign_in(create(:user))
         song = create(:song)
 
         delete :destroy, id: song
@@ -160,6 +176,7 @@ RSpec.describe Admin::SongsController do
 
     context 'when a song can not be deleted' do
       it 'does not delete the song' do
+        sign_in(create(:user))
         song_count = Song.count
         song = create(:song)
 
@@ -169,6 +186,7 @@ RSpec.describe Admin::SongsController do
       end
 
       it 'shows the flash on the song index' do
+        sign_in(create(:user))
         song = create(:song)
         allow(song).to receive(:destroy).and_return(false)
         allow(Song).to receive(:find).and_return(song)
