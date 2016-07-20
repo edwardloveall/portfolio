@@ -1,8 +1,7 @@
 <%= link_to 'Add song', new_admin_song_path %>
-  <% @songs.each do |song| %>
-    <p>
-      <%= link_to song.title, edit_admin_song_path(song) %>
-      <%= link_to 'Delete', [:admin, song], method: :delete %>
-    </p>
+<ul class="songs sortable" data-update-url="<%= sort_admin_songs_url %>">
+  <%= content_tag_for(:li, @songs) do |song| %>
+    <%= link_to song.title, edit_admin_song_path(song) %>
+    <%= link_to 'Delete', [:admin, song], method: :delete %>
   <% end %>
 </ul>
