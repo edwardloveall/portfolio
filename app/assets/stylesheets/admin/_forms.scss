@@ -11,6 +11,17 @@ form {
     @include box-sizing(border-box);
   }
 
+  div.field_with_errors {
+    label,
+    span.error {
+      color: $warning-color;
+    }
+
+    #{$all-text-inputs} {
+      border-color: $warning-color;
+    }
+  }
+
   label {
     color: $dove-gray;
     display: block;
