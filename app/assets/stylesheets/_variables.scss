@@ -52,6 +52,7 @@ $border: 1px solid $border-color;
 $border-radius: 3px;
 $base-spacing: 24px;
 $large-spacing: $base-spacing * 2;
+$huge-spacing: $base-spacing * 4;
 $small-spacing: golden-ratio($base-spacing, -1);
 $big-spacing: $base-spacing * 2.5;
 $line-height: 1.3;

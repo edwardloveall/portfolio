@@ -33,3 +33,8 @@
     @include block-link;
   }
 }
+
+section.project {
+  @include clearfix;
+  margin-bottom: $huge-spacing;
+}
