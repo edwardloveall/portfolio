@@ -2,6 +2,10 @@
 <ul class="songs sortable" data-update-url="<%= sort_admin_songs_url %>">
   <%= content_tag_for(:li, @songs) do |song| %>
     <%= link_to song.title, edit_admin_song_path(song) %>
-    <%= link_to 'Delete', [:admin, song], method: :delete, class: :delete, data: { confirm: 'Are you sure?' } %>
+    <%= link_to t('helpers.submit.song.delete'),
+                [:admin, song],
+                method: :delete,
+                class: :delete,
+                data: { confirm: 'Are you sure?' } %>
   <% end %>
 </ul>

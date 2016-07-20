@@ -26,6 +26,10 @@ en:
         create: Create Project
         update: Update Project
         delete: Delete Project
+      song:
+        create: Create Song
+        update: Update Song
+        delete: Delete Song
 
   time:
     formats:
