@@ -4,7 +4,7 @@ RSpec.describe Admin::SongsController do
   describe '#index' do
     it 'assigns all songs to @songs' do
       songs = double(:songs)
-      allow(Song).to receive(:all).and_return(songs)
+      allow(Song).to receive(:by_position).and_return(songs)
 
       get :index
 

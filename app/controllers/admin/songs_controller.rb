@@ -1,6 +1,6 @@
 class Admin::SongsController < AdminController
   def index
-    @songs = Song.all
+    @songs = Song.by_position
   end
 
   def new
