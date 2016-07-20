@@ -4,7 +4,7 @@ RSpec.describe SongsController do
   describe '#index' do
     it 'assigns all songs to @songs' do
       songs = double(:songs)
-      allow(Song).to receive(:all).and_return(songs)
+      allow(Song).to receive(:by_position).and_return(songs)
 
       get :index
 
@@ -12,7 +12,7 @@ RSpec.describe SongsController do
     end
 
     it 'renders the index page' do
-      allow(Song).to receive(:all)
+      allow(Song).to receive(:by_position)
 
       get :index
 
