@@ -1,4 +1,4 @@
-class SessionsController < AdminController
+class Admin::SessionsController < AdminController
   skip_before_action :require_login, only: [:new, :create], raise: false
 
   def new
@@ -8,7 +8,7 @@ class SessionsController < AdminController
     user = authenticate_session(session_params)
 
     if sign_in(user)
-      redirect_to root_path
+      redirect_to admin_projects_path
     else
       render :new
     end
