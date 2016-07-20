@@ -11,7 +11,11 @@ Rails.application.routes.draw do
         post :sort
       end
     end
-    resources :songs, except: [:show]
+    resources :songs, except: [:show] do
+      collection do
+        post :sort
+      end
+    end
   end
   get '/about' => 'high_voltage/pages#show', id: 'about'
 end

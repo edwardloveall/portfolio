@@ -31,6 +31,13 @@ class Admin::SongsController < AdminController
     end
   end
 
+  def sort
+    ids = params[:song]
+    positions = (1..ids.count).map { |index| { position: index } }
+    Song.update(ids, positions)
+    render nothing: true
+  end
+
   def destroy
     song = find_song
     if !song.destroy
