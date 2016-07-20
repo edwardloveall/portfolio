@@ -5,8 +5,9 @@
 .project-container {
   @include title-card;
 
-  flex-direction: column;
   display: flex;
+  flex-direction: column;
+  min-height: $featured-project-height;
 
   @include media($desktop) {
     @include span-columns(4);
