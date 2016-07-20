@@ -1,12 +1,14 @@
 $boston-blue: rgb(76, 151, 183);
 $chestnut: rgb(183, 76, 76);
 $dove-gray: rgb(105, 105, 105);
+$emerald: rgb(47, 183, 89);
 
 $accent-color: $boston-blue;
 $accent-alt-color: darken($accent-color, 10%);
 $link-color: $accent-color;
 $link-hover-color: $accent-alt-color;
 $warning-color: $chestnut;
+$ok-color: $emerald;
 $background-color: white;
 $border-color: mix($background-color, $accent-color, 80%);
 
@@ -19,3 +21,4 @@ $max-width: 700px;
 $column-width: $max-width / 12;
 $base-spacing: 1em;
 $small-spacing: golden-ratio(1em, -1);
+$large-spacing: golden-ratio(1em, 1);

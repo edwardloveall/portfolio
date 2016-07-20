@@ -1,7 +1,10 @@
 <nav>
+  <h2 class="title"><%= title %></h2>
   <% if current_user %>
-    <%= link_to 'Projects', admin_projects_path %>
-    <%= link_to 'Songs', admin_songs_path %>
-    <%= link_to 'Sign Out', admin_session_path, method: :delete %>
+    <div class="links">
+      <%= link_to 'Projects', admin_projects_path %>
+      <%= link_to 'Songs', admin_songs_path %>
+      <%= link_to 'Sign Out', admin_session_path, method: :delete %>
+    </div>
   <% end %>
 </nav>

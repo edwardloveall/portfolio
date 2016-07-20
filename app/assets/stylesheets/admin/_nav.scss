@@ -1,7 +1,21 @@
 nav {
-  margin-bottom: $base-spacing;
+  align-items: center;
+  display: flex;
+  margin-bottom: $large-spacing;
+
+  h2.title {
+    flex-grow: 1;
+  }
+
+  div.links {
+    flex-grow: 0;
+  }
 
   a {
     margin-right: $base-spacing;
+
+    &:last-child {
+      margin-right: 0;
+    }
   }
 }
