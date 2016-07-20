@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: 'projects#index'
+  resource :session, only: [:new, :create, :destroy]
   resources :projects, only: [:index, :show]
   resources :music, controller: :songs, only: [:index, :show], as: :songs
   get 'experiments', to: 'experiments#index'

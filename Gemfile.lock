@@ -48,6 +48,7 @@ GEM
       jmespath (~> 1.0)
     aws-sdk-resources (2.3.11)
       aws-sdk-core (= 2.3.11)
+    bcrypt (3.1.11)
     bourbon (4.2.7)
       sass (~> 3.4)
       thor (~> 0.19)
@@ -136,6 +137,12 @@ GEM
     mimemagic (0.3.0)
     mini_portile2 (2.1.0)
     minitest (5.9.0)
+    monban (1.1.0)
+      bcrypt
+      rails
+      warden
+    monban-generators (0.0.5)
+      monban (>= 0.0.12)
     neat (1.7.4)
       bourbon (>= 4.0)
       sass (>= 3.3)
@@ -259,6 +266,8 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.0.0)
       execjs (>= 0.3.0, < 3)
+    warden (1.2.6)
+      rack (>= 1.0)
     webmock (2.1.0)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
@@ -286,6 +295,8 @@ DEPENDENCIES
   jquery-rails
   jquery-ui-rails
   launchy
+  monban
+  monban-generators
   neat
   normalize-rails
   paperclip
