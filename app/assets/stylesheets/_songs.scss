@@ -1,6 +1,6 @@
 section.song {
-  @include clearfix;
-
+  display: flex;
+  flex-direction: column;
   margin-bottom: $large-spacing;
 }
 
@@ -13,7 +13,7 @@ div.song-title {
   }
 }
 
-div.song {
+div.player {
   @include title-card;
 
   padding: $song-padding;
@@ -69,12 +69,25 @@ div.song {
 }
 
 @include media($desktop) {
-  div.song-title {
-    @include span-columns(4);
+  section.song {
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 
-  div.song {
-    @include span-columns(12);
-    @include omega;
+  div.song-title {
+    flex-basis: flex-grid(4);
+    margin-right: flex-gutter();
+    order: 1;
+  }
+
+  div.player {
+    flex-basis: 100%;
+    order: 3;
+  }
+
+  article.description {
+    flex-basis: flex-grid(8);
+    order: 2;
   }
 }

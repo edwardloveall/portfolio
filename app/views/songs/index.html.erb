@@ -2,7 +2,7 @@
 
 <%= content_for(:javascript) do %>
   <script type="text/javascript">
-    var songs = document.querySelectorAll('div.song');
+    var songs = document.querySelectorAll('section.song');
 
     for (var i = 0; i < songs.length; i++) {
       new Song({
