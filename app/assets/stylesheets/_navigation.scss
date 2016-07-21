@@ -1,22 +1,26 @@
 nav.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: golden-ratio($base-spacing, 1);
   text-align: center;
 
   a {
     @include header-link-style;
+    flex-grow: 0;
     padding: $base-spacing;
   }
 
   @include media($desktop) {
-    a {
-      display: inline;
+    flex-direction: row;
+
+    a.active:after {
+      @include size(27px 10px);
+      background: url(image-path('chevron.svg')) no-repeat center;
+      content: '';
+      display: block;
+      margin-top: golden-ratio($base-spacing, 1);
+      width: 100%;
     }
   }
-}
-
-.more {
-  @include hide-text;
-  @include size(27px 10px);
-  background: transparent url(image-path('chevron.svg')) no-repeat center;
-  display: block;
-  margin: golden-ratio($base-spacing, 1) auto;
 }
