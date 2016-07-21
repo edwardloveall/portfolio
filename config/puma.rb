@@ -23,5 +23,7 @@ pidfile "#{app_dir}/tmp/pids/puma.pid"
 state_path "#{app_dir}/tmp/pids/puma.state"
 activate_control_app
 
-# Run in the background
-daemonize true
+if Rails.env.production? || Rails.env.staging?
+  # Run in the background
+  daemonize true
+end
