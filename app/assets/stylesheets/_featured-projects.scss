@@ -1,20 +1,21 @@
 .featured-projects {
   @include outer-container;
+  align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .project-container {
   @include title-card;
 
+  border-left: 0;
+  border-right: 0;
   display: flex;
+  flex: 0 0 flex-grid(4);
   flex-direction: column;
+  justify-content: center;
   min-height: $featured-project-height;
-
-  @include media($desktop) {
-    @include span-columns(4);
-
-    display: flex;
-    margin-bottom: 0;
-  }
 
   img {
     margin: auto;
@@ -22,10 +23,8 @@
 
   h3 {
     @include header-link-style;
-    margin-top: $base-spacing;
 
     a {
-      @include header-link-style;
       display: block;
     }
   }
@@ -38,4 +37,17 @@
 section.project {
   @include clearfix;
   margin-bottom: $huge-spacing;
+}
+
+@include media($desktop) {
+  .featured-projects {
+    flex-direction: row;
+  }
+
+  .project-container {
+    border-left: $border;
+    border-right: $border;
+    margin-bottom: 0;
+    margin-right: flex-gutter();
+  }
 }
