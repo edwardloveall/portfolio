@@ -3,16 +3,18 @@
     <%= project_logo(@project) %>
     <h3><%= @project.title %></h3>
   </div>
-  <div class="copy role">
-    <h4>Role</h4>
-    <p><%= @project.role %></p>
+  <div class="info">
+    <div class="copy role">
+      <h4>Role</h4>
+      <p><%= @project.role %></p>
+    </div>
+    <div class="copy website">
+      <h4>Website</h4>
+      <%= link_to @project.website, @project.website %>
+    </div>
+    <article class="copy description">
+      <h4>Description</h4>
+      <%= convert_markdown(@project.description) %>
+    </article>
   </div>
-  <div class="copy website">
-    <h4>Website</h4>
-    <%= link_to @project.website, @project.website %>
-  </div>
-  <article class="copy description">
-    <h4>Description</h4>
-    <%= convert_markdown(@project.description) %>
-  </article>
 </section>

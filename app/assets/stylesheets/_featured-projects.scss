@@ -12,7 +12,6 @@
   border-left: 0;
   border-right: 0;
   display: flex;
-  flex: 0 0 flex-grid(4);
   flex-direction: column;
   justify-content: center;
   min-height: $featured-project-height;
@@ -35,7 +34,6 @@
 }
 
 section.project {
-  @include clearfix;
   margin-bottom: $huge-spacing;
 }
 
@@ -47,6 +45,7 @@ section.project {
   .project-container {
     border-left: $border;
     border-right: $border;
+    flex: 0 0 flex-grid(4);
     margin-bottom: 0;
     margin-right: flex-gutter();
   }

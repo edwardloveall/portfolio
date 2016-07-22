@@ -1,27 +1,53 @@
 section.project {
-  @include media($desktop) {
-    h4 {
-      margin-top: 0;
-    }
+  align-items: stretch;
+  justify-content: stretch;
+  display: flex;
+  flex-direction: column;
 
-    .copy {
-      margin: 0;
-      text-align: left;
-      vertical-align: top;
+  div.info {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+
+  .role,
+  .website,
+  .description {
+    margin-bottom: $large-spacing;
+  }
+
+  .role p {
+    margin: 0;
+  }
+
+  .description {
+    margin-bottom: 0;
+  }
+
+  .description p {
+    text-align: left;
+  }
+
+  @include media($desktop) {
+    align-items: flex-start;
+    flex-direction: row;
+
+    div.info {
+      flex-flow: row wrap;
     }
 
     .role,
     .website {
-      @include span-columns(4);
-    }
-
-    .website {
-      @include omega;
+      flex: 0 0 50%;
     }
 
     .description {
-      @include span-columns(8);
-      margin-top: golden-ratio($base-spacing, 1);
+      flex-basis: 100%;
+    }
+
+    .role,
+    .website,
+    .description {
+      margin-bottom: $large-spacing;
     }
   }
 }
