@@ -7,6 +7,8 @@ RSpec.describe Song do
     it do
       should validate_attachment_content_type(:audio).allowing('audio/mpeg')
     end
+    it { should have_attached_file(:ogg) }
+    it { should validate_attachment_content_type(:ogg).allowing('application/ogg') }
   end
 
   describe '.by_position' do
