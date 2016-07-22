@@ -28,11 +28,11 @@ section.hotline-webring {
 
   a.previous {
     background-image: url(asset-path('hlwr-prev.svg'));
-    background-position-x: left;
+    background-position: center left;
   }
 
   a.next {
     background-image: url(asset-path('hlwr-next.svg'));
-    background-position-x: right;
+    background-position: center right;
   }
 }
