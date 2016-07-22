@@ -1,9 +1,9 @@
 class Song < ActiveRecord::Base
-  has_attached_file :audio
+  has_attached_file :mp3
   has_attached_file :ogg
 
   validates :title, presence: true
-  validates_attachment :audio,
+  validates_attachment :mp3,
                        presence: true,
                        content_type: { content_type: 'audio/mpeg' }
   validates_attachment :ogg, presence: true

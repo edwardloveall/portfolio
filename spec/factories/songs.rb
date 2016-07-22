@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :song do
     title 'My Song'
-    audio do
+    mp3 do
       file_path = Rails.root.join('spec', 'fixtures', 'song.mp3')
       fixture_file_upload(file_path, 'audio/mpeg')
     end

@@ -3,9 +3,9 @@ require 'rails_helper'
 RSpec.describe Song do
   describe 'validations' do
     it { should validate_presence_of(:title) }
-    it { should have_attached_file(:audio) }
+    it { should have_attached_file(:mp3) }
     it do
-      should validate_attachment_content_type(:audio).allowing('audio/mpeg')
+      should validate_attachment_content_type(:mp3).allowing('audio/mpeg')
     end
     it { should have_attached_file(:ogg) }
     it { should validate_attachment_content_type(:ogg).allowing('application/ogg') }
