@@ -7,7 +7,7 @@ FactoryGirl.define do
     end
     ogg do
       file_path = Rails.root.join('spec', 'fixtures', 'song.ogg')
-      fixture_file_upload(file_path, 'application/ogg')
+      fixture_file_upload(file_path, 'audio/ogg')
     end
     description <<-DESC.strip_heredoc
       My song is originally by makingthenoise.
