@@ -50,7 +50,7 @@ class Admin::SongsController < AdminController
 
   def song_params
     params.require(:song).
-           permit(:title, :mp3, :description)
+           permit(:title, :mp3, :ogg, :description)
   end
 
   def find_song

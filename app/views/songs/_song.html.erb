@@ -3,7 +3,7 @@
     <h3><%= link_to song.title, song %></h3>
   </div>
   <div class="player">
-    <%= audio_tag(song.mp3, controls: false) %>
+    <%= audio_tag([song.mp3, song.ogg], controls: false) %>
     <a class="button paused"></a>
     <div class="scrubber">
       <div class="track">
