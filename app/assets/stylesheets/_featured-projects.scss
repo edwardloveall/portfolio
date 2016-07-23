@@ -22,6 +22,7 @@
 
   h3 {
     @include header-link-style;
+    padding-top: $small-spacing;
 
     a {
       display: block;
