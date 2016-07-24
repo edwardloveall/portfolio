@@ -7,3 +7,22 @@ body.ie {
     display: none;
   }
 }
+
+body.ie.v11,
+body.ie.v10 {
+  display: block;
+
+  main {
+    display: block;
+  }
+
+  div.img {
+    position: relative;
+    min-height: 174px;
+  }
+
+  img {
+    @include position(absolute, 0 0 0 0);
+    margin: auto;
+  }
+}

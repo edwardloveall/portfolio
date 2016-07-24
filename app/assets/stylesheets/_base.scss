@@ -10,8 +10,8 @@ body {
 }
 
 main {
-  @include flex(1);
   @include outer-container;
+  flex: 1;
   width: 100%;
 
   @include media($desktop) {
