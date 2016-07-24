@@ -1,17 +1,23 @@
-// i11 - Internet Explorer 11
-// m12 - Microsoft Edge (12)
-// s9 - Safari 9
-// f47 - Firefox 47
-// c51 - Chrome 51
-// o30 - Opera 30
-
 $(document).ready(function() {
-  $('body').addClass(browserInitials());
+  $('body').addClass(browserInitials()).
+            addClass(browserMajorVersion());
 })
 
 function browserInitials() {
-  var firstLetter = bowser.name[0].toLowerCase();
-  var version = bowser.version.replace(/\..+/, '')
+  var name = bowser.name.toLowerCase();
+  var words = name.split(' ');
+  var initials = '';
 
-  return firstLetter + version;
+  for (var i = 0; i < words.length; i++) {
+    initials += words[i][0]
+  }
+
+  return initials;
+}
+
+function browserMajorVersion() {
+  var version = bowser.version
+  var major = version.replace(/\..+/, '')
+
+  return 'v' + major;
 }
