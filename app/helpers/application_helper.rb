@@ -21,4 +21,10 @@ module ApplicationHelper
   def current_path
     url_for
   end
+
+  def pretty_url(url)
+    url = URI(url)
+    host = url.host.sub('www.', '')
+    "#{host}#{url.path}"
+  end
 end

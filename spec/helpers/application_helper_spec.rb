@@ -43,4 +43,38 @@ RSpec.describe ApplicationHelper do
       expect(link).to eq(html)
     end
   end
+
+  describe '#pretty_url' do
+    it 'removes the scheme from the URL' do
+      url = 'http://example.com/page.html'
+
+      result = helper.pretty_url(url)
+
+      expect(result).to eq('example.com/page.html')
+    end
+
+    it 'removes secure schemes from the URL' do
+      url = 'https://example.com/page.html'
+
+      result = helper.pretty_url(url)
+
+      expect(result).to eq('example.com/page.html')
+    end
+
+    it 'removes www from the URL' do
+      url = 'http://www.example.com/page.html'
+
+      result = helper.pretty_url(url)
+
+      expect(result).to eq('example.com/page.html')
+    end
+
+    it 'does not remove other subdomains from the URL' do
+      url = 'http://blog.example.com/page.html'
+
+      result = helper.pretty_url(url)
+
+      expect(result).to eq('blog.example.com/page.html')
+    end
+  end
 end
