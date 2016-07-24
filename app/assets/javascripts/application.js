@@ -12,4 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bowser
 //= require song
+//= require detector
