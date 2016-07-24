@@ -25,4 +25,17 @@ body.ie.v10 {
     @include position(absolute, 0 0 0 0);
     margin: auto;
   }
+
+  section.project .info {
+    display: block;
+  }
+
+  section.project .role,
+  section.project .website {
+    display: inline-block;
+  }
+
+  section.project .role {
+    margin-right: $base-spacing;
+  }
 }
