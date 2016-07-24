@@ -10,10 +10,10 @@ body.ie {
 
 body.ie.v11,
 body.ie.v10 {
-  display: block;
+  height: 1vh;
 
-  main {
-    display: block;
+  main, header {
+    flex: 1 0 auto;
   }
 
   div.img {
