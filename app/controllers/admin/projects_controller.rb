@@ -56,7 +56,8 @@ class Admin::ProjectsController < AdminController
                   :website,
                   :description,
                   :featured,
-                  :slug)
+                  :slug,
+                  :published)
   end
 
   def find_project

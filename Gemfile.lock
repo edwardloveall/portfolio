@@ -255,6 +255,9 @@ GEM
     thread (0.2.2)
     thread_safe (0.3.5)
     tilt (2.0.5)
+    time_for_a_boolean (0.1.0)
+      activerecord
+      railties
     timecop (0.8.1)
     tins (1.10.2)
     title (0.0.7)
@@ -311,6 +314,7 @@ DEPENDENCIES
   shoulda-matchers
   simple_form
   simplecov
+  time_for_a_boolean
   timecop
   title
   uglifier

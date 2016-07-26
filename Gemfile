@@ -20,6 +20,7 @@ gem 'rails'
 gem 'redcarpet'
 gem 'sass-rails'
 gem 'simple_form'
+gem 'time_for_a_boolean'
 gem 'title'
 gem 'uglifier'
 
