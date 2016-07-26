@@ -1,5 +1,6 @@
 <%= simple_form_for([:admin, project]) do |form| %>
   <%= form.input :published, as: :boolean %>
+  <%= form.input :featured, as: :boolean %>
   <%= form.input :title %>
   <%= form.input :slug %>
   <%= form.input :role %>

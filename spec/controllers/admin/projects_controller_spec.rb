@@ -35,6 +35,18 @@ RSpec.describe Admin::ProjectsController do
         expect(Project.count).to eq(project_count + 1)
       end
 
+      it 'creates a featured project' do
+        sign_in(create(:user))
+        params = attributes_for(:project).except(:published_at)
+        params[:published] = true
+        params[:featured] = true
+
+        post :create, project: params
+        project = Project.find_by(slug: params[:slug])
+
+        expect(project).to be_featured
+      end
+
       it 'redirects to the project index' do
         sign_in(create(:user))
         params = attributes_for(:project).except(:published_at)
@@ -98,6 +110,18 @@ RSpec.describe Admin::ProjectsController do
         expect(project.title).to eq(params[:title])
         expect(project.slug).to eq(params[:slug])
         expect(project.description).to eq(params[:description])
+      end
+
+      it 'features the project' do
+        sign_in(create(:user))
+        project = create(:project, title: 'A title')
+        params = attributes_for(:project).except(:published_at)
+        params[:featured] = true
+
+        put :update, id: project.slug, project: params
+        project.reload
+
+        expect(project).to be_featured
       end
 
       it 'redirects to the project index' do

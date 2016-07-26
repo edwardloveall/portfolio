@@ -18,6 +18,7 @@ class Project < ActiveRecord::Base
   scope :by_position, lambda { order(position: :asc) }
   scope :published, lambda { where.not(published_at: nil) }
 
+  time_for_a_boolean :featured
   time_for_a_boolean :published
 
   def to_param
