@@ -21,6 +21,16 @@ RSpec.feature 'User visits homepage' do
     end
   end
 
+  scenario 'user does not see non-published projects' do
+    project = create(:project, published_at: nil)
+
+    visit '/'
+
+    within('section.other-projects') do
+      expect(page).not_to have_link(project.title, href: project_path(project))
+    end
+  end
+
   scenario 'user sees contact information' do
     email_href = 'mailto:edward@edwardloveall.com'
 
