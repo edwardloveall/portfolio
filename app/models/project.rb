@@ -12,8 +12,8 @@ class Project < ActiveRecord::Base
   validates :title, presence: true, uniqueness: true
   validates :website, presence: true
 
-  scope :featured, lambda { where.not(featured_at: nil) }
-  scope :regular, lambda { where(featured_at: nil) }
+  scope :featured, lambda { where.not(featured_at: nil).published.by_position }
+  scope :regular, lambda { where(featured_at: nil).published.by_position }
   scope :in_display_order, lambda { order(created_at: :desc) }
   scope :by_position, lambda { order(position: :asc) }
   scope :published, lambda { where.not(published_at: nil) }

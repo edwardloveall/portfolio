@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
   def index
-    @featured = Project.featured.by_position
-    @regular = Project.regular.by_position
+    @featured = Project.featured
+    @regular = Project.regular
   end
 
   def show

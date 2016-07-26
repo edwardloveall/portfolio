@@ -4,24 +4,20 @@ RSpec.describe ProjectsController do
   describe '#index' do
     it 'assigns featured projects to @featured' do
       featured = double(:featured)
-      sorted = double(:sorted)
       allow(Project).to receive(:featured).and_return(featured)
-      allow(featured).to receive(:by_position).and_return(sorted)
 
       get :index
 
-      expect(assigns[:featured]).to eq(sorted)
+      expect(assigns[:featured]).to eq(featured)
     end
 
     it 'assigns non-featured projects to @regular' do
       regular = double(:regular)
-      sorted = double(:sorted)
       allow(Project).to receive(:regular).and_return(regular)
-      allow(regular).to receive(:by_position).and_return(sorted)
 
       get :index
 
-      expect(assigns[:regular]).to eq(sorted)
+      expect(assigns[:regular]).to eq(regular)
     end
   end
 
