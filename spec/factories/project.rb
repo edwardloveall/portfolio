@@ -14,9 +14,14 @@ FactoryGirl.define do
 
     It is entirely free and open source.
     DESC
+    published_at { Time.current }
 
     trait :featured do
       featured_at { Time.current }
+    end
+
+    trait :published do
+      published_at { Time.current }
     end
   end
 end

@@ -58,6 +58,17 @@ RSpec.describe Project do
     end
   end
 
+  describe '.published' do
+    it 'returns only published projects' do
+      published = create(:project, :published)
+      create(:project, published_at: nil)
+
+      projects = Project.published
+
+      expect(projects).to eq([published])
+    end
+  end
+
   describe '.to_param' do
     it 'uses the slug' do
       slug = 'pull-feed'

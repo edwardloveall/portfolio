@@ -16,6 +16,7 @@ class Project < ActiveRecord::Base
   scope :regular, lambda { where(featured_at: nil) }
   scope :in_display_order, lambda { order(created_at: :desc) }
   scope :by_position, lambda { order(position: :asc) }
+  scope :published, lambda { where.not(published_at: nil) }
 
   def to_param
     slug
