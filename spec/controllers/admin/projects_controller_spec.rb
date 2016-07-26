@@ -27,7 +27,8 @@ RSpec.describe Admin::ProjectsController do
       it 'creates a project' do
         sign_in(create(:user))
         project_count = Project.count
-        params = attributes_for(:project)
+        params = attributes_for(:project).except(:published_at)
+        params[:published] = true
 
         post :create, project: params
 
@@ -36,7 +37,8 @@ RSpec.describe Admin::ProjectsController do
 
       it 'redirects to the project index' do
         sign_in(create(:user))
-        params = attributes_for(:project)
+        params = attributes_for(:project).except(:published_at)
+        params[:published] = true
 
         post :create, project: params
 
@@ -87,7 +89,8 @@ RSpec.describe Admin::ProjectsController do
       it 'changes the project' do
         sign_in(create(:user))
         project = create(:project, title: 'A title')
-        params = attributes_for(:project)
+        params = attributes_for(:project).except(:published_at)
+        params[:published] = true
 
         put :update, id: project.slug, project: params
         project.reload
@@ -100,7 +103,8 @@ RSpec.describe Admin::ProjectsController do
       it 'redirects to the project index' do
         sign_in(create(:user))
         project = create(:project, title: 'A title')
-        params = attributes_for(:project)
+        params = attributes_for(:project).except(:published_at)
+        params[:published] = true
 
         put :update, id: project.slug, project: params
 
