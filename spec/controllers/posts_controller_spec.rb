@@ -1,6 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe PostsController do
+  it 'renders the blog layout' do
+    get :index
+
+    expect(response).to render_template(:blog)
+  end
+
   describe 'GET #index' do
     it 'assigns all posts as @posts' do
       post = create(:post)
