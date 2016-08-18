@@ -77,4 +77,24 @@ RSpec.describe ApplicationHelper do
       expect(result).to eq('blog.example.com/page.html')
     end
   end
+
+  describe '#pretty_date' do
+    it 'returns a date string from a timestamp' do
+      time = Time.new(2016, 6, 10, 1, 2, 3)
+
+      result = helper.pretty_date(time)
+
+      expect(result).to eq('June 10th, 2016')
+    end
+  end
+
+  describe '#timestamp' do
+    it 'returns a date string from a timestamp' do
+      time = Time.new(2016, 6, 10, 13, 2, 3)
+
+      result = helper.timestamp(time)
+
+      expect(result).to eq('2016-06-10 13:02')
+    end
+  end
 end

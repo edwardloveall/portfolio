@@ -27,4 +27,12 @@ module ApplicationHelper
     host = url.host.sub('www.', '')
     "#{host}#{url.path}"
   end
+
+  def pretty_date(time)
+    time.strftime("%B #{time.day.ordinalize}, %Y")
+  end
+
+  def timestamp(time)
+    time.strftime('%Y-%m-%d %H:%M')
+  end
 end
