@@ -1,0 +1,45 @@
+article {
+  margin: 0 $base-spacing $huge-spacing;
+
+  &:last-of-type {
+    margin-bottom: $base-spacing * 2;
+  }
+
+  h2 {
+    font-size: $large-font-size;
+    text-align: center;
+  }
+
+  a {
+    @include transition(color .1s ease);
+    color: $accent-color;
+
+    &:hover {
+      @include transition(color .3s ease);
+      color: $post-text-color;
+    }
+  }
+
+  img {
+    display: block;
+    margin: 0 auto 1em;
+    max-width: 100%;
+  }
+
+  hr {
+    border: none;
+    border-bottom: 1px solid $light-gray;
+    margin-bottom: $base-spacing;
+  }
+}
+
+aside.meta {
+  font-family: $sans-serif;
+  font-size: $small-font-size;
+  margin-bottom: $base-spacing * 3;
+  text-align: center;
+
+  a {
+    color: $medium-gray;
+  }
+}

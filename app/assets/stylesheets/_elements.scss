@@ -1,0 +1,25 @@
+body {
+  background-color: $background-color;
+  color: $body-text-color;
+  font: $body-font;
+  line-height: $line-height;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h4 {
+  font: $small-header-font;
+  letter-spacing: $letter-spacing-header;
+  margin-bottom: golden-ratio($base-spacing, -1);
+  text-transform: uppercase;
+}
+
+hr {
+  border: 0;
+  border-bottom: 1px solid $light-blue-gray;
+  margin: $big-spacing auto;
+  max-width: $padded-mobile-width;
+}

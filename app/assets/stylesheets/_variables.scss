@@ -26,8 +26,8 @@ $ui-font-family: $sans-serif;
 
 // Font Sizes
 $base-font-size: 20px;
-$medium-font-size: 18px;
 $small-font-size: 12px;
+$medium-font-size: 18px;
 
 $header-font-size: $medium-font-size;
 $small-header-font-size: $small-font-size;
@@ -56,6 +56,7 @@ $huge-spacing: $base-spacing * 4;
 $small-spacing: golden-ratio($base-spacing, -1);
 $big-spacing: $base-spacing * 2.5;
 $line-height: 1.3;
+$header-line-height: 1.2;
 $duration: 0.2s;
 $timing: ease;
 $song-height: 44px;

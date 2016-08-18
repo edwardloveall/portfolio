@@ -3,12 +3,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="robots" content="noodp" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="initial-scale=1" />
+  <script src="https://use.typekit.net/bts7vjo.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
   <title><%= title %></title>
   <%= stylesheet_link_tag :blog, media: "all" %>
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= body_class %>">
+  <%= render 'header' %>
   <main>
     <%= yield %>
   </main>

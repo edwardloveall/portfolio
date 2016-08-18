@@ -1,0 +1,13 @@
+body {
+  background-color: $background-color;
+  color: $post-text-color;
+  font-family: $post-font-family;
+  font-size: $base-font-size;
+  line-height: $line-height;
+}
+
+main {
+  display: block;
+  margin: 0 auto;
+  max-width: $max-width;
+}

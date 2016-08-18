@@ -1,0 +1,76 @@
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  line-height: $header-line-height;
+  margin-bottom: $base-spacing;
+}
+
+h2 a {
+  color: $accent-color;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ol,
+ul {
+  list-style-position: inside;
+  list-style-type: disc;
+}
+
+li {
+  ul,
+  ol {
+    margin-bottom: 0;
+    margin-left: $base-spacing;
+  }
+}
+
+blockquote,
+ol,
+p,
+pre,
+ul {
+  margin-bottom: $base-spacing;
+}
+
+pre {
+  padding: $base-spacing / 2;
+  white-space: pre-wrap;
+
+  code {
+    padding: 0;
+  }
+}
+
+pre,
+code {
+  background: $light-gray;
+  border-radius: $border-radius;
+  color: $dark-gray;
+  font-family: $monospace;
+  font-size: $small-font-size;
+}
+
+code {
+  padding: .1em .3em;
+}
+
+blockquote {
+  background-color: $light-gray;
+  border-radius: $border-radius;
+  color: $medium-gray;
+  padding: $base-spacing / 2;
+  padding-left: $base-spacing;
+
+  p {
+    margin-bottom: 0;
+  }
+}
