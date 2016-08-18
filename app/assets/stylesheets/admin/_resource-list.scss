@@ -1,0 +1,19 @@
+ul.resource-list {
+  display: flex;
+  flex-direction: column;
+  margin-top: $base-spacing;
+
+  li {
+    display: flex;
+    align-items: center;
+    flex-basis: $base-spacing * 2;
+
+    a {
+      flex-grow: 1;
+    }
+
+    a.delete {
+      flex: 0 0 auto;
+    }
+  }
+}
