@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe Admin::PostsController do
   describe 'GET #index' do
     it 'assigns all posts as @posts' do
+      sign_in(create(:user))
       post = create(:post)
 
       get :index
@@ -13,6 +14,7 @@ RSpec.describe Admin::PostsController do
 
   describe 'GET #new' do
     it 'assigns a new post as @post' do
+      sign_in(create(:user))
       get :new
 
       expect(assigns(:post)).to be_a_new(Post)
@@ -21,6 +23,7 @@ RSpec.describe Admin::PostsController do
 
   describe 'GET #edit' do
     it 'assigns the requested post as @post' do
+      sign_in(create(:user))
       post = create(:post)
 
       get :edit, id: post.id
@@ -32,6 +35,7 @@ RSpec.describe Admin::PostsController do
   describe 'POST #create' do
     context 'with valid params' do
       it 'creates a new Post' do
+        sign_in(create(:user))
         post_count = Post.count
 
         post :create, post: attributes_for(:post)
@@ -49,20 +53,23 @@ RSpec.describe Admin::PostsController do
       end
 
       it 'redirects to the created post' do
+        sign_in(create(:user))
         post :create, post: attributes_for(:post)
 
-        expect(response).to redirect_to(Post.last)
+        expect(response).to redirect_to(admin_posts_path)
       end
     end
 
     context 'with invalid params' do
       it 'assigns a newly created but unsaved post as @post' do
+        sign_in(create(:user))
         post :create, post: { title: '' }
 
         expect(assigns(:post)).to be_a_new(Post)
       end
 
       it 're-renders the new template' do
+        sign_in(create(:user))
         post :create, post: { title: '' }
 
         expect(response).to render_template(:new)
@@ -73,6 +80,7 @@ RSpec.describe Admin::PostsController do
   describe 'PUT #update' do
     context 'with valid params' do
       it 'updates the requested post' do
+        sign_in(create(:user))
         post = create(:post)
 
         put :update, id: post.id, post: { title: 'Foo' }
@@ -82,6 +90,7 @@ RSpec.describe Admin::PostsController do
       end
 
       it 'assigns the requested post as @post' do
+        sign_in(create(:user))
         post = create(:post)
 
         put :update, id: post.id, post: { title: 'Foo' }
@@ -90,16 +99,18 @@ RSpec.describe Admin::PostsController do
       end
 
       it 'redirects to the post' do
+        sign_in(create(:user))
         post = create(:post)
 
         put :update, id: post.id, post: { title: 'Foo' }
 
-        expect(response).to redirect_to(post)
+        expect(response).to redirect_to(admin_posts_path)
       end
     end
 
     context 'with invalid params' do
       it 'assigns the post as @post' do
+        sign_in(create(:user))
         post = create(:post)
 
         put :update, id: post.id, post: { title: '' }
@@ -108,6 +119,7 @@ RSpec.describe Admin::PostsController do
       end
 
       it 're-renders the edit template' do
+        sign_in(create(:user))
         post = create(:post)
 
         put :update, id: post.id, post: { title: '' }
@@ -119,6 +131,7 @@ RSpec.describe Admin::PostsController do
 
   describe 'DELETE #destroy' do
     it 'destroys the requested post' do
+      sign_in(create(:user))
       post = create(:post)
       post_count = Post.count
 
@@ -128,11 +141,12 @@ RSpec.describe Admin::PostsController do
     end
 
     it 'redirects to the posts list' do
+      sign_in(create(:user))
       post = create(:post)
 
       delete :destroy, id: post.id
 
-      expect(response).to redirect_to(posts_url)
+      expect(response).to redirect_to(admin_posts_path)
     end
   end
 

@@ -1,4 +1,4 @@
-class Admin::PostsController < ApplicationController
+class Admin::PostsController < AdminController
   def index
     @posts = Post.all
   end
@@ -15,7 +15,7 @@ class Admin::PostsController < ApplicationController
     @post = Post.new(post_params)
 
     if @post.save
-      redirect_to @post, notice: 'Post was successfully created.'
+      redirect_to admin_posts_path, notice: 'Post was successfully created.'
     else
       render :new
     end
@@ -24,7 +24,7 @@ class Admin::PostsController < ApplicationController
   def update
     @post = find_post
     if @post.update(post_params)
-      redirect_to @post, notice: 'Post was successfully updated.'
+      redirect_to admin_posts_path, notice: 'Post was successfully updated.'
     else
       render :edit
     end
@@ -33,7 +33,7 @@ class Admin::PostsController < ApplicationController
   def destroy
     @post = find_post
     @post.destroy
-    redirect_to posts_url, notice: 'Post was successfully destroyed.'
+    redirect_to admin_posts_path, notice: 'Post was successfully destroyed.'
   end
 
   private

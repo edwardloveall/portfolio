@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :posts, only: [:index, :show]
+  constraints(subdomain: /blog.*/) do
+    get '/', to: 'posts#index'
+    resources :posts, only: [:index, :show]
+  end
+
   root to: 'projects#index'
   resources :projects, only: [:index, :show]
   resources :music, controller: :songs, only: [:index, :show], as: :songs
@@ -21,5 +25,6 @@ Rails.application.routes.draw do
     end
     resources :posts, except: [:show]
   end
+
   get '/about' => 'high_voltage/pages#show', id: 'about'
 end
