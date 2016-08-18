@@ -202,6 +202,7 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (11.1.2)
     redcarpet (3.3.4)
+    rouge (2.0.5)
     rspec-core (3.4.4)
       rspec-support (~> 3.4.0)
     rspec-expectations (3.4.0)
@@ -308,6 +309,7 @@ DEPENDENCIES
   rack-canonical-host
   rails
   redcarpet
+  rouge
   rspec-rails
   rspec_junit_formatter (= 0.2.2)
   sass-rails

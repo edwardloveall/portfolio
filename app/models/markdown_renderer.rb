@@ -1,4 +1,6 @@
 require 'redcarpet'
+require 'rouge'
+require 'rouge/plugins/redcarpet'
 
 class MarkdownRenderer
   EXTENSIONS = { fenced_code_blocks: true, tables: true }.freeze
@@ -19,5 +21,6 @@ class MarkdownRenderer
 
   class SmartHtml < Redcarpet::Render::HTML
     include Redcarpet::Render::SmartyPants
+    include Rouge::Plugins::Redcarpet
   end
 end

@@ -24,6 +24,12 @@ describe MarkdownRenderer do
       expect(renderer.to_html).to eq code_html
     end
 
+    it 'renders highlighted code fences' do
+      renderer = MarkdownRenderer.new(ruby_code_fence)
+
+      expect(renderer.to_html).to eq(highlighted_code_html)
+    end
+
     it 'renders tables' do
       renderer = MarkdownRenderer.new(table)
 
@@ -75,7 +81,7 @@ describe MarkdownRenderer do
 
   def code_fence
     <<-MARKDOWN.strip_heredoc
-    ```ruby
+    ```
     def hello
       puts "hello world"
     end
@@ -84,10 +90,29 @@ describe MarkdownRenderer do
   end
 
   def code_html
-    <<-HTML.strip_heredoc
-    <pre><code class="ruby">def hello
-      puts &quot;hello world&quot;
+    <<-HTML.strip_heredoc.chomp
+    <pre class="highlight plaintext"><code>def hello
+      puts \"hello world\"
     end
+    </code></pre>
+    HTML
+  end
+
+  def ruby_code_fence
+    <<-MARKDOWN.strip_heredoc
+    ```ruby
+    def hello
+      puts "hello world"
+    end
+    ```
+    MARKDOWN
+  end
+
+  def highlighted_code_html
+    <<-HTML.strip_heredoc.chomp
+    <pre class="highlight ruby"><code><span class="k">def</span> <span class="nf">hello</span>
+      <span class="nb">puts</span> <span class="s2">"hello world"</span>
+    <span class="k">end</span>
     </code></pre>
     HTML
   end

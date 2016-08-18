@@ -46,7 +46,9 @@ pre {
   white-space: pre-wrap;
 
   code {
-    padding: 0;
+    background: white;
+    display: block;
+    padding: .5em;
   }
 }
 
@@ -55,7 +57,7 @@ code {
   background: $light-gray;
   border-radius: $border-radius;
   color: $dark-gray;
-  font-family: $monospace;
+  font-family: $mono;
   font-size: $small-font-size;
 }
 
