@@ -18,7 +18,7 @@ article {
 
   hr {
     border: none;
-    border-bottom: 1px solid $light-gray;
+    border-bottom: $border;
     margin-bottom: $base-spacing;
   }
 }
@@ -26,7 +26,7 @@ article {
 aside.meta {
   font-family: $sans-serif;
   font-size: $small-font-size;
-  margin-bottom: $base-spacing * 3;
+  margin-bottom: $large-spacing;
   text-align: center;
 
   a {
