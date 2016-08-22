@@ -18,8 +18,9 @@ RSpec.describe PostsController do
 
     context 'pagination' do
       it 'returns maximum 10 posts' do
-        posts = create_list(:post, 10)
         create(:post)
+        posts = create_list(:post, 10)
+        posts.reverse!
 
         get :index
 
@@ -27,8 +28,8 @@ RSpec.describe PostsController do
       end
 
       it 'returns posts from a page offset' do
-        create_list(:post, 10)
         post = create(:post)
+        create_list(:post, 10)
 
         get :index, page: 2
 

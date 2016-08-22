@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 
   def index
     page = params[:page] || 1
-    @posts = Post.page(page).per(10)
+    @posts = Post.newest_first.page(page).per(10)
   end
 
   def show
