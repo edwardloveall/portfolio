@@ -23,7 +23,7 @@ RSpec.feature 'Admin post management' do
       click_on 'Add post'
       fill_form_and_submit(:post, :new, attributes)
 
-      visit posts_url(subdomain: :blog)
+      visit root_url(subdomain: :blog)
 
       expect(page).to have_content(attributes[:title])
     end

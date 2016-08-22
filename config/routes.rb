@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   constraints(subdomain: /blog.*/) do
     get '/', to: 'posts#index'
-    resources :posts, only: [:index, :show]
+    get '/:slug', to: 'posts#show', as: :post
+    resources :posts, only: [:index]
   end
 
   root to: 'projects#index'

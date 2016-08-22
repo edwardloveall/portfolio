@@ -42,7 +42,7 @@ RSpec.describe PostsController do
     it 'assigns the requested post as @post' do
       post = create(:post)
 
-      get :show, id: post.id
+      get :show, slug: post.slug
 
       expect(assigns(:post)).to eq(post)
     end

@@ -1,5 +1,5 @@
 <article class="post">
-  <h2><%= link_to post.title, post %></h2>
+  <h2><%= link_to post.title, post_path(post.slug) %></h2>
   <aside class="meta">
     <%= link_to post do %>
       Posted
