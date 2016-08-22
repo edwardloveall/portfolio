@@ -10,16 +10,6 @@ article {
     text-align: center;
   }
 
-  a {
-    @include transition(color .1s ease);
-    color: $accent-color;
-
-    &:hover {
-      @include transition(color .3s ease);
-      color: $post-text-color;
-    }
-  }
-
   img {
     display: block;
     margin: 0 auto 1em;

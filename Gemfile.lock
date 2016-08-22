@@ -124,6 +124,9 @@ GEM
       railties (>= 3.2.16)
     json (1.8.3)
     json_pure (1.8.3)
+    kaminari (0.17.0)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     launchy (2.4.3)
       addressable (~> 2.3)
     loofah (2.0.3)
@@ -296,6 +299,7 @@ DEPENDENCIES
   i18n-tasks
   jquery-rails
   jquery-ui-rails
+  kaminari
   launchy
   monban
   neat

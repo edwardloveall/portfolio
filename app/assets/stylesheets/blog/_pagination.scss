@@ -1,0 +1,18 @@
+nav.pagination {
+  display: flex;
+  justify-content: space-between;
+  margin: $base-spacing;
+
+  a {
+    color: $accent-color;
+    flex-grow: 1;
+
+    &:hover {
+      color: $post-text-color;
+    }
+  }
+
+  a.next {
+    text-align: right;
+  }
+}

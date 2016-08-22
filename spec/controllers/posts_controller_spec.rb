@@ -15,6 +15,26 @@ RSpec.describe PostsController do
 
       expect(assigns(:posts)).to eq([post])
     end
+
+    context 'pagination' do
+      it 'returns maximum 10 posts' do
+        posts = create_list(:post, 10)
+        create(:post)
+
+        get :index
+
+        expect(assigns(:posts)).to eq(posts)
+      end
+
+      it 'returns posts from a page offset' do
+        create_list(:post, 10)
+        post = create(:post)
+
+        get :index, page: 2
+
+        expect(assigns(:posts)).to eq([post])
+      end
+    end
   end
 
   describe 'GET #show' do

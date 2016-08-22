@@ -5,7 +5,12 @@ footer {
   padding: $base-spacing;
   text-align: center;
 
+  a {
+    color: inherit;
+  }
+
   a:hover {
+    color: inherit;
     text-decoration: underline;
   }
 }
