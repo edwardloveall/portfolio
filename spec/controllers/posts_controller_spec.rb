@@ -8,32 +8,42 @@ RSpec.describe PostsController do
   end
 
   describe 'GET #index' do
-    it 'assigns all posts as @posts' do
-      post = create(:post)
-
-      get :index
-
-      expect(assigns(:posts)).to eq([post])
-    end
-
-    context 'pagination' do
-      it 'returns maximum 10 posts' do
-        create(:post)
-        posts = create_list(:post, 10)
-        posts.reverse!
+    context 'in html format' do
+      it 'assigns all posts as @posts' do
+        post = create(:post)
 
         get :index
 
-        expect(assigns(:posts)).to eq(posts)
+        expect(assigns(:posts)).to eq([post])
       end
 
-      it 'returns posts from a page offset' do
-        post = create(:post)
-        create_list(:post, 10)
+      context 'pagination' do
+        it 'returns maximum 10 posts' do
+          create(:post)
+          posts = create_list(:post, 10)
+          posts.reverse!
 
-        get :index, page: 2
+          get :index
 
-        expect(assigns(:posts)).to eq([post])
+          expect(assigns(:posts)).to eq(posts)
+        end
+
+        it 'returns posts from a page offset' do
+          post = create(:post)
+          create_list(:post, 10)
+
+          get :index, page: 2
+
+          expect(assigns(:posts)).to eq([post])
+        end
+      end
+    end
+
+    context 'in xml format' do
+      it 'uses no base layout' do
+        get :index, format: :rss
+
+        expect(response).not_to render_template(:blog)
       end
     end
   end

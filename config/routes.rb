@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   constraints(subdomain: /blog.*/) do
     get '/', to: 'posts#index'
+    get '/rss', to: 'posts#index', defaults: { format: :rss }
     get '/:slug', to: 'posts#show', as: :post
     resources :posts, only: [:index]
   end
