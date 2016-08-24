@@ -19,4 +19,23 @@ RSpec.describe Post, type: :model do
       expect(posts).to eq([post_a, post_c, post_b])
     end
   end
+
+  describe '#guid' do
+    context 'when tumblr_guid is present' do
+      it 'returns a tumblr-style guid' do
+        guid = '146221172067'
+        post = create(:post, tumblr_guid: guid)
+
+        expect(post.guid).to eq('http://blog.edwardloveall.com/post/146221172067')
+      end
+    end
+
+    context 'when no tumblr_guid is present' do
+      it 'returns a created guid' do
+        post = create(:post)
+
+        expect(post.guid).to eq("com.edwardloveall.blog.#{post.slug}")
+      end
+    end
+  end
 end
