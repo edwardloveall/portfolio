@@ -6,7 +6,6 @@ Rails.application.configure do
   config.action_controller.perform_caching = true
   config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present?
   config.middleware.use Rack::Deflater
-  config.middleware.use Rack::CanonicalHost, ENV.fetch('APPLICATION_HOST')
   config.assets.js_compressor = :uglifier
   config.assets.compile = false
   config.assets.digest = true
