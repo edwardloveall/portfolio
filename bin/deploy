@@ -6,5 +6,5 @@ git pull origin master
 bundle
 bundle exec rake db:migrate
 bundle exec rake assets:precompile
-bundle exec pumactl restart
+bundle exec pumactl -F config/puma/production.rb restart
 sudo service nginx restart
