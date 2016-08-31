@@ -1,6 +1,6 @@
 class Admin::PostsController < AdminController
   def index
-    @posts = Post.all
+    @posts = Post.newest_first
   end
 
   def new

@@ -10,6 +10,17 @@ RSpec.describe Admin::PostsController do
 
       expect(assigns(:posts)).to eq([post])
     end
+
+    it 'returns posts sorted by date' do
+      sign_in(create(:user))
+      post_a = create(:post, created_at: Date.today)
+      post_b = create(:post, created_at: Date.tomorrow)
+      post_c = create(:post, created_at: Date.yesterday)
+
+      get :index
+
+      expect(assigns(:posts)).to eq([post_b, post_a, post_c])
+    end
   end
 
   describe 'GET #new' do
