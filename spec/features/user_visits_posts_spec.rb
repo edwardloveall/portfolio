@@ -6,7 +6,7 @@ RSpec.feature 'User visits posts' do
 
     visit root_url(subdomain: 'blog')
 
-    expect(page).to have_link('Older', posts_url(subdomain: 'blog', page: 2))
+    expect(page).to have_link('Older', href: root_path(page: 2))
   end
 
   scenario 'and sees pagination links' do
@@ -14,7 +14,7 @@ RSpec.feature 'User visits posts' do
 
     visit root_url(subdomain: 'blog', page: 2)
 
-    expect(page).to have_link('Newer', posts_url(subdomain: 'blog', page: 1))
+    expect(page).to have_link('Newer', href: root_path(page: 1))
   end
 
   scenario 'and visits a specific post' do
