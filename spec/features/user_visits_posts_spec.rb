@@ -28,4 +28,13 @@ RSpec.feature 'User visits posts' do
       expect(page).to have_content(post.title)
     end
   end
+
+  scenario 'can visit main site from footer' do
+    visit root_url(subdomain: 'blog')
+
+    within('footer') do
+      expect(page).to have_link('Edward Loveall',
+                                href: 'https://edwardloveall.com')
+    end
+  end
 end
