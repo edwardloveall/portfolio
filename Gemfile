@@ -16,7 +16,7 @@ gem 'normalize-rails'
 gem 'paperclip'
 gem 'pg'
 gem 'puma'
-gem 'rails'
+gem 'rails', '~> 5.0'
 gem 'redcarpet'
 gem 'rouge'
 gem 'sass-rails'
@@ -24,10 +24,6 @@ gem 'simple_form'
 gem 'time_for_a_boolean'
 gem 'title'
 gem 'uglifier'
-
-group :development do
-  gem 'quiet_assets'
-end
 
 group :development, :test do
   gem 'awesome_print'
