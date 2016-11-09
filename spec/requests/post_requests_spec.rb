@@ -56,7 +56,7 @@ RSpec.describe 'Posts requests' do
     get feed_url
     headers = { 'HTTP_IF_NONE_MATCH' => response.etag }
 
-    get feed_url, {}, headers
+    get feed_url, headers: headers
 
     expect(response).to have_http_status(:not_modified)
   end
@@ -69,7 +69,7 @@ RSpec.describe 'Posts requests' do
     Timecop.return
     create(:post)
 
-    get feed_url, {}, headers
+    get feed_url, headers: headers
 
     expect(response).to have_http_status(:ok)
   end
