@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160824190847) do
+ActiveRecord::Schema.define(version: 20161114193321) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "microposts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text     "body"
+  end
 
   create_table "posts", force: :cascade do |t|
     t.datetime "created_at",  null: false
@@ -40,10 +45,9 @@ ActiveRecord::Schema.define(version: 20160824190847) do
     t.string   "slug"
     t.integer  "position"
     t.datetime "published_at"
+    t.index ["slug"], name: "index_projects_on_slug", unique: true, using: :btree
+    t.index ["title"], name: "index_projects_on_title", unique: true, using: :btree
   end
-
-  add_index "projects", ["slug"], name: "index_projects_on_slug", unique: true, using: :btree
-  add_index "projects", ["title"], name: "index_projects_on_title", unique: true, using: :btree
 
   create_table "songs", force: :cascade do |t|
     t.datetime "created_at",       null: false
@@ -66,8 +70,7 @@ ActiveRecord::Schema.define(version: 20160824190847) do
     t.datetime "updated_at",      null: false
     t.string   "email",           null: false
     t.string   "password_digest", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
   end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
 end
