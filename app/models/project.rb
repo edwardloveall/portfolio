@@ -1,4 +1,4 @@
-class Project < ActiveRecord::Base
+class Project < ApplicationRecord
   LOGO_SIZE = 174
 
   has_attached_file :logo, styles: { standard: '174x174' }

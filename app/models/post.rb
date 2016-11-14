@@ -1,4 +1,4 @@
-class Post < ActiveRecord::Base
+class Post < ApplicationRecord
   validates :body, presence: true
   validates :title, presence: true
   validates :slug, presence: true, uniqueness: true
