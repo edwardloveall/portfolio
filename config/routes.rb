@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get 'experiments/*path', to: 'experiments#show'
 
   namespace :admin do
-    root to: 'projects#index'
+    root to: 'projects#index', as: :root
     resource :session, only: [:new, :create, :destroy]
     resources :projects, except: [:show] do
       collection do
