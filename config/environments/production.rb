@@ -4,7 +4,7 @@ Rails.application.configure do
   config.eager_load = true
   config.consider_all_requests_local = false
   config.action_controller.perform_caching = true
-  config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present?
+  config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
   config.middleware.use Rack::Deflater
   config.assets.js_compressor = :uglifier
   config.assets.compile = false
