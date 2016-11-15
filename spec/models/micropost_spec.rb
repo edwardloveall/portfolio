@@ -14,4 +14,16 @@ RSpec.describe Micropost do
       expect(micropost.guid). to eq(guid)
     end
   end
+
+  describe '#timestamp' do
+    it 'returns the microseconds since the epoch' do
+      micropost = create(:micropost)
+      microseconds = micropost.created_at.to_f * 1_000_000
+      timestamp = microseconds.to_i
+
+      result = micropost.timestamp
+
+      expect(result).to eq(timestamp)
+    end
+  end
 end

@@ -4,4 +4,9 @@ class Micropost < ApplicationRecord
   def guid
     "com.edwardloveall.microblog.#{created_at.to_i}"
   end
+
+  def timestamp
+    microseconds = created_at.to_f * 1_000_000
+    microseconds.to_i
+  end
 end
