@@ -57,3 +57,6 @@ en:
         index: Songs
         new: New song
         edit: Edit %{song}
+    microblog:
+      microposts:
+        feed: Edward Loveall's Microblog

@@ -9,7 +9,7 @@ RSpec.describe Micropost do
   describe '#guid' do
     it 'returns the guid for the micropost' do
       micropost = create(:micropost)
-      guid = "com.edwardloveall.microblog.#{micropost.created_at.to_i}"
+      guid = "com.edwardloveall.microblog.#{micropost.timestamp}"
 
       expect(micropost.guid). to eq(guid)
     end

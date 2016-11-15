@@ -12,8 +12,13 @@ Rails.application.routes.draw do
   get 'experiments', to: 'experiments#index'
   get 'experiments/*path', to: 'experiments#show'
 
+  namespace :microblog do
+    get '/feed', to: 'microposts#feed', as: :feed
+    get '/post/:timestamp', to: 'microposts#show'
+  end
+
   namespace :admin do
-    root to: 'projects#index', as: :root
+    root to: 'projects#index', as: :root, defaults: { format: :rss }
     resource :session, only: [:new, :create, :destroy]
     resources :projects, except: [:show] do
       collection do

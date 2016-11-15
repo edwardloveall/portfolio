@@ -1,0 +1,2 @@
+class MicroblogController < ApplicationController
+end
