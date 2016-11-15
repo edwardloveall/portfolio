@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'experiments/*path', to: 'experiments#show'
 
   namespace :microblog do
+    root to: 'microposts#index', as: :root
     get '/feed', to: 'microposts#feed', as: :feed
     get '/post/:timestamp', to: 'microposts#show'
   end
