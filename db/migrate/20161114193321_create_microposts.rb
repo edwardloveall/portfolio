@@ -3,6 +3,7 @@ class CreateMicroposts < ActiveRecord::Migration[5.0]
     create_table :microposts do |t|
       t.timestamps null: false
       t.text :body, limit: 280
+      t.string :ms_epoch
     end
   end
 end

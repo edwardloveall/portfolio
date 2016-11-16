@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20161114193321) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text     "body"
+    t.string   "ms_epoch"
   end
 
   create_table "posts", force: :cascade do |t|

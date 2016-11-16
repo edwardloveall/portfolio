@@ -1,12 +1,20 @@
 class Micropost < ApplicationRecord
+  after_create :set_ms_epoch
+
   validates :body, presence: true, length: { maximum: 280 }
 
   def guid
-    "com.edwardloveall.microblog.#{timestamp}"
+    "com.edwardloveall.microblog.#{ms_epoch}"
   end
 
   def timestamp
-    microseconds = created_at.to_f * 1_000_000
-    microseconds.to_i
+    seconds_with_milliseconds = '%s%3N'
+    created_at.strftime(seconds_with_milliseconds)
+  end
+
+  def set_ms_epoch
+    if ms_epoch.nil?
+      update(ms_epoch: timestamp)
+    end
   end
 end
