@@ -11,11 +11,10 @@ Rails.application.routes.draw do
   resources :music, controller: :songs, only: [:index, :show], as: :songs
   get 'experiments', to: 'experiments#index'
   get 'experiments/*path', to: 'experiments#show'
-
-  namespace :microblog do
-    root to: 'microposts#index', as: :root
-    get '/feed', to: 'microposts#feed', as: :feed
-    get '/post/:timestamp', to: 'microposts#show'
+  scope :microblog do
+    resources :microposts, only: [:index, :show]
+    get '/feed', to: 'microposts#feed', as: :microposts_feed
+    get '/posts/:ms_epoch', to: 'microposts#show', as: :micropost_ms_epoch
   end
 
   namespace :admin do

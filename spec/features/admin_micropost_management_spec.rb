@@ -21,7 +21,7 @@ RSpec.feature 'Admin micropost management' do
       click_on 'Microblog'
       fill_form_and_submit(:micropost, :new, attributes)
 
-      visit microblog_root_path
+      visit microposts_path
 
       expect(page).to have_content(attributes[:body])
     end
