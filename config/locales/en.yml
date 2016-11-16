@@ -22,6 +22,10 @@ en:
         error: The song could not be deleted.
   helpers:
     submit:
+      micropost:
+        create: Post
+        update: Edit
+        delete: Delete
       project:
         create: Create Project
         update: Update Project

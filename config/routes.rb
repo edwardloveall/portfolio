@@ -32,6 +32,7 @@ Rails.application.routes.draw do
       end
     end
     resources :posts, except: [:show]
+    resources :microposts, except: [:index, :show]
   end
 
   get '/about' => 'high_voltage/pages#show', id: 'about'
