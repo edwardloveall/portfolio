@@ -97,4 +97,14 @@ RSpec.describe ApplicationHelper do
       expect(result).to eq('2016-06-10 13:02')
     end
   end
+
+  describe '#pretty_datetime' do
+    it 'returns a formated timestamp' do
+      time = Time.new(2016, 6, 10, 13, 2, 3)
+
+      result = helper.pretty_datetime(time)
+
+      expect(result).to eq('June 10th, 2016 - 1:02 pm')
+    end
+  end
 end

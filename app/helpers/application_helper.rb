@@ -35,4 +35,8 @@ module ApplicationHelper
   def timestamp(time)
     time.strftime('%Y-%m-%d %H:%M')
   end
+
+  def pretty_datetime(time)
+    time.strftime("%B #{time.day.ordinalize}, %Y - #{time.hour % 12}:%M %P")
+  end
 end
