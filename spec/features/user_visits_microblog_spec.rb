@@ -25,4 +25,16 @@ RSpec.feature 'User visits microblog' do
     expect(page).to have_current_path(path)
     expect(page).to have_text(micropost.body)
   end
+
+  scenario 'and sees pagination links' do
+    create_list(:micropost, 31)
+
+    visit microposts_path
+
+    expect(page).to have_link('Older', microposts_path(page: 2))
+
+    click_on 'Older'
+
+    expect(page).to have_link('Newer', microposts_path(page: 1))
+  end
 end

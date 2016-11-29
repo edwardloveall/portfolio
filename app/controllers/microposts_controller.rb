@@ -1,13 +1,16 @@
 class MicropostsController < ApplicationController
+  PER_PAGE = 30
   layout 'microblog'
 
   def feed
-    @microposts = Micropost.all
+    page = params[:page] || 1
+    @microposts = Micropost.newest_first.page(page).per(PER_PAGE)
     render :feed, formats: [:rss]
   end
 
   def index
-    @microposts = Micropost.all
+    page = params[:page] || 1
+    @microposts = Micropost.newest_first.page(page).per(PER_PAGE)
   end
 
   def show

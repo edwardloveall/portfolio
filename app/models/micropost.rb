@@ -3,6 +3,8 @@ class Micropost < ApplicationRecord
 
   validates :body, presence: true, length: { maximum: 280 }
 
+  scope :newest_first, lambda { order(created_at: :desc) }
+
   def guid
     "com.edwardloveall.microblog.#{ms_epoch}"
   end

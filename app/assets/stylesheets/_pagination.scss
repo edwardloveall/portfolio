@@ -1,18 +1,18 @@
 nav.pagination {
-  display: flex;
-  justify-content: space-between;
+  font-style: normal;
   margin: $base-spacing;
+  text-align: center;
 
   a {
     color: $accent-color;
     flex-grow: 1;
 
     &:hover {
-      color: $post-text-color;
+      color: $dark-gray;
     }
   }
 
-  a.next {
-    text-align: right;
+  a.previous {
+    margin-right: $base-spacing;
   }
 }

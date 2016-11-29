@@ -14,6 +14,18 @@ RSpec.describe Micropost do
     it { should validate_length_of(:body).is_at_most(280) }
   end
 
+  describe '#newest_first' do
+    it 'displays microposts from new to old' do
+      micropost_a = create(:micropost, created_at: 3.day.ago)
+      micropost_b = create(:micropost, created_at: 1.day.ago)
+      micropost_c = create(:micropost, created_at: 2.day.ago)
+
+      posts = Micropost.newest_first
+
+      expect(posts).to eq([micropost_b, micropost_c, micropost_a])
+    end
+  end
+
   describe '#guid' do
     it 'returns the guid for the micropost' do
       micropost = create(:micropost)
