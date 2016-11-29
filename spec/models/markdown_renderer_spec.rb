@@ -51,6 +51,14 @@ describe MarkdownRenderer do
     end
   end
 
+  describe '#to_text' do
+    it 'converts the markdown into plain text' do
+      renderer = MarkdownRenderer.new(markdown)
+
+      expect(renderer.to_text).to eq text
+    end
+  end
+
   def markdown
     <<-MARKDOWN.strip_heredoc
     Body of the article
@@ -77,6 +85,17 @@ describe MarkdownRenderer do
 
     <p><a href="http://www.rubyonrails.org">A link to rails</a></p>
     HTML
+  end
+
+  def text
+    <<-TEXT.strip_heredoc.chomp
+      Body of the article
+      a
+      list
+      of
+      things
+      A link to rails
+    TEXT
   end
 
   def code_fence
