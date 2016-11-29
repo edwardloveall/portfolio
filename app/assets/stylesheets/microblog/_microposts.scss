@@ -1,0 +1,18 @@
+$post-font-size: $large-font-size;
+$meta-font-size: golden-ratio($post-font-size, -1);
+
+section.micropost {
+  @include title-card;
+  color: $dark-gray;
+  padding: $small-spacing;
+
+  article {
+    font-size: $post-font-size;
+    margin-bottom: $small-spacing;
+  }
+
+  div.meta {
+    color: $body-text-color;
+    font: $small-header-font;
+  }
+}

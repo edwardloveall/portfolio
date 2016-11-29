@@ -6,8 +6,13 @@ body {
 }
 
 a {
+  @include transition(color .1s ease);
   color: inherit;
   text-decoration: none;
+
+  &:hover {
+    @include transition(color .3s ease);
+  }
 }
 
 h4 {

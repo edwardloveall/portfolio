@@ -14,4 +14,5 @@ Rails.application.config.assets.precompile += %w(
   admin/admin.css
   blog.css
   blog.js
+  microblog.css
 )

@@ -1,0 +1,15 @@
+div.microblog-description {
+  @include outer-container;
+
+  p {
+    @include outer-container;
+  }
+
+  @include media($desktop) {
+    p {
+      @include span-columns(6);
+      margin-bottom: $base-spacing;
+      padding: 0;
+    }
+  }
+}

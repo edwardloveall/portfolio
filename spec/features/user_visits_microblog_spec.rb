@@ -19,7 +19,8 @@ RSpec.feature 'User visits microblog' do
 
     visit microposts_path
 
-    click_on micropost.body
+    permalink = page.find('.permalink')
+    permalink.click
 
     expect(page).to have_current_path(path)
     expect(page).to have_text(micropost.body)

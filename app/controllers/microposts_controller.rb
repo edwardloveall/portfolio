@@ -1,4 +1,6 @@
 class MicropostsController < ApplicationController
+  layout 'microblog'
+
   def feed
     @microposts = Micropost.all
     render :feed, formats: [:rss]

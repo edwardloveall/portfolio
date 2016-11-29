@@ -1,0 +1,9 @@
+<h1>
+  <%= link_to root_path do %>
+    <%= title %>
+    <span class="link-target"></span>
+  <% end %>
+  <% (1..20).each do |n| %>
+    <%= content_tag(:div, nil, class: ['orbit', "orbit-#{n}"]) %>
+  <% end %>
+</h1>

@@ -1,5 +1,12 @@
 <section class="micropost" id="<%= dom_id(micropost) %>">
   <article>
-    <%= link_to micropost.body, micropost_ms_epoch_path(micropost.ms_epoch) %></p>
+    <%= micropost.body %></p>
   </article>
+  <div class="meta">
+    <time datetime="<%= micropost.created_at.iso8601 %>">
+      <%= link_to pretty_datetime(micropost.created_at),
+                  micropost_ms_epoch_path(micropost.ms_epoch),
+                  class: 'permalink' %>
+    </time>
+  </div>
 </section>
