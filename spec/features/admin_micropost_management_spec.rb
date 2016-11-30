@@ -16,6 +16,7 @@ RSpec.feature 'Admin micropost management' do
     scenario 'appears on the main microblog page' do
       sign_in(create(:user))
       attributes = attributes_for(:micropost)
+      rendered_body = MarkdownRenderer.to_html(attributes[:body])
 
       visit admin_root_path
       click_on 'Microblog'
@@ -23,7 +24,7 @@ RSpec.feature 'Admin micropost management' do
 
       visit microposts_path
 
-      expect(page).to have_content(attributes[:body])
+      expect(page.html).to include(rendered_body)
     end
   end
 

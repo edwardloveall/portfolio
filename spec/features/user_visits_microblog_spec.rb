@@ -16,6 +16,7 @@ RSpec.feature 'User visits microblog' do
   scenario 'user visits an individual micropost' do
     micropost = create(:micropost)
     path = "/microblog/posts/#{micropost.ms_epoch}"
+    rendered_body = MarkdownRenderer.to_html(micropost.body)
 
     visit microposts_path
 
@@ -23,7 +24,7 @@ RSpec.feature 'User visits microblog' do
     permalink.click
 
     expect(page).to have_current_path(path)
-    expect(page).to have_text(micropost.body)
+    expect(page.html).to include(rendered_body)
   end
 
   scenario 'and sees pagination links' do
