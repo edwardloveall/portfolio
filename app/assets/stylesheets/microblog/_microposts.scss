@@ -1,14 +1,23 @@
 $post-font-size: $large-font-size;
 $meta-font-size: golden-ratio($post-font-size, -1);
+$post-text-color: $dark-gray;
 
 section.micropost {
   @include title-card;
-  color: $dark-gray;
+  color: $post-text-color;
   padding: $small-spacing;
 
   article {
     font-size: $post-font-size;
     margin-bottom: $small-spacing;
+
+    a {
+      color: $accent-color;
+    }
+
+    a:hover {
+      color: $post-text-color;
+    }
   }
 
   div.meta {

@@ -1,6 +1,6 @@
 <section class="micropost" id="<%= dom_id(micropost) %>">
   <article>
-    <%= micropost.body %></p>
+    <%= convert_markdown(micropost.body) %></p>
   </article>
   <div class="meta">
     <time datetime="<%= micropost.created_at.iso8601 %>">

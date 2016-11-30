@@ -5,6 +5,10 @@ div.microblog-description {
     @include outer-container;
   }
 
+  a:hover {
+    color: $accent-color;
+  }
+
   @include media($desktop) {
     p {
       @include span-columns(6);
