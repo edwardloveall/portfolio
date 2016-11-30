@@ -11,7 +11,15 @@ RSpec.describe Micropost do
 
   describe 'validations' do
     it { should validate_presence_of(:body) }
-    it { should validate_length_of(:body).is_at_most(280) }
+    it 'validate the length of the markdown rendered body' do
+      text = 'long text ' * 28
+      markdown = "[#{text}](https://edwardloveall.com)"
+      valid = build(:micropost, body: markdown)
+      invalid = build(:micropost, body: "#{markdown} with extra text")
+
+      expect(valid).to be_valid
+      expect(invalid).not_to be_valid
+    end
   end
 
   describe '#newest_first' do
