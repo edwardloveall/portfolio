@@ -2,7 +2,7 @@
 <section class="contact links">
   <h4>Contact</h4>
   <ul>
-    <li><%= link_to 'Blog', 'http://blog.edwardloveall.com', rel: 'external' %></li>
+    <li><%= link_to 'Blog', root_url(subdomain: 'blog'), rel: 'external' %></li>
     <li><%= link_to 'Microblog', microblog_path, rel: 'external' %></li>
     <li><%= link_to 'Twitter', 'https://twitter.com/edwardloveall', rel: 'external' %></li>
     <li><%= mail_to 'edward@edwardloveall.com', 'Email', rel: 'author external' %></li>
