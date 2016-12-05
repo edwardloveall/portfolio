@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'experiments', to: 'experiments#index'
   get 'experiments/*path', to: 'experiments#show'
   scope :microblog do
+    root to: 'microposts#index'
     resources :microposts, only: [:index, :show]
     get '/feed', to: 'microposts#feed', as: :microposts_feed
     get '/posts/:ms_epoch', to: 'microposts#show', as: :micropost_ms_epoch
