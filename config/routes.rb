@@ -35,5 +35,9 @@ Rails.application.routes.draw do
     resources :microposts, except: [:index, :show]
   end
 
+  namespace :api do
+    resources :microposts, only: [:index, :create], defaults: { format: :json }
+  end
+
   get '/about' => 'high_voltage/pages#show', id: 'about'
 end
