@@ -1,8 +1,13 @@
 div.microblog-description {
   @include outer-container;
 
+  article {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
   p {
-    @include outer-container;
+    flex: 1 0 100%;
   }
 
   a:hover {
@@ -11,7 +16,7 @@ div.microblog-description {
 
   @include media($desktop) {
     p {
-      @include span-columns(6);
+      flex-basis: 50%;
       margin-bottom: $base-spacing;
       padding: 0;
     }
