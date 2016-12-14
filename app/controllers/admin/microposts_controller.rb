@@ -1,7 +1,9 @@
 class Admin::MicropostsController < AdminController
+  PER_PAGE = 30
+
   def new
     @micropost = Micropost.new
-    @microposts = Micropost.all
+    @microposts = Micropost.newest_first.page(1).per(PER_PAGE)
   end
 
   def create
