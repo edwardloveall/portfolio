@@ -8,6 +8,7 @@
   <script src="https://use.typekit.net/bts7vjo.js"></script>
   <script>try{Typekit.load({ async: true });}catch(e){}</script>
   <title><%= title %></title>
+  <%= auto_discovery_link_tag(:rss, rss_url) %>
   <%= stylesheet_link_tag :blog, media: "all" %>
   <%= csrf_meta_tags %>
 </head>
