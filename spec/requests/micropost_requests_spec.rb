@@ -26,14 +26,26 @@ RSpec.describe 'Micropost requests' do
 
     it 'has entry attributes' do
       micropost = create(:micropost)
+      body = MarkdownRenderer.to_html(micropost.body)
 
       get microposts_feed_url
       entry = xml[:rss][:channel][:item]
 
       expect(entry[:link]).to eq(micropost_ms_epoch_url(micropost.ms_epoch))
-      expect(entry[:description]).to eq(micropost.body)
+      expect(entry[:description]).to eq(body)
       expect(entry[:pubDate]).to eq(micropost.created_at.to_s)
       expect(entry[:guid]).to eq(micropost.guid)
+    end
+
+    it 'renders the body as html' do
+      body = '[link](https://edwardloveall.com)'
+      html = "<p><a href=\"https://edwardloveall.com\">link</a></p>\n"
+      create(:micropost, body: body)
+
+      get microposts_feed_url
+      entry = xml[:rss][:channel][:item]
+
+      expect(entry[:description]).to eq(html)
     end
 
     it 'reports the guid as a non-permalink' do

@@ -9,7 +9,7 @@ xml.rss version: '2.0' do
 
     @microposts.each do |micropost|
       xml.item do
-        xml.description micropost.body
+        xml.description convert_markdown(micropost.body)
         xml.link micropost_ms_epoch_url(micropost.ms_epoch)
         xml.pubDate micropost.created_at
         xml.guid micropost.guid, isPermalink: false
