@@ -49,6 +49,15 @@ describe MarkdownRenderer do
 
       expect(renderer.to_html).to eq('')
     end
+
+    it 'renders links automatically' do
+      renderer = MarkdownRenderer.new('https://edwardloveall.com')
+      html = <<-HTML.strip_heredoc
+        <p><a href="https://edwardloveall.com">https://edwardloveall.com</a></p>
+      HTML
+
+      expect(renderer.to_html).to eq(html)
+    end
   end
 
   describe '#to_text' do

@@ -10,7 +10,11 @@ class Redcarpet::Render::StripDown
 end
 
 class MarkdownRenderer
-  EXTENSIONS = { fenced_code_blocks: true, tables: true }.freeze
+  EXTENSIONS = {
+    autolink: true,
+    fenced_code_blocks: true,
+    tables: true
+  }.freeze
   RENDERER_OPTIONS = { with_toc_data: true }.freeze
 
   def self.to_html(markdown)
