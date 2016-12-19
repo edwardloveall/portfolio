@@ -16,9 +16,9 @@ div.microblog-description {
 
   @include media($desktop) {
     p {
-      flex-basis: 50%;
+      flex-basis: 40%;
       margin-bottom: $base-spacing;
-      padding: 0;
+      margin-right: $base-spacing;
     }
   }
 }
