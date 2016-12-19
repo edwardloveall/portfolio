@@ -1,12 +1,12 @@
 $(document).ready(function() {
-  var mainStart = $('body > main').offset().top;
+  var nav = $('nav.main');
+  var contentStart = nav.offset().top + nav.outerHeight();
   var windowHeight = $(window).outerHeight();
-  var buffer = 100;
-  var mainThreshold = mainStart / 2;
+  var threshold = windowHeight * .7;
   var instant = 1;
   var referringSite = document.referrer != "";
 
-  if (mainThreshold < windowHeight && referringSite) {
-    $('html, body').animate({ 'scrollTop': mainStart }, instant);
+  if (contentStart > threshold && referringSite) {
+    $('html, body').animate({ 'scrollTop': contentStart }, instant);
   }
 });
