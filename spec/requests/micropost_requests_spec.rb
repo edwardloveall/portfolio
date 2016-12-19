@@ -19,6 +19,7 @@ RSpec.describe 'Micropost requests' do
       channel = rss[:channel]
 
       expect(rss[:version]).to eq('2.0')
+      expect(channel[:title]).to eq("Edward Loveall's Microblog")
       expect(channel[:link]).to eq(microposts_feed_url)
       expect(channel[:lastBuildDate]).to eq(micropost.created_at.to_s)
       expect(channel[:language]).to eq('en-US')
