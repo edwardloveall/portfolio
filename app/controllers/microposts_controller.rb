@@ -5,7 +5,10 @@ class MicropostsController < ApplicationController
   def feed
     page = params[:page] || 1
     @microposts = Micropost.newest_first.page(page).per(PER_PAGE)
-    render :feed, formats: [:rss]
+
+    respond_to do |format|
+      format.rss { render :feed, formats: [:rss] }
+    end
   end
 
   def index
