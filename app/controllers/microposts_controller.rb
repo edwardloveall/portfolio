@@ -8,6 +8,7 @@ class MicropostsController < ApplicationController
 
     respond_to do |format|
       format.rss { render :feed, formats: [:rss] }
+      format.json { render :feed, formats: [:json] }
     end
   end
 

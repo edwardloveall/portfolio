@@ -63,3 +63,4 @@ en:
         edit: Edit %{song}
     microposts:
       feed: Edward Loveall's Microblog
+      author: Edward Loveall
