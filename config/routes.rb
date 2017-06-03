@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    root to: 'projects#index', as: :root, defaults: { format: :rss }
+    root to: 'projects#index', as: :root
     resource :session, only: [:new, :create, :destroy]
     resources :projects, except: [:show] do
       collection do
