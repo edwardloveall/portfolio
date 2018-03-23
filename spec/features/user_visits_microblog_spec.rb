@@ -32,10 +32,10 @@ RSpec.feature 'User visits microblog' do
 
     visit microposts_path
 
-    expect(page).to have_link('Older', microposts_path(page: 2))
+    expect(page).to have_link('Older', href: microblog_path(page: 2))
 
     click_on 'Older'
 
-    expect(page).to have_link('Newer', microposts_path(page: 1))
+    expect(page).to have_link('Newer', href: microblog_path(page: 1))
   end
 end
