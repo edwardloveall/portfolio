@@ -5,13 +5,13 @@ RSpec.describe 'Micropost json requests' do
     it 'returns a json response' do
       create(:micropost)
 
-      get microposts_feed_url, as: :json
+      get microposts_feed_url(format: :json)
 
       expect(response.content_type).to eq(Mime::Type.lookup_by_extension(:json))
     end
 
     it 'has meta attributes' do
-      get microposts_feed_url, as: :json
+      get microposts_feed_url(format: :json)
 
       expect(json[:version]).to eq('https://jsonfeed.org/version/1')
       expect(json[:title]).to eq("Edward Loveall's Microblog")
@@ -20,7 +20,7 @@ RSpec.describe 'Micropost json requests' do
     end
 
     it 'has an author element' do
-      get microposts_feed_url, as: :json
+      get microposts_feed_url(format: :json)
 
       expect(json[:author][:name]).to eq('Edward Loveall')
     end
@@ -30,7 +30,7 @@ RSpec.describe 'Micropost json requests' do
         micropost = create(:micropost)
         body = MarkdownRenderer.to_html(micropost.body)
 
-        get microposts_feed_url, as: :json
+        get microposts_feed_url(format: :json)
         item = json[:items].first
 
         expect(item[:url]).to eq(micropost_ms_epoch_url(micropost.ms_epoch))
@@ -45,12 +45,12 @@ RSpec.describe 'Micropost json requests' do
     it 'returns a 304 when there are no new posts' do
       create(:micropost)
 
-      get microposts_feed_url, as: :json
+      get microposts_feed_url(format: :json)
 
       expect(response).to have_http_status(:ok)
 
       headers = { 'HTTP_IF_NONE_MATCH' => response.etag }
-      get microposts_feed_url, headers: headers, as: :json
+      get microposts_feed_url(format: :json), headers: headers
 
       expect(response).to have_http_status(:not_modified)
     end
