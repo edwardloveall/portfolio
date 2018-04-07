@@ -9,6 +9,12 @@
   <script>try{Typekit.load({ async: true });}catch(e){}</script>
   <title><%= title %></title>
   <%= auto_discovery_link_tag(:rss, microposts_feed_url) %>
+  <link
+    rel="alternate"
+    title="Microblog JSON Feed"
+    type="application/json"
+    href="<%= microposts_feed_url(format: :json) %>"
+  />
   <%= stylesheet_link_tag :microblog, media: "all" %>
   <%= csrf_meta_tags %>
 </head>
