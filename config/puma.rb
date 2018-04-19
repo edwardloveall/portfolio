@@ -6,11 +6,11 @@ pid_path = "#{shared_dir}/pids/puma.pid"
 rails_env = ENV["RAILS_ENV"] || "production"
 threads 1, 6
 environment rails_env
-bind "unix://#{shared_dir}/sockets/puma.sock"
 pidfile pid_path
 state_path "#{shared_dir}/pids/puma.state"
 
 if rails_env != "development"
+  bind "unix://#{shared_dir}/sockets/puma.sock"
   workers Concurrent.processor_count
   daemonize true
   stdout_redirect(
