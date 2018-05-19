@@ -6,7 +6,7 @@ class Admin::SessionsController < AdminController
 
   def create
     user = authenticate_session(session_params)
-    destination = params[:original_path] || admin_projects_path
+    destination = session.delete(:original_path) || admin_projects_path
 
     if sign_in(user)
       redirect_to destination
