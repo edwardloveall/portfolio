@@ -1,4 +1,5 @@
 <%= simple_form_for :session, url: admin_session_path do |form| %>
+  <%= hidden_field_tag :original_path, params[:original_path] %>
   <%= form.input :email %>
   <%= form.input :password %>
   <%= form.submit 'Sign in' %>
