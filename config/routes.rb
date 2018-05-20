@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :music, controller: :songs, only: [:index, :show], as: :songs
   get 'experiments', to: 'experiments#index'
   get 'experiments/*path', to: 'experiments#show'
-  resource :auth, only: :show
+  resources :authorizations, only: [:new, :create], path: "auth"
   scope :microblog do
     root to: 'microposts#index', as: :microblog
     resources :microposts, only: [:index, :show]
