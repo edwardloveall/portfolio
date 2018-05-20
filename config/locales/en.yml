@@ -22,6 +22,8 @@ en:
         error: The song could not be deleted.
   helpers:
     submit:
+      authorization:
+        create: Authorize
       micropost:
         create: Post
         update: Edit
