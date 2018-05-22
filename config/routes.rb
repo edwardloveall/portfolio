@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'experiments', to: 'experiments#index'
   get 'experiments/*path', to: 'experiments#show'
   resources :authorizations, only: [:new, :create], path: "auth"
+  resources :tokens, only: [:create]
   scope :microblog do
     root to: 'microposts#index', as: :microblog
     resources :microposts, only: [:index, :show]
