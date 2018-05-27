@@ -6,6 +6,7 @@ class Authorization < ApplicationRecord
   delegate :me, to: :user
 
   scope :not_code_expired, -> { where("code_expires_at > NOW()") }
+  scope :not_token_expired, -> { where("token_expires_at > NOW()") }
 
   validates_presence_of :client_id
 

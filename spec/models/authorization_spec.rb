@@ -24,6 +24,18 @@ RSpec.describe Authorization do
     end
   end
 
+  describe ".not_token_expired" do
+    it "returns authorizations where tokens aren't expired" do
+      valid = create(:authorization, token_expires_at: 1.year.from_now)
+      expired = create(:authorization, token_expires_at: 1.year.ago)
+
+      results = Authorization.not_token_expired
+
+      expect(results).to include(valid)
+      expect(results).not_to include(expired)
+    end
+  end
+
   describe ".not_code_expired" do
     it "returns authorizations where tokens aren't expired" do
       valid = create(:authorization)
