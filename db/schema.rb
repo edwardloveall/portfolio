@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180527160333) do
+ActiveRecord::Schema.define(version: 20180527170627) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20180527160333) do
     t.datetime "code_expires_at"
     t.string   "token"
     t.datetime "token_expires_at"
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_authorizations_on_user_id", using: :btree
   end
 
   create_table "microposts", force: :cascade do |t|

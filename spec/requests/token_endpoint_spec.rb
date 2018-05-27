@@ -4,8 +4,9 @@ RSpec.describe "Requesting an initial token" do
   context "if a valid authorization exists" do
     context "if the accept header is set to JSON" do
       it "returns a token" do
-        auth = create(:authorization)
         me = "https://example.com"
+        user = create(:user, me: me)
+        auth = create(:authorization, user: user)
         params = {
           code: auth.code,
           me: me,
@@ -27,8 +28,9 @@ RSpec.describe "Requesting an initial token" do
 
     context "if the accept header is set to form encoded" do
       it "returns a token" do
-        auth = create(:authorization)
         me = "https://example.com"
+        user = create(:user, me: me)
+        auth = create(:authorization, user: user)
         params = {
           code: auth.code,
           me: me,

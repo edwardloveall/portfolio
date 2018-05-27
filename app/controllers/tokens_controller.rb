@@ -19,7 +19,7 @@ class TokensController < ApplicationController
 
   def reply(authorization)
     {
-      me: params[:me],
+      me: authorization.me,
       access_token: authorization.token,
       scope: authorization.scope
     }
