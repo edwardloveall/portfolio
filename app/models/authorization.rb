@@ -17,5 +17,6 @@ class Authorization < ApplicationRecord
   def generate_token!
     self.token = SecureRandom.hex(16)
     self.token_expires_at = 1.year.from_now
+    save
   end
 end
