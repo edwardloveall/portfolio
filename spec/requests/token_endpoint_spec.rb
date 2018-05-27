@@ -51,3 +51,51 @@ RSpec.describe "Requesting an initial token" do
     end
   end
 end
+
+RSpec.describe "Verifying an existing token" do
+  context "if a valid authorization token exists" do
+    context "if the accept header is set to JSON" do
+      it "returns token details" do
+        me = "https://example.com"
+        user = create(:user, me: me)
+        auth = create(:authorization, user: user)
+        auth.generate_token!
+        headers = {
+          "Authorization" => "Bearer #{auth.token}",
+          "Accept" => "application/json"
+        }
+
+        get verify_tokens_path, headers: headers
+        data = JSON.parse(response.body)
+
+        expect(response.content_type).to eq("application/json")
+        expect(response).to have_http_status(:ok)
+        expect(data["client_id"]).to be
+        expect(data["scope"]).to eq(auth.scope)
+        expect(data["me"]).to eq(me)
+      end
+    end
+
+    context "if the accept header is set to form encoded" do
+      it "returns token details" do
+        me = "https://example.com"
+        user = create(:user, me: me)
+        auth = create(:authorization, user: user)
+        auth.generate_token!
+        headers = {
+          "Authorization" => "Bearer #{auth.token}",
+          "Accept" => "application/x-www-form-urlencoded"
+        }
+
+        get verify_tokens_path, headers: headers
+        data = Hash[URI.decode_www_form(response.body)]
+
+        expect(response.content_type).to eq("application/x-www-form-urlencoded")
+        expect(response).to have_http_status(:ok)
+        expect(data["client_id"]).to be
+        expect(data["scope"]).to eq(auth.scope)
+        expect(data["me"]).to eq(me)
+      end
+    end
+  end
+end

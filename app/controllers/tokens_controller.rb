@@ -7,17 +7,31 @@ class TokensController < ApplicationController
     if authorization.present?
       authorization.generate_token!
       respond_to do |format|
-        format.json { render json: reply(authorization) }
+        format.json { render json: creation_reply(authorization) }
         format.url_encoded_form {
-          render plain: form_encoded_response(authorization)
+          render plain: URI.encode_www_form(creation_reply(authorization))
         }
+      end
+    end
+  end
+
+  def verify
+    authorization = Authorization.not_token_expired.find_by(
+      token: request.headers["Authorization"].sub("Bearer ", "")
+    )
+    if authorization.present?
+      respond_to do |format|
+        format.json { render json: verification_reply(authorization) }
+        format.url_encoded_form do
+          render plain: URI.encode_www_form(verification_reply(authorization))
+        end
       end
     end
   end
 
   private
 
-  def reply(authorization)
+  def creation_reply(authorization)
     {
       me: authorization.me,
       access_token: authorization.token,
@@ -25,7 +39,11 @@ class TokensController < ApplicationController
     }
   end
 
-  def form_encoded_response(authorization)
-    URI.encode_www_form(reply(authorization))
+  def verification_reply(authorization)
+    {
+      me: authorization.me,
+      client_id: authorization.client_id,
+      scope: authorization.scope
+    }
   end
 end
