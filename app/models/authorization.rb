@@ -1,6 +1,12 @@
 class Authorization < ApplicationRecord
   before_create :generate_code!
 
+  belongs_to :user
+
+  delegate :me, to: :user
+
+  scope :not_code_expired, -> { where("code_expires_at > NOW()") }
+
   validates_presence_of :client_id
 
   def generate_code!
