@@ -1,5 +1,21 @@
 require "rails_helper"
 
+RSpec.describe "Endpoint discovery" do
+  describe "Token endpoint" do
+    it "can be found as a <link> tag in the <head>" do
+      get root_path
+
+      page = Nokogiri::HTML(response.body)
+      head = page.at("head")
+      token_link = head.xpath("link[@rel='token_endpoint']").first
+
+      expect(token_link).to be
+      expect(token_link[:rel]).to eq("token_endpoint")
+      expect(token_link[:href]).to eq(tokens_url)
+    end
+  end
+end
+
 RSpec.describe "Requesting an initial token" do
   context "if a valid authorization exists" do
     context "if the accept header is set to JSON" do
