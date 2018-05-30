@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   resources :tokens, only: [:create] do
     get :verify, on: :collection, path: ""
   end
+  namespace :api do
+    resources :micropubs, only: [:create]
+  end
   scope :microblog do
     root to: 'microposts#index', as: :microblog
     resources :microposts, only: [:index, :show]
