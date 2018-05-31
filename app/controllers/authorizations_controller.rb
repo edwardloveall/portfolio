@@ -7,7 +7,7 @@ class AuthorizationsController < AuthenticatedController
   end
 
   def create
-    if auth = Authorization.create(authorization_params)
+    if auth = current_user.authorizations.create(authorization_params)
       callback = params[:redirect_uri]
       callback_params = URI.encode_www_form(
         state: params[:state],

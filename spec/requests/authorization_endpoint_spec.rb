@@ -29,6 +29,7 @@ RSpec.describe "Authorization redirection" do
       authorization_count = Authorization.count
 
       post authorizations_path(
+        me: "http://portfolio.com",
         redirect_uri: redirect_uri,
         response_type: "code",
         state: state,
@@ -40,6 +41,25 @@ RSpec.describe "Authorization redirection" do
 
       expect(Authorization.count).to eq(authorization_count + 1)
       expect(response).to redirect_to(redirect_uri + callback_params)
+    end
+
+    it "connects the user to the authorization" do
+      user = create(:user)
+      sign_in(user)
+
+      post authorizations_path(
+        me: "http://portfolio.com",
+        redirect_uri: "https://service.com/callback",
+        response_type: "code",
+        state: "123456",
+        authorization: {
+          client_id: "https://example.com/",
+          scope: "create update delete undelete"
+        }
+      )
+      authorization = Authorization.last
+
+      expect(authorization.user).to eq(user)
     end
   end
 end
