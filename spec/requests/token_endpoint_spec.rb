@@ -31,7 +31,9 @@ RSpec.describe "Requesting an initial token" do
         }
         headers = { "Accept" => "application/json" }
 
-        post tokens_path, params: params, headers: headers
+        with_forgery_protection do
+          post tokens_path, params: params, headers: headers
+        end
         data = JSON.parse(response.body)
 
         expect(response.content_type).to eq("application/json")
@@ -55,7 +57,9 @@ RSpec.describe "Requesting an initial token" do
         }
         headers = { "Accept" => "application/x-www-form-urlencoded" }
 
-        post tokens_path, params: params, headers: headers
+        with_forgery_protection do
+          post tokens_path, params: params, headers: headers
+        end
         data = Hash[URI.decode_www_form(response.body)]
 
         expect(response.content_type).to eq("application/x-www-form-urlencoded")

@@ -1,4 +1,6 @@
 class TokensController < ApplicationController
+  protect_from_forgery with: :null_session
+
   def create
     authorization = Authorization.not_code_expired.find_by(
       code: params[:code],

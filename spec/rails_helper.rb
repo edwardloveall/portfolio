@@ -22,6 +22,7 @@ RSpec.configure do |config|
   config.include Features, type: :feature
   config.include Paperclip::Shoulda::Matchers
   config.include S3
+  config.include ForgeryProtectionHelper, type: :request
   config.infer_base_class_for_anonymous_controllers = false
   config.infer_spec_type_from_file_location!
   config.use_transactional_fixtures = false
