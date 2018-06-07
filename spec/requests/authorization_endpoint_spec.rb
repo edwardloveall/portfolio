@@ -1,5 +1,5 @@
 require "rails_helper"
-include Monban::Test::Helpers
+include Oath::Test::Helpers
 
 RSpec.describe "Endpoint discovery" do
   describe "Authorization endpoint" do
