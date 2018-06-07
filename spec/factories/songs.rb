@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :song do
     title 'My Song'
     mp3 do

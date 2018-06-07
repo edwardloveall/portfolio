@@ -30,7 +30,7 @@ gem 'uglifier'
 group :development, :test do
   gem 'awesome_print'
   gem 'bundler-audit', require: false
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'i18n-tasks'
   gem 'pry-byebug'
   gem 'pry-rails'

@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :project do
     logo do
       file_path = Rails.root.join('spec', 'fixtures', 'pull_feed_2x.png')
