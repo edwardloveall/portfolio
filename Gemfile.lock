@@ -1,12 +1,3 @@
-GIT
-  remote: https://github.com/calebthompson/time_for_a_boolean.git
-  revision: 636a4c6b4645f9888402ff49b40b7f42c270d946
-  ref: 636a4c6
-  specs:
-    time_for_a_boolean (0.1.0)
-      activerecord
-      railties
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -83,7 +74,7 @@ GEM
     concurrent-ruby (1.0.5)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
-    crass (1.0.3)
+    crass (1.0.4)
     database_cleaner (1.5.3)
     diff-lcs (1.2.5)
     docile (1.1.5)
@@ -186,7 +177,7 @@ GEM
     pry-rails (0.3.4)
       pry (>= 0.9.10)
     puma (3.4.0)
-    rack (2.0.4)
+    rack (2.0.5)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (5.0.6)
@@ -270,6 +261,9 @@ GEM
     thread (0.2.2)
     thread_safe (0.3.6)
     tilt (2.0.5)
+    time_for_a_boolean (0.2.0)
+      activerecord
+      railties
     timecop (0.8.1)
     tins (1.10.2)
     title (0.0.7)
@@ -330,7 +324,7 @@ DEPENDENCIES
   shoulda-matchers
   simple_form
   simplecov
-  time_for_a_boolean!
+  time_for_a_boolean
   timecop
   title
   uglifier

@@ -23,9 +23,7 @@ gem 'redcarpet'
 gem 'rouge'
 gem 'sass-rails'
 gem 'simple_form'
-gem 'time_for_a_boolean',
-    git: 'https://github.com/calebthompson/time_for_a_boolean.git',
-    ref: '636a4c6'
+gem 'time_for_a_boolean'
 gem 'title'
 gem 'uglifier'
 
