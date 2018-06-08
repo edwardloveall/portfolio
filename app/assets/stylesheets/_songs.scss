@@ -45,6 +45,7 @@ div.player {
     background: $white url(asset-path('play.svg')) no-repeat center center;
     border: 2px solid $dark-gray;
     border-radius: 50%;
+    box-sizing: border-box;
     cursor: pointer;
     display: block;
     position: absolute;
@@ -56,7 +57,8 @@ div.player {
   }
 
   span.remaining {
-    @include position(absolute, $medium-font-size * 0.8 0 0 0px);
+    @include position(absolute, $medium-font-size * 0.7 0 0 0px);
+    box-sizing: border-box;
     font-family: $ui-font-family;
     font-feature-settings: 'tnum';
     font-size: $medium-font-size;
@@ -77,8 +79,11 @@ div.player {
   }
 
   div.song-title {
-    flex-basis: flex-grid(4);
-    margin-right: flex-gutter();
+    box-sizing: border-box;
+    flex-basis: $project-width;
+    flex-grow: 0;
+    flex-shrink: 0;
+    margin-right: $gutter;
     order: 1;
   }
 
@@ -88,7 +93,8 @@ div.player {
   }
 
   article.description {
-    flex-basis: flex-grid(8);
+    flex-basis: 0;
+    flex-grow: 1;
     order: 2;
   }
 }
