@@ -9,15 +9,21 @@
 .project-container {
   @include title-card;
 
+  align-items: center;
   border-left: 0;
   border-right: 0;
+  box-sizing: border-box;
   display: flex;
+  flex-basis: 100%;
   flex-direction: column;
-  justify-content: center;
+  flex-grow: 0;
   min-height: $featured-project-height;
 
-  div.img, img {
-    margin: auto;
+  div.img {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: center;
   }
 
   h3 {
@@ -46,8 +52,11 @@ section.project {
   .project-container {
     border-left: $border;
     border-right: $border;
-    flex: 0 0 flex-grid(4);
     margin-bottom: 0;
-    margin-right: flex-gutter();
+    margin-right: $gutter;
+
+    &:last-child {
+      margin-right: 0;
+    }
   }
 }

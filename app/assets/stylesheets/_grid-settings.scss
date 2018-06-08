@@ -1,10 +1,10 @@
 $column: 44px;
-$gutter: 25px;
+$gutter: 18px;
 $grid-columns: 4;
 $max-width: 800px;
 
 $desktop: (
   columns: 12,
-  gutter: $gutter,
+  gutter: modular-scale(-2, $gutter),
   media: $max-width
 );
