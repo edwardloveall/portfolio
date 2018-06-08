@@ -14,7 +14,7 @@ div.microblog-description {
     color: $accent-color;
   }
 
-  @include media($desktop) {
+  @include grid-media($desktop) {
     p {
       flex-basis: 40%;
       margin-bottom: $base-spacing;

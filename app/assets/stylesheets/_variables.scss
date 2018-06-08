@@ -16,8 +16,8 @@ $background-color-ui: $white;
 $border-color: $medium-light-gray;
 
 // Fonts
-$sans-serif: 'proxima-nova', $helvetica;
-$serif: 'garamond-premier-pro-caption', $georgia;
+$sans-serif: 'proxima-nova', $font-stack-helvetica;
+$serif: 'garamond-premier-pro-caption', $font-stack-georgia;
 
 $body-font-family: $serif;
 $header-font-family: $sans-serif;

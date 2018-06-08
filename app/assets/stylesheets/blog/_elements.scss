@@ -15,12 +15,12 @@ h2 a {
 }
 
 a {
-  @include transition(color .1s ease);
+  transition: color .1s ease;
   color: $accent-color;
   text-decoration: none;
 
   &:hover {
-    @include transition(color .3s ease);
+    transition: color .3s ease;
     color: $post-text-color;
   }
 }

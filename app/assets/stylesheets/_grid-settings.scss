@@ -3,4 +3,8 @@ $gutter: 25px;
 $grid-columns: 4;
 $max-width: 800px;
 
-$desktop: new-breakpoint(min-width $max-width 12);
+$desktop: (
+  columns: 12,
+  gutter: $gutter,
+  media: $max-width
+);

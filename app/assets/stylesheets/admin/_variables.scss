@@ -12,7 +12,7 @@ $ok-color: $emerald;
 $background-color: white;
 $border-color: mix($background-color, $accent-color, 80%);
 
-$sans-serif: 'proxima-nova', $helvetica;
+$sans-serif: 'proxima-nova', $font-stack-helvetica;
 $font-family-base: $sans-serif;
 $font-size-base: 16px;
 $font-size-small: $font-size-base * 0.8;

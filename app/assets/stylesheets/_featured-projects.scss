@@ -38,7 +38,7 @@ section.project {
   margin-bottom: $huge-spacing;
 }
 
-@include media($desktop) {
+@include grid-media($desktop) {
   .featured-projects {
     flex-direction: row;
   }

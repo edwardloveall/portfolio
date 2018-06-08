@@ -8,7 +8,7 @@ form {
 
   input,
   textarea {
-    @include box-sizing(border-box);
+    box-sizing: border-box;
   }
 
   div.field_with_errors {
@@ -70,7 +70,7 @@ form {
     }
 
     &:before {
-      @include box-sizing(border-box);
+      box-sizing: border-box;
       content: 'Select a file';
       display: inline-block;
       margin-left: 0;

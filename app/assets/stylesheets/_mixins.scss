@@ -22,3 +22,9 @@
   padding: $small-spacing 0;
   position: relative;
 }
+
+@mixin outer-container {
+  max-width: $max-width;
+  margin-left: auto;
+  margin-right: auto;
+}

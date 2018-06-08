@@ -27,7 +27,7 @@ section.project {
     text-align: left;
   }
 
-  @include media($desktop) {
+  @include grid-media($desktop) {
     align-items: flex-start;
     flex-direction: row;
 

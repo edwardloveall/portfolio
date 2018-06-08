@@ -5,12 +5,13 @@ $planet-size: 6px;
 $rotation-period: 10s;
 
 header, div.orbit {
-  @include transform-style(preserve-3d);
+  transform-style: preserve-3d;
 }
 
 header.main {
-  height: golden-ratio($logo-size, 1);
-  margin: $base-spacing * 2 auto golden-ratio($base-spacing, 1);
+  box-sizing: border-box;
+  height: modular-scale(1, $logo-size);
+  margin: $large-spacing auto modular-scale(1, $base-spacing);
   padding-top: $base-spacing * 1.1;
   position: relative;
   text-align: center;
@@ -25,12 +26,12 @@ header.main {
 }
 
 h1 {
-  @include transform-style(preserve-3d);
   background: transparent url(image-path('logo-text.svg')) no-repeat center;
   color: transparent;
   display: inline-block;
   font-size: 0;
   height: $logo-size;
+  transform-style: preserve-3d;
   width: $logo-size;
 }
 
@@ -59,14 +60,14 @@ div.orbit {
     (20, 8, 0.97, 30, 0.92) {
       &.orbit-#{$i} {
         $width: $diameter * $orbit-diameter;
+        $animation-delay: $rotation-period * -$delay;
 
-        @include animation(orbit-rotate $rotation-period linear infinite);
-        @include animation-delay($rotation-period * -$delay);
         @include position(absolute, ($height * 1.4% - 20%) 0 0 ((100 - $width) / 2));
+        animation: $rotation-period linear $animation-delay infinite orbit-rotate;
         width: $width;
 
         &:after {
-          @include animation-delay($rotation-period * -$delay);
+          animation-delay: $animation-delay;
           height: $size * 1px;
           width: $size * 1px;
         }
@@ -76,19 +77,19 @@ div.orbit {
 }
 
 div.orbit:after {
-  @include animation(planet-rotate $rotation-period linear infinite);
+  animation: $rotation-period linear infinite planet-rotate;
   background-color: $accent-color;
   border-radius: 50%;
   content: '';
   display: block;
 }
 
-@include keyframes(orbit-rotate) {
-  from { @include transform(rotateY(0deg)); }
-  to { @include transform(rotateY(360deg)); }
+@keyframes orbit-rotate {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(360deg); }
 }
 
-@include keyframes(planet-rotate) {
-  from { @include transform(rotateY(0deg)); }
-  to { @include transform(rotateY(-360deg)); }
+@keyframes planet-rotate {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(-360deg); }
 }
