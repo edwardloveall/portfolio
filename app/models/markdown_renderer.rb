@@ -1,7 +1,6 @@
-require 'redcarpet'
-require 'rouge'
-require 'rouge/plugins/redcarpet'
-require 'redcarpet/render_strip'
+require "redcarpet"
+require "rouge"
+require "redcarpet/render_strip"
 
 class Redcarpet::Render::StripDown
   def link(_, _, content)
@@ -15,7 +14,6 @@ class MarkdownRenderer
     fenced_code_blocks: true,
     tables: true
   }.freeze
-  RENDERER_OPTIONS = { with_toc_data: true }.freeze
 
   def self.to_html(markdown)
     new(markdown).to_html
@@ -26,11 +24,11 @@ class MarkdownRenderer
   end
 
   def initialize(markdown)
-    @markdown = markdown || ''
+    @markdown = markdown || ""
   end
 
   def to_html
-    renderer = SmartHtml.new(RENDERER_OPTIONS)
+    renderer = SmartHtml.new(with_toc_data: true)
     Redcarpet::Markdown.new(renderer, EXTENSIONS).render(@markdown)
   end
 
@@ -41,6 +39,24 @@ class MarkdownRenderer
 
   class SmartHtml < Redcarpet::Render::HTML
     include Redcarpet::Render::SmartyPants
-    include Rouge::Plugins::Redcarpet
+
+    def block_code(code, language)
+      lexer = Rouge::Lexer.find_fancy(language, code) ||
+        Rouge::Lexers::PlainText
+      formatter = Formatter.new(css_class: "highlight #{lexer.tag}")
+      formatter.format(lexer.lex(code))
+    end
+  end
+
+  class Formatter < Rouge::Formatter
+    def initialize(css_class: "highlight")
+      @css_class = css_class
+    end
+
+    def stream(tokens, &b)
+      yield %(<pre class="#{@css_class}"><code>)
+      Rouge::Formatters::HTML.new.stream(tokens, &b)
+      yield "</code></pre>"
+    end
   end
 end
