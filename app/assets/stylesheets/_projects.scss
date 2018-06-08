@@ -35,6 +35,12 @@ section.project {
       flex-flow: row wrap;
     }
 
+    .project-container {
+      flex-basis: $project-width;
+      flex-grow: 0;
+      flex-shrink: 0;
+    }
+
     .role,
     .website {
       flex: 1 1 10%;
