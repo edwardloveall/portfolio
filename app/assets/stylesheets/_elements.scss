@@ -18,7 +18,7 @@ a {
 h4 {
   font: $small-header-font;
   letter-spacing: $letter-spacing-header;
-  margin-bottom: golden-ratio($base-spacing, -1);
+  margin-bottom: modular-scale(-1, $base-spacing);
   text-transform: uppercase;
 }
 

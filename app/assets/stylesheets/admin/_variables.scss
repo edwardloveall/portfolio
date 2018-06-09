@@ -20,6 +20,6 @@ $font-size-small: $font-size-base * 0.8;
 $max-width: 700px;
 $column-width: $max-width / 12;
 $base-spacing: 1em;
-$small-spacing: golden-ratio(1em, -1);
-$large-spacing: golden-ratio(1em, 1);
+$small-spacing: modular-scale(-1, 1em);
+$large-spacing: modular-scale(1, 1em);
 $border-radius: 5px;

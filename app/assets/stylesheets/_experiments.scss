@@ -18,9 +18,9 @@ ul.experiments {
   margin-top: $base-spacing;
 
   li {
-    background-position: golden-ratio($base-spacing, -1) center;
+    background-position: modular-scale(-1, $base-spacing) center;
     background-repeat: no-repeat;
-    margin-bottom: golden-ratio($base-spacing, -1);
+    margin-bottom: modular-scale(-1, $base-spacing);
 
     &:hover {
       background-color: $light-gray;
@@ -40,10 +40,10 @@ ul.experiments {
 
     a {
       display: block;
-      padding: golden-ratio($base-spacing, -2)
+      padding: modular-scale(-2, $base-spacing)
                $base-spacing
-               golden-ratio($base-spacing, -2)
-               golden-ratio($base-spacing, 1);
+               modular-scale(-2, $base-spacing)
+               modular-scale(1, $base-spacing);
     }
   }
 }

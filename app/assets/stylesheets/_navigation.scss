@@ -2,7 +2,7 @@ nav.main {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-bottom: golden-ratio($base-spacing, 1);
+  margin-bottom: modular-scale(1, $base-spacing);
   text-align: center;
 
   a {
@@ -19,7 +19,7 @@ nav.main {
       background: url(image-path('chevron.svg')) no-repeat center;
       content: '';
       display: block;
-      margin-top: golden-ratio($base-spacing, 1);
+      margin-top: modular-scale(1, $base-spacing);
       width: 100%;
     }
   }

@@ -3,7 +3,7 @@ $portrait-width: 529px;
 .about {
   video.portrait {
     display: block;
-    margin: 0 auto golden-ratio($base-spacing, 1);
+    margin: 0 auto modular-scale(1, $base-spacing);
     max-width: 100%;
   }
 

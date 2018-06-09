@@ -1,5 +1,5 @@
 $post-font-size: $large-font-size;
-$meta-font-size: golden-ratio($post-font-size, -1);
+$meta-font-size: modular-scale(-1, $post-font-size);
 $post-text-color: $dark-gray;
 
 section.micropost {

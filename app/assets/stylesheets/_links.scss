@@ -1,5 +1,5 @@
 .links {
-  margin: golden-ratio($base-spacing, -1);
+  margin: modular-scale(-1, $base-spacing);
   text-align: center;
 
   h4 {

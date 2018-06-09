@@ -1,3 +1,8 @@
+// Bourbon
+$bourbon: (
+  "modular-scale-ratio": $golden,
+);
+
 // Colors
 $white: #fff;
 $light-blue-gray: #e8ebed;
@@ -54,7 +59,7 @@ $border-radius: 3px;
 $base-spacing: 24px;
 $large-spacing: $base-spacing * 2;
 $huge-spacing: $base-spacing * 4;
-$small-spacing: golden-ratio($base-spacing, -1);
+$small-spacing: modular-scale(-1, $base-spacing);
 $big-spacing: $base-spacing * 2.5;
 $line-height: 1.3;
 $header-line-height: 1.2;
