@@ -1,7 +1,6 @@
 require File.expand_path('../boot', __FILE__)
 require 'rails'
 require 'active_model/railtie'
-require 'active_job/railtie'
 require 'active_record/railtie'
 require 'action_controller/railtie'
 require 'action_mailer/railtie'
@@ -22,6 +21,5 @@ module Portfolio
       generate.view_specs false
     end
     config.action_controller.action_on_unpermitted_parameters = :raise
-    config.active_job.queue_adapter = :delayed_job
   end
 end
