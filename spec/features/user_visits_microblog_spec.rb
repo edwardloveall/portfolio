@@ -36,6 +36,6 @@ RSpec.feature 'User visits microblog' do
 
     click_on 'Older'
 
-    expect(page).to have_link('Newer', href: microblog_path(page: 1))
+    expect(page).to have_link('Newer', href: microblog_path)
   end
 end

@@ -14,7 +14,7 @@ RSpec.feature 'User visits posts' do
 
     visit root_url(subdomain: 'blog', page: 2)
 
-    expect(page).to have_link('Newer', href: root_path(page: 1))
+    expect(page).to have_link('Newer', href: root_path)
   end
 
   scenario 'and visits a specific post' do

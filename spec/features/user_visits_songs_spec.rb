@@ -20,11 +20,13 @@ RSpec.feature 'User visits songs' do
   end
 
   scenario 'user sees the song page' do
-    song = create(:song)
+    title = 'Music!'
+    description = 'A Song!'
+    song = create(:song, title: title, description: description)
 
     visit song_path(song)
 
-    expect(page).to have_content(song.title)
-    expect(page).to have_content(song.description)
+    expect(page).to have_css('.song-title', text: title)
+    expect(page).to have_css('.description', text: description)
   end
 end
