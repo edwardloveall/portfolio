@@ -3,6 +3,6 @@ class Api::MicropubsController < ApplicationController
 
   def create
     micropost = Micropost.create(body: params[:content])
-    head :created, location: micropost_path(micropost)
+    head :created, location: micropost_url(micropost)
   end
 end

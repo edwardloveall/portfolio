@@ -19,8 +19,7 @@ RSpec.describe "Creating an h-entry post" do
 
       expect(Micropost.count).to eq(micropost_count + 1)
       expect(response).to have_http_status(:created)
-      path_matcher = %r(#{microposts_path}/\d+)
-      expect(response.headers["Location"]).to match(path_matcher)
+      expect(response.headers["Location"]).to eq(micropost_url(Micropost.last))
     end
   end
 end
