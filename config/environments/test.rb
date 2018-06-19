@@ -17,4 +17,5 @@ Rails.application.configure do
   config.active_job.queue_adapter = :inline
   Paperclip::Attachment.default_options[:path] =
     "#{Rails.root}/spec/test_files/:class/:id_partition/:style.:extension"
+  config.active_storage.service = :test
 end
