@@ -8,7 +8,6 @@
 /coverage/*
 /db/*.sqlite3
 /log/*
-/public/system
 /public/assets
 /public/maintenance.html
 /tags
@@ -17,3 +16,4 @@
 *.taskpaper
 /vendor/bundle
 shared
+/storage/
