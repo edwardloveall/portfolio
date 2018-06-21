@@ -1,12 +1,10 @@
 class Project < ApplicationRecord
   LOGO_SIZE = 174
 
-  has_attached_file :logo, styles: { standard: '174x174' }
+  has_one_attached :logo
 
+  validate :correct_logo_content_type
   validates :description, presence: true
-  validates_attachment :logo,
-                       presence: true,
-                       content_type: { content_type: /png\Z/ }
   validates :role, presence: true
   validates :slug, presence: true, uniqueness: true
   validates :title, presence: true, uniqueness: true
@@ -27,5 +25,11 @@ class Project < ApplicationRecord
 
   def to_s
     title
+  end
+
+  def correct_logo_content_type
+    if logo.attached? && logo.content_type != "image/png"
+      errors.add(:logo, "must be 'image/png'")
+    end
   end
 end

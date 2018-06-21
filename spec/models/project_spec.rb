@@ -2,15 +2,26 @@ require 'rails_helper'
 
 RSpec.describe Project do
   describe 'validations' do
-    it { should validate_attachment_content_type(:logo).allowing('image/png') }
-    it { should validate_attachment_presence(:logo) }
     it { should validate_presence_of :description }
+    it { should have_attached_file(:logo) }
     it { should validate_presence_of :role }
     it { should validate_presence_of :slug }
     it { should validate_uniqueness_of :slug }
     it { should validate_presence_of :title }
     it { should validate_uniqueness_of :title }
     it { should validate_presence_of :website }
+
+    it "validates logo content-type" do
+      png_path = Rails.root.join('spec', 'fixtures', 'pull_feed_2x.png')
+      not_png_file_path = Rails.root.join('spec', 'fixtures', 'song.ogg')
+      png = fixture_file_upload(png_path, 'image/png')
+      not_png = fixture_file_upload(not_png_file_path, 'audio/ogg')
+      project_with_png = build(:project, logo: png)
+      project_with_fake_png = build(:project, logo: not_png)
+
+      expect(project_with_png).to be_valid
+      expect(project_with_fake_png).not_to be_valid
+    end
   end
 
   it { should have_attached_file :logo }
