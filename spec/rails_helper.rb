@@ -6,7 +6,6 @@ abort('DATABASE_URL environment variable is set') if ENV['DATABASE_URL']
 include ActionDispatch::TestProcess
 
 require 'rspec/rails'
-require 'paperclip/matchers'
 
 Dir[Rails.root.join('spec/support/**/*.rb')].sort.each { |file| require file }
 
@@ -20,7 +19,6 @@ RSpec.configure do |config|
     page.driver.block_unknown_urls
   end
   config.include Features, type: :feature
-  config.include Paperclip::Shoulda::Matchers
   config.include S3
   config.include ForgeryProtectionHelper, type: :request
   config.infer_base_class_for_anonymous_controllers = false
