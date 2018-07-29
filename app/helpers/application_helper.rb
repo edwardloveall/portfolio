@@ -9,9 +9,13 @@ module ApplicationHelper
   end
 
   def project_logo(project)
-    image_tag(project.logo.url(:standard),
-              srcset: "#{project.logo.url} 2x",
-              alt: "#{project.title} Project Logo")
+    logo = project.logo.variant(resize: "174x174")
+    logo_2x = project.logo.variant(resize: "348x348")
+    image_tag(
+      logo,
+      srcset: { polymorphic_url(logo_2x) => "2x" },
+      alt: "#{project.title} Project Logo"
+    )
   end
 
   def year

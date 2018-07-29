@@ -14,11 +14,13 @@ RSpec.describe ApplicationHelper do
   describe '#project_logo' do
     it 'returns an image tag with specific attributes' do
       project = create(:project)
+      logo_path = polymorphic_url(project.logo.variant(resize: "174x174"))
+      logo_path_2x = polymorphic_url(project.logo.variant(resize: "348x348"))
       img_html = helper.project_logo(project)
       img = Nokogiri::XML(img_html).children.first
 
-      expect(img[:src]).to eq(project.logo.url(:standard))
-      expect(img[:srcset]).to eq("#{project.logo.url} 2x")
+      expect(img[:src]).to eq(logo_path)
+      expect(img[:srcset]).to eq("#{logo_path_2x} 2x")
       expect(img[:alt]).to eq("#{project.title} Project Logo")
     end
   end
