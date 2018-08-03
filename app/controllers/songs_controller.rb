@@ -1,6 +1,9 @@
 class SongsController < ApplicationController
   def index
-    @songs = Song.by_position
+    @songs = Song.
+      includes(mp3_attachment: :blob).
+      includes(ogg_attachment: :blob).
+      by_position
   end
 
   def show
