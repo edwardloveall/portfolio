@@ -18,6 +18,11 @@ module ApplicationHelper
     )
   end
 
+  def song_tag(sources, **args)
+    sources = sources.map { |source| polymorphic_url(source) }
+    audio_tag(sources, args)
+  end
+
   def year
     Date.today.year
   end
