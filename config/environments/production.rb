@@ -21,5 +21,5 @@ Rails.application.configure do
   config.action_mailer.default_url_options = {
     host: ENV.fetch('APPLICATION_HOST')
   }
-  config.active_storage.service = :s3
+  config.active_storage.service = :local
 end
