@@ -40,7 +40,7 @@ group :development, :test do
 end
 
 group :test do
-  gem 'capybara-webkit'
+  gem 'capybara-selenium'
   gem 'database_cleaner'
   gem 'formulaic'
   gem 'launchy'

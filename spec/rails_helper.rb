@@ -1,5 +1,7 @@
 ENV['RAILS_ENV'] = 'test'
 
+require 'selenium/webdriver'
+
 require File.expand_path('../../config/environment', __FILE__)
 abort('DATABASE_URL environment variable is set') if ENV['DATABASE_URL']
 
@@ -15,8 +17,9 @@ module Features
 end
 
 RSpec.configure do |config|
-  config.before(:each, js: true) do
-    page.driver.block_unknown_urls
+  config.before(:each, type: :feature) do
+    default_url_options[:host] = 'http://lvh.me'
+    default_url_options[:port] = 8080
   end
   config.include Features, type: :feature
   config.include S3
@@ -31,4 +34,4 @@ RSpec.configure do |config|
 end
 
 ActiveRecord::Migration.maintain_test_schema!
-Capybara.javascript_driver = :webkit
+WebMock.disable_net_connect!(allow_localhost: true)
