@@ -39,7 +39,7 @@ RSpec.feature 'User visits homepage' do
     within('section.contact') do
       expect(page).to have_link('Blog', href: root_url(subdomain: 'blog'))
       expect(page).to have_link('Microblog', href: microblog_path)
-      expect(page).to have_link('Twitter', href: 'https://twitter.com/edwardloveall')
+      expect(page).to have_link('Mastodon', href: 'https://mastodon.technology/@edwardloveall')
       expect(page).to have_link('Email', href: email_href)
     end
   end
