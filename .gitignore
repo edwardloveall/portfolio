@@ -17,3 +17,4 @@
 /vendor/bundle
 shared
 /storage/
+/db_backups/
