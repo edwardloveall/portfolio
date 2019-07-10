@@ -64,7 +64,7 @@ CyclomaticComplexity:
 Delegate:
   Enabled: false
 
-DeprecatedHashMethods:
+PreferredHashMethods:
   Enabled: false
 
 Documentation:
@@ -151,7 +151,7 @@ NumericLiterals:
 OneLineConditional:
   Enabled: false
 
-OpMethod:
+BinaryOperatorParameterName:
   Enabled: false
 
 ParameterLists:
@@ -201,8 +201,11 @@ VariableInterpolation:
 TrailingCommaInArguments:
   EnforcedStyleForMultiline: no_comma
 
-TrailingCommaInLiteral:
-  EnforcedStyleForMultiline: no_comma
+TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: comma
+
+TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: comma
 
 TrivialAccessors:
   Enabled: false
@@ -240,9 +243,6 @@ ElseLayout:
   Enabled: false
 
 HandleExceptions:
-  Enabled: false
-
-InvalidCharacterLiteral:
   Enabled: false
 
 LiteralInCondition:
