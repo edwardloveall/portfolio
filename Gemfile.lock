@@ -248,8 +248,7 @@ GEM
       rspec-mocks (~> 3.8.0)
       rspec-support (~> 3.8.0)
     rspec-support (3.8.2)
-    rspec_junit_formatter (0.2.2)
-      builder (< 4)
+    rspec_junit_formatter (0.4.1)
       rspec-core (>= 2, < 4, != 2.12.0)
     rubyzip (1.2.3)
     safe_yaml (1.0.5)
@@ -351,7 +350,7 @@ DEPENDENCIES
   redcarpet
   rouge
   rspec-rails
-  rspec_junit_formatter (= 0.2.2)
+  rspec_junit_formatter (= 0.4.1)
   sass-rails
   shoulda-matchers
   simple_form

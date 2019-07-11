@@ -35,7 +35,7 @@ group :development, :test do
   gem 'i18n-tasks'
   gem 'pry-byebug'
   gem 'pry-rails'
-  gem 'rspec_junit_formatter', '0.2.2'
+  gem 'rspec_junit_formatter', '0.4.1'
   gem 'rspec-rails'
 end
 
