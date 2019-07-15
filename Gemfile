@@ -44,7 +44,7 @@ group :test do
   gem 'database_cleaner'
   gem 'formulaic'
   # TEMP: list hashdiff explicitly in Gemfile to force 1.0.0.beta1; remove once 1.0.0 is released
-  gem 'hashdiff', '1.0.0.beta1'
+  gem 'hashdiff', '1.0.0'
   gem 'launchy'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
