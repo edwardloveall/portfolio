@@ -116,7 +116,7 @@ GEM
       i18n
     globalid (0.4.2)
       activesupport (>= 4.2.0)
-    hashdiff (1.0.0.beta1)
+    hashdiff (1.0.0)
     high_voltage (3.1.2)
     highline (2.0.2)
     i18n (1.6.0)
@@ -328,7 +328,6 @@ DEPENDENCIES
   factory_bot_rails
   flutie
   formulaic
-  hashdiff (= 1.0.0.beta1)
   high_voltage
   i18n-tasks
   jbuilder
