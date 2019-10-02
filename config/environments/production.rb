@@ -18,6 +18,7 @@ Rails.application.configure do
   config.consider_all_requests_local = false
   config.eager_load = true
   config.hosts << ENV.fetch('APPLICATION_HOST')
+  config.hosts << ENV.fetch('BLOG_HOST')
   config.i18n.fallbacks = true
   config.log_formatter = ::Logger::Formatter.new
   config.log_level = :debug
