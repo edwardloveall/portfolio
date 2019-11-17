@@ -3,17 +3,17 @@ jobs:
   build:
     parallelism: 1
     docker:
-    - image: circleci/ruby:2.6.3-node
-      environment:
-        RAILS_ENV: test
-        RACK_ENV: test
-        PGHOST: localhost
-        PGUSER: portfolio
-    - image: circleci/postgres:10.6
-      environment:
-        POSTGRES_USER: portfolio
-        POSTGRES_DB: portfolio_test
-        POSTGRES_PASSWORD: ""
+      - image: circleci/ruby:2.6.3-node
+        environment:
+          RAILS_ENV: test
+          RACK_ENV: test
+          PGHOST: localhost
+          PGUSER: portfolio
+      - image: circleci/postgres:11.3
+        environment:
+          POSTGRES_USER: portfolio
+          POSTGRES_DB: portfolio_test
+          POSTGRES_PASSWORD: ""
 
     steps:
       - checkout
@@ -27,7 +27,7 @@ jobs:
       # Restore the dependency cache
       - restore_cache:
           keys:
-          - portfolio-gemfile-{{ checksum "Gemfile.lock" }}
+            - portfolio-gemfile-{{ checksum "Gemfile.lock" }}
 
       - run:
           name: Bundle Install
