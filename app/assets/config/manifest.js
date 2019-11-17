@@ -7,4 +7,3 @@
 //= link application.css
 //= link blog.css
 //= link microblog.css
-//= link_directory ../stylesheets .css
