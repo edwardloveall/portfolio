@@ -27,7 +27,11 @@ AsciiIdentifiers:
 Attr:
   Enabled: false
 
-BlockNesting:
+BlockLength:
+  exclude:
+    - spec/**/*_spec.rb
+
+  BlockNesting:
   Enabled: false
 
 CaseEquality:
@@ -193,7 +197,7 @@ SpecialGlobalVars:
   Enabled: false
 
 StringLiterals:
-  EnforcedStyle: single_quotes
+  EnforcedStyle: double_quotes
 
 VariableInterpolation:
   Enabled: false

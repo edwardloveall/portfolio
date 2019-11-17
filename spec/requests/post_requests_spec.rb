@@ -6,7 +6,7 @@ RSpec.describe 'Posts requests' do
 
     get feed_url
 
-    expect(response.content_type).to eq(Mime::Type.lookup_by_extension(:rss))
+    expect(response.media_type).to eq(Mime::Type.lookup_by_extension(:rss))
   end
 
   it 'has channel and meta attributes' do

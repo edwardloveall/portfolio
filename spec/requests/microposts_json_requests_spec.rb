@@ -7,7 +7,7 @@ RSpec.describe 'Micropost json requests' do
 
       get microposts_feed_url(format: :json)
 
-      expect(response.content_type).to eq(Mime::Type.lookup_by_extension(:json))
+      expect(response.media_type).to eq(Mime::Type.lookup_by_extension(:json))
     end
 
     it 'has meta attributes' do

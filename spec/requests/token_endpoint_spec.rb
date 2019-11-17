@@ -27,7 +27,7 @@ RSpec.describe "Requesting an initial token" do
           code: auth.code,
           me: me,
           redirect_uri: "#{auth.client_id}/callback",
-          client_id: auth.client_id
+          client_id: auth.client_id,
         }
         headers = { "Accept" => "application/json" }
 
@@ -36,7 +36,7 @@ RSpec.describe "Requesting an initial token" do
         end
         data = JSON.parse(response.body)
 
-        expect(response.content_type).to eq("application/json")
+        expect(response.media_type).to eq("application/json")
         expect(response).to have_http_status(:ok)
         expect(data["access_token"]).to be
         expect(data["scope"]).to be
@@ -53,7 +53,7 @@ RSpec.describe "Requesting an initial token" do
           code: auth.code,
           me: me,
           redirect_uri: "#{auth.client_id}/callback",
-          client_id: auth.client_id
+          client_id: auth.client_id,
         }
         headers = { "Accept" => "application/x-www-form-urlencoded" }
 
@@ -62,7 +62,7 @@ RSpec.describe "Requesting an initial token" do
         end
         data = Hash[URI.decode_www_form(response.body)]
 
-        expect(response.content_type).to eq("application/x-www-form-urlencoded")
+        expect(response.media_type).to eq("application/x-www-form-urlencoded")
         expect(response).to have_http_status(:ok)
         expect(data["access_token"]).to be
         expect(data["scope"]).to be
@@ -82,13 +82,13 @@ RSpec.describe "Verifying an existing token" do
         auth.generate_token!
         headers = {
           "Authorization" => "Bearer #{auth.token}",
-          "Accept" => "application/json"
+          "Accept" => "application/json",
         }
 
         get verify_tokens_path, headers: headers
         data = JSON.parse(response.body)
 
-        expect(response.content_type).to eq("application/json")
+        expect(response.media_type).to eq("application/json")
         expect(response).to have_http_status(:ok)
         expect(data["client_id"]).to be
         expect(data["scope"]).to eq(auth.scope)
@@ -104,13 +104,13 @@ RSpec.describe "Verifying an existing token" do
         auth.generate_token!
         headers = {
           "Authorization" => "Bearer #{auth.token}",
-          "Accept" => "application/x-www-form-urlencoded"
+          "Accept" => "application/x-www-form-urlencoded",
         }
 
         get verify_tokens_path, headers: headers
         data = Hash[URI.decode_www_form(response.body)]
 
-        expect(response.content_type).to eq("application/x-www-form-urlencoded")
+        expect(response.media_type).to eq("application/x-www-form-urlencoded")
         expect(response).to have_http_status(:ok)
         expect(data["client_id"]).to be
         expect(data["scope"]).to eq(auth.scope)
