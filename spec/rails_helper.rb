@@ -27,6 +27,7 @@ RSpec.configure do |config|
   config.infer_base_class_for_anonymous_controllers = false
   config.infer_spec_type_from_file_location!
   config.use_transactional_fixtures = false
+  config.include ActiveSupport::Testing::TimeHelpers
 
   config.after(:suite) do
     FileUtils.rm_rf(Dir["#{Rails.root}/spec/test_files/"])
