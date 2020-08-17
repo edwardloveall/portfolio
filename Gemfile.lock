@@ -185,7 +185,7 @@ GEM
     nio4r (2.5.2)
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
-    normalize-rails (4.1.1)
+    normalize-rails (8.0.1)
     oath (1.1.0)
       bcrypt
       rails
