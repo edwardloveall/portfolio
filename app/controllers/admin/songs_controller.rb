@@ -35,7 +35,7 @@ class Admin::SongsController < AdminController
     ids = params[:song]
     positions = (1..ids.count).map { |index| { position: index } }
     Song.update(ids, positions)
-    render nothing: true
+    head :accepted
   end
 
   def destroy

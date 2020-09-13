@@ -93,3 +93,17 @@ var Song = function(options) {
     return minutes + ':' + seconds;
   }
 }
+
+$(document).ready(function() {
+  var songs = document.querySelectorAll('section.song');
+  
+  for (var i = 0; i < songs.length; i++) {
+    new Song({
+      audio: songs[i].querySelector('audio'),
+      button: songs[i].querySelector('.button'),
+      track: songs[i].querySelector('.track'),
+      progress: songs[i].querySelector('.progress'),
+      remaining: songs[i].querySelector('.remaining'),
+    });
+  }
+})

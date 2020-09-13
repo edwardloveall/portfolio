@@ -35,7 +35,7 @@ class Admin::ProjectsController < AdminController
     ids = params[:project]
     positions = (1..ids.count).map { |index| { position: index } }
     Project.update(ids, positions)
-    render nothing: true
+    head :accepted
   end
 
   def destroy

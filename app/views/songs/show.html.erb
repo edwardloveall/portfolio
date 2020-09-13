@@ -1,13 +1,1 @@
 <%= render @song %>
-
-<%= content_for(:javascript) do %>
-  <script type="text/javascript">
-    var song = new Song({
-      audio: document.querySelector('div.song audio'),
-      button: document.querySelector('div.song .button'),
-      track: document.querySelector('div.song .track'),
-      progress: document.querySelector('div.song .progress'),
-      remaining: document.querySelector('div.song .remaining')
-    })
-  </script>
-<% end %>

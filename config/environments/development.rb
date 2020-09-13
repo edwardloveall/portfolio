@@ -21,4 +21,6 @@ Rails.application.configure do
     Bullet.enable = true
     Bullet.rails_logger = true
   end
+  config.hosts << 'dev.local'
+  config.hosts << 'blog.dev.local'
 end

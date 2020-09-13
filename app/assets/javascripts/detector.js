@@ -1,3 +1,5 @@
+import * as bowser from "javascripts/bowser";
+
 $(document).ready(function() {
   $('body').addClass(browserInitials()).
             addClass(browserMajorVersion());
