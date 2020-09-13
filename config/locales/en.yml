@@ -24,10 +24,6 @@ en:
     submit:
       authorization:
         create: Authorize
-      micropost:
-        create: Post
-        update: Edit
-        delete: Delete
       project:
         create: Create Project
         update: Update Project
@@ -63,6 +59,3 @@ en:
         index: Songs
         new: New song
         edit: Edit %{song}
-    microposts:
-      feed: Edward Loveall's Microblog
-      author: Edward Loveall

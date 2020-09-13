@@ -6,4 +6,3 @@
 //= link admin/admin.css
 //= link application.css
 //= link blog.css
-//= link microblog.css

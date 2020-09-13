@@ -15,6 +15,6 @@
 /spec/test_files
 *.taskpaper
 /vendor/bundle
-shared
+/shared
 /storage/
 /db_backups/

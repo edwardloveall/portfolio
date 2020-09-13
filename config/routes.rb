@@ -15,18 +15,6 @@ Rails.application.routes.draw do
   resources :tokens, only: [:create] do
     get :verify, on: :collection, path: ""
   end
-  namespace :api do
-    resources :micropubs, only: [:create]
-  end
-  scope :microblog do
-    root to: 'microposts#index', as: :microblog
-    resources :microposts, only: [:index, :show]
-    get '/feed',
-        to: 'microposts#feed',
-        as: :microposts_feed,
-        defaults: { format: :rss }
-    get '/posts/:ms_epoch', to: 'microposts#show', as: :micropost_ms_epoch
-  end
 
   namespace :admin do
     root to: 'projects#index', as: :root
@@ -42,7 +30,6 @@ Rails.application.routes.draw do
       end
     end
     resources :posts, except: [:show]
-    resources :microposts, except: [:index, :show]
   end
 
   get '/about' => 'high_voltage/pages#show', id: 'about'
