@@ -27,6 +27,7 @@ gem 'simple_form'
 gem 'time_for_a_boolean'
 gem 'title'
 gem 'uglifier'
+gem 'webpacker', '~> 5.x'
 
 group :development, :test do
   gem 'awesome_print'
