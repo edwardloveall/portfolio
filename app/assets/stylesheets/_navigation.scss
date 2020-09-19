@@ -16,7 +16,7 @@ nav.main {
 
     a.active:after {
       @include size(27px, 10px);
-      background: url(image-path('chevron.svg')) no-repeat center;
+      background: url("~images/chevron.svg") no-repeat center;
       content: '';
       display: block;
       margin-top: modular-scale(1, $base-spacing);

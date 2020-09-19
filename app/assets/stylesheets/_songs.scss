@@ -42,7 +42,7 @@ div.player {
   a.button {
     @include size($song-height);
 
-    background: $white url(asset-path('play.svg')) no-repeat center center;
+    background: $white url('~images/play.svg') no-repeat center center;
     border: 2px solid $dark-gray;
     border-radius: 50%;
     box-sizing: border-box;
@@ -53,7 +53,7 @@ div.player {
   }
 
   a.button.playing {
-    background-image: url(asset-path('pause.svg'));
+    background-image: url('~images/pause.svg');
   }
 
   span.remaining {

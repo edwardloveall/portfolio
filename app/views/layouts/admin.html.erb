@@ -9,7 +9,7 @@
   <script>try{Typekit.load({ async: true });}catch(e){}</script>
   <title><%= title %></title>
   <%= favicon_link_tag('favicon.png') %>
-  <%= stylesheet_link_tag 'admin/admin', media: 'all' %>
+  <%= stylesheet_pack_tag 'admin/admin' %>
   <%= javascript_pack_tag :admin %>
   <%= csrf_meta_tags %>
 </head>

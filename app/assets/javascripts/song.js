@@ -94,7 +94,7 @@ var Song = function(options) {
   }
 }
 
-$(document).ready(function() {
+$(function() {
   var songs = document.querySelectorAll('section.song');
   
   for (var i = 0; i < songs.length; i++) {

@@ -2,7 +2,7 @@
 
 @import 'reset';
 @import 'bourbon';
-@import 'neat';
+@import '~bourbon-neat/core/neat';
 @import 'grid-settings';
 @import 'variables';
 @import 'mixins';

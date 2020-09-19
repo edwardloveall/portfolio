@@ -27,12 +27,12 @@ section.hotline-webring {
   }
 
   a.previous {
-    background-image: url(asset-path('hlwr-prev.svg'));
+    background-image: url('~images/hlwr-prev.svg');
     background-position: center left;
   }
 
   a.next {
-    background-image: url(asset-path('hlwr-next.svg'));
+    background-image: url('~images/hlwr-next.svg');
     background-position: center right;
   }
 }

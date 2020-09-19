@@ -31,11 +31,11 @@ ul.experiments {
     }
 
     &.file {
-      background-image: url(asset-path('file.svg'));
+      background-image: url('~images/file.svg');
     }
 
     &.directory {
-      background-image: url(asset-path('directory.svg'));
+      background-image: url('~images/directory.svg');
     }
 
     a {
