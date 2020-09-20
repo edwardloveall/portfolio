@@ -33,6 +33,10 @@ jobs:
           name: Bundle Install
           command: bundle install --deployment --jobs=4 --retry=3
 
+      - run:
+          name: Run yarn
+          command: yarn
+
       # Save dependency cache
       - save_cache:
           key: portfolio-gemfile-{{ checksum "Gemfile.lock" }}
