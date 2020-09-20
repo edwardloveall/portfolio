@@ -8,6 +8,7 @@ cd /var/www/portfolio
 git checkout main
 git pull origin main
 bundle
+yarn
 bundle exec rake db:migrate
 bundle exec rake assets:precompile
 bundle exec pumactl restart
