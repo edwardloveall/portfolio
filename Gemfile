@@ -18,11 +18,9 @@ gem 'puma'
 gem 'rails', '~> 6.0'
 gem 'redcarpet'
 gem 'rouge'
-gem 'sass-rails'
 gem 'simple_form'
 gem 'time_for_a_boolean'
 gem 'title'
-gem 'uglifier'
 gem 'webpacker', '~> 5.x'
 
 group :development, :test do
