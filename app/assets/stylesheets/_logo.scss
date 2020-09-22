@@ -1,33 +1,32 @@
-$buffer: 19%;
-$diameter: 100% + ($buffer * 2);
-$logo-size: 160px;
+$logo-height: 160px;
+$logo-width: 200px;
 $planet-size: 6px;
 $rotation-period: 10s;
 /* prettier-ignore */
-$orbit-values: (1, 4, 0.68, 56, 0.99),
-(2, 8, 0.03, 77, 0.84),
-(3, 12, 0.23, 48, 1),
-(4, 5, 0.36, 43, 0.99),
-(5, 6, 0.72, 27, 0.89),
-(6, 12, 0.17, 24, 0.86),
-(7, 5, 0.56, 14, 0.69),
-(8, 6, 0.5, 4, 0.39),
-(9, 12, 0.34, 20, 0.8),
-(10, 9, 0.82, 40, 0.98),
-(11, 6, 0.22, 83, 0.75),
-(12, 12, 0.01, 87, 0.67),
-(13, 6, 0.8, 17, 0.76),
-(14, 10, 0.34, 92, 0.53),
-(15, 8, 0.06, 85, 0.71),
-(16, 8, 0.5, 14, 0.7),
-(17, 11, 0.96, 79, 0.82),
-(18, 7, 0.08, 11, 0.63),
-(19, 5, 0.32, 65, 0.96),
-(20, 8, 0.97, 30, 0.92);
+$orbit-values: (1, 4, 0.68, 58.4%, 105.2%),
+(2, 8, 0.03, 87.8%, 89.3%),
+(3, 12, 0.23, 47.2%, 106.3%),
+(4, 5, 0.36, 40.2%, 105.2%),
+(5, 6, 0.72, 17.8%, 94.6%),
+(6, 12, 0.17, 13.6%, 91.4%),
+(7, 5, 0.56, -0.4%, 73.3%),
+(8, 6, 0.5, -14.4%, 41.4%),
+(9, 12, 0.34, 8%, 85%),
+(10, 9, 0.82, 36%, 104.1%),
+(11, 6, 0.22, 96.2%, 79.7%),
+(12, 12, 0.01, 101.8%, 71.2%),
+(13, 6, 0.8, 3.8%, 80.8%),
+(14, 10, 0.34, 108.8%, 56.3%),
+(15, 8, 0.06, 99%, 75.4%),
+(16, 8, 0.5, -0.4%, 74.4%),
+(17, 11, 0.96, 90.6%, 87.1%),
+(18, 7, 0.08, -4.6%, 66.9%),
+(19, 5, 0.32, 71%, 102%),
+(20, 8, 0.97, 22%, 97.8%);
 
 header.main {
   box-sizing: border-box;
-  height: modular-scale(1, $logo-size);
+  height: modular-scale(1, $logo-height);
   margin: $large-spacing auto modular-scale(1, $base-spacing);
   padding-top: $base-spacing * 1.1;
   position: relative;
@@ -47,9 +46,9 @@ h1 {
   color: transparent;
   display: inline-block;
   font-size: 0;
-  height: $logo-size;
+  height: $logo-height;
   position: relative;
-  width: $logo-size;
+  width: $logo-width;
 }
 
 div.orbit {
@@ -57,18 +56,15 @@ div.orbit {
   transform: translateX(0%);
   z-index: 0;
 
-  @each $i, $size, $delay, $height, $orbit-diameter in $orbit-values {
+  @each $i, $size, $delay, $top-offset, $orbit-diameter in $orbit-values {
     &.orbit-#{$i} {
-      $width: $diameter * $orbit-diameter;
       $delay: $rotation-period * -$delay;
 
-      @include position(
-        absolute,
-        ($height * 1.4% - 20%) 0 0 ((100 - $width) / 2)
-      );
       animation: $rotation-period ease-in-out $delay infinite orbitPosition,
         $rotation-period step-end $delay infinite orbitDepth;
-      width: $width;
+      position: absolute;
+      top: $top-offset;
+      width: $orbit-diameter;
 
       &:after {
         height: $size * 1px;
