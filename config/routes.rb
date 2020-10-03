@@ -9,8 +9,6 @@ Rails.application.routes.draw do
   root to: 'projects#index'
   resources :projects, only: [:index, :show]
   resources :music, controller: :songs, only: [:index, :show], as: :songs
-  get 'experiments', to: 'experiments#index'
-  get 'experiments/*path', to: 'experiments#show'
   resources :authorizations, only: [:new, :create], path: "auth"
   resources :tokens, only: [:create] do
     get :verify, on: :collection, path: ""

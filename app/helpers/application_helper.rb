@@ -4,10 +4,6 @@ module ApplicationHelper
     rendered.html_safe
   end
 
-  def link_to_s3_file(file)
-    link_to(file.title, "#{S3::AWS_BASE_URL}/#{file.key}")
-  end
-
   def project_logo(project)
     logo = project.logo.variant(resize: "174x174")
     logo_2x = project.logo.variant(resize: "348x348")

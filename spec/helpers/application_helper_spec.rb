@@ -35,17 +35,6 @@ RSpec.describe ApplicationHelper do
     end
   end
 
-  describe '#link_to_s3_file' do
-    it 'returns a link based on the aws url and file key and file title' do
-      file = S3File.new(key: 'path/to/file.rb')
-      html = '<a href="http://el-experiments.s3.amazonaws.com/path/to/file.rb">file.rb</a>'
-
-      link = helper.link_to_s3_file(file)
-
-      expect(link).to eq(html)
-    end
-  end
-
   describe '#pretty_url' do
     it 'removes the scheme from the URL' do
       url = 'http://example.com/page.html'

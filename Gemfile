@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 ruby '2.6.5'
 
 gem 'autoprefixer-rails'
-gem 'aws-sdk-s3'
 gem 'bullet'
 gem 'dotenv-rails'
 gem 'flutie'
