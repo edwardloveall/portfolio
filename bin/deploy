@@ -11,5 +11,5 @@ bundle
 yarn
 bundle exec rake db:migrate
 bundle exec rake assets:precompile
-bundle exec pumactl restart
+sudo service portfolio restart
 sudo service nginx restart
