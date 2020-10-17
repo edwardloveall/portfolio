@@ -8,6 +8,7 @@
 /coverage/*
 /db/*.sqlite3
 /log/*
+.nova/
 /public/assets
 /public/maintenance.html
 /tags
