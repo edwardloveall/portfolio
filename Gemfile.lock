@@ -64,7 +64,7 @@ GEM
     awesome_print (1.8.0)
     bcrypt (3.1.12)
     builder (3.2.4)
-    bullet (6.1.0)
+    bullet (6.1.2)
       activesupport (>= 3.0.0)
       uniform_notifier (~> 1.11)
     bundler-audit (0.7.0.1)
@@ -267,7 +267,7 @@ GEM
     title (0.0.8)
       i18n
       rails (>= 3.1)
-    tzinfo (1.2.7)
+    tzinfo (1.2.8)
       thread_safe (~> 0.1)
     unicode-display_width (1.6.1)
     uniform_notifier (1.13.0)
@@ -287,7 +287,7 @@ GEM
     websocket-extensions (0.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.4.0)
+    zeitwerk (2.4.2)
 
 PLATFORMS
   ruby
