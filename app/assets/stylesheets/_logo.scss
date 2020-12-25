@@ -59,11 +59,13 @@ div.orbit {
   @each $i, $size, $delay, $top-offset, $orbit-diameter in $orbit-values {
     &.orbit-#{$i} {
       $delay: $rotation-period * -$delay;
+      $orbit-diameter-px: $logo-width * ($orbit-diameter / 100%);
 
       animation: $rotation-period ease-in-out $delay infinite orbitPosition,
         $rotation-period step-end $delay infinite orbitDepth;
       position: absolute;
       top: $top-offset;
+      left: ($logo-width - $orbit-diameter-px) / 2;
       width: $orbit-diameter;
 
       &:after {
