@@ -5,11 +5,11 @@ FactoryBot.define do
     title { 'My Song' }
     mp3 do
       file_path = Rails.root.join('spec', 'fixtures', 'song.mp3')
-      fixture_file_upload(file_path, 'audio/mpeg')
+      Rack::Test::UploadedFile.new(file_path, 'audio/mpeg')
     end
     ogg do
       file_path = Rails.root.join('spec', 'fixtures', 'song.ogg')
-      fixture_file_upload(file_path, 'audio/ogg')
+      Rack::Test::UploadedFile.new(file_path, 'audio/ogg')
     end
     description do
       <<-DESC.strip_heredoc
