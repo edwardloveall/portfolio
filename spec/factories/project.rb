@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :project do
     logo do
       file_path = Rails.root.join('spec', 'fixtures', 'pull_feed_2x.png')
-      fixture_file_upload(file_path, 'image/png')
+      Rack::Test::UploadedFile.new(file_path, 'image/png')
     end
     sequence(:title) { |n| "Project #{n}" }
     sequence(:slug) { |n| "project-#{n}" }
