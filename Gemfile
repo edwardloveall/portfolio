@@ -20,7 +20,7 @@ gem 'rouge'
 gem 'simple_form'
 gem 'time_for_a_boolean'
 gem 'title'
-gem 'webpacker', '~> 5.x'
+gem 'webpacker', '~> 6.pre'
 
 group :development, :test do
   gem 'awesome_print'
