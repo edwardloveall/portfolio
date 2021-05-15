@@ -1,5 +1,15 @@
+<% if ENV["ANALYTICS_KEY"].present? %>
 <script
-  src="https://app.kindmetrics.io/js/kind.js"
-  defer="true"
-  data-domain="edwardloveall.com">
+  async
+  src="https://cdn.panelbear.com/analytics.js?site=<%= ENV["ANALYTICS_KEY"] %>">
 </script>
+<script>
+    window.panelbear = window.panelbear || function() {
+      (window.panelbear.q = window.panelbear.q || []).push(arguments);
+    };
+    panelbear(
+      'config',
+      { site: '<%= ENV["ANALYTICS_KEY"] %>', honorDNT: true }
+    );
+</script>
+<% end %>
