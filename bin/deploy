@@ -3,6 +3,7 @@
 set -e
 
 export RAILS_ENV=production
+export BLOG_HOST=blog.edwardloveall.com
 
 cd /var/www/portfolio
 git checkout main
