@@ -1,10 +1,8 @@
 en:
   date:
     formats:
-      default:
-        "%m/%d/%Y"
-      with_weekday:
-        "%a %m/%d/%y"
+      default: "%m/%d/%Y"
+      with_weekday: "%a %m/%d/%y"
   flashes:
     project:
       create:
@@ -39,15 +37,15 @@ en:
 
   time:
     formats:
-      default:
-        "%a, %b %-d, %Y at %r"
-      date:
-        "%b %-d, %Y"
-      short:
-        "%B %d"
+      default: "%a, %b %-d, %Y at %r"
+      date: "%b %-d, %Y"
+      short: "%B %d"
 
   titles:
     application: Edward Loveall
+    posts:
+      index: Edward Loveall
+      show: "%{title} - Edward Loveall"
     admin:
       sessions:
         new: Sign in
