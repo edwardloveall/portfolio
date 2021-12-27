@@ -7,7 +7,27 @@ AllCops:
     - Gemfile.lock
   NewCops: enable
 
+Metrics/BlockLength:
+  Exclude:
+    - "config/environments/**/*"
+    - "spec/classes/**/*"
+    - "spec/factories/**/*"
+    - "spec/features/**/*"
+    - "spec/helpers/**/*"
+    - "spec/models/**/*"
+    - "spec/requests/**/*"
+    - "spec/routing/**/*"
+
+Style/Documentation:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: false
+
 Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/NegatedIf:
   Enabled: false
 
 Style/StringLiterals:

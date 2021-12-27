@@ -6,7 +6,7 @@ RSpec.describe Authorization do
   end
 
   it "generates code and code expiration on creation" do
-    auth = Authorization.create(client_id: "donkeyrentals.com")
+    auth = create(:authorization, code: nil, code_expires_at: nil)
 
     expect(auth.code).to be
     expect(auth.code_expires_at).to be

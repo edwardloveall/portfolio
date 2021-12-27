@@ -1,8 +1,6 @@
-# frozen_string_literal: true
-
 source "https://rubygems.org"
 
-ruby "2.6.5"
+ruby "3.0.3"
 
 gem "autoprefixer-rails"
 gem "bullet"
@@ -16,10 +14,11 @@ gem "normalize-rails"
 gem "oath"
 gem "pg"
 gem "puma"
-gem "rails", "~> 6.1"
+gem "rails", "~> 7.0"
 gem "redcarpet"
 gem "rouge"
 gem "simple_form"
+gem "sprockets-rails"
 gem "time_for_a_boolean"
 gem "title"
 gem "webpacker", "~> 5"

@@ -1,26 +1,22 @@
-require File.expand_path('../boot', __FILE__)
-require 'rails'
-require 'active_model/railtie'
-require 'active_record/railtie'
-require 'action_controller/railtie'
-require 'action_mailer/railtie'
-require 'active_storage/engine'
-require 'action_view/railtie'
-require 'sprockets/railtie'
+require_relative "boot"
+
+require "rails"
+require "active_model/railtie"
+require "active_job/railtie"
+require "active_record/railtie"
+require "active_storage/engine"
+require "action_controller/railtie"
+require "action_mailer/railtie"
+require "action_mailbox/engine"
+require "action_text/engine"
+require "action_view/railtie"
+require "rails/test_unit/railtie"
+
 Bundler.require(*Rails.groups)
+
 module Portfolio
   class Application < Rails::Application
-    config.i18n.enforce_available_locales = true
-    config.quiet_assets = true
-    config.generators do |generate|
-      generate.helper false
-      generate.javascript_engine false
-      generate.request_specs false
-      generate.routing_specs false
-      generate.stylesheets false
-      generate.test_framework :rspec
-      generate.view_specs false
-    end
-    config.action_controller.action_on_unpermitted_parameters = :raise
+    config.load_defaults 6.0
+    config.active_storage.variant_processor = :mini_magick
   end
 end

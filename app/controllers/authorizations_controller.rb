@@ -14,7 +14,7 @@ class AuthorizationsController < AuthenticatedController
         code: auth.code
       )
 
-      redirect_to "#{callback}?#{callback_params}"
+      redirect_to "#{callback}?#{callback_params}", allow_other_host: true
     end
   end
 
