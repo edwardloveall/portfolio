@@ -125,7 +125,7 @@ GEM
     highline (2.0.3)
     i18n (1.8.11)
       concurrent-ruby (~> 1.0)
-    i18n-tasks (0.9.35)
+    i18n-tasks (0.9.37)
       activesupport (>= 4.0.2)
       ast (>= 2.1.0)
       erubi
@@ -154,7 +154,7 @@ GEM
     kaminari-core (1.2.1)
     launchy (2.5.0)
       addressable (~> 2.7)
-    loofah (2.12.0)
+    loofah (2.13.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
@@ -164,7 +164,7 @@ GEM
     mini_magick (4.11.0)
     mini_mime (1.1.0)
     mini_portile2 (2.6.1)
-    minitest (5.14.4)
+    minitest (5.15.0)
     nio4r (2.5.8)
     nokogiri (1.12.5)
       mini_portile2 (~> 2.6.1)
@@ -174,7 +174,7 @@ GEM
       bcrypt
       rails
       warden
-    parser (3.0.2.0)
+    parser (3.0.3.2)
       ast (~> 2.4.1)
     pg (1.2.3)
     pry (0.13.0)
@@ -214,9 +214,9 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.4.2)
       loofah (~> 2.3)
-    rails-i18n (6.0.0)
+    rails-i18n (7.0.1)
       i18n (>= 0.7, < 2)
-      railties (>= 6.0.0, < 7)
+      railties (>= 6.0.0, < 8)
     railties (6.1.4.1)
       actionpack (= 6.1.4.1)
       activesupport (= 6.1.4.1)
