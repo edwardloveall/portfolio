@@ -169,6 +169,8 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.12.5-x86_64-darwin)
       racc (~> 1.4)
+    nokogiri (1.12.5-x86_64-linux)
+      racc (~> 1.4)
     normalize-rails (8.0.1)
     oath (1.1.0)
       bcrypt
@@ -321,6 +323,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-20
+  x86_64-linux
 
 DEPENDENCIES
   autoprefixer-rails
