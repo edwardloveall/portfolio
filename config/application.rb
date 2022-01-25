@@ -16,7 +16,7 @@ Bundler.require(*Rails.groups)
 
 module Portfolio
   class Application < Rails::Application
-    config.load_defaults 6.0
+    config.load_defaults 7.0
     config.active_storage.variant_processor = :mini_magick
   end
 end
