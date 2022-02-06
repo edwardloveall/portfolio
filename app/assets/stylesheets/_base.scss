@@ -9,7 +9,7 @@ main {
   flex: 1;
   width: 100%;
 
-  @include grid-media($desktop) {
+  @media screen and (min-width: $max-width) {
     width: $max-width;
   }
 }

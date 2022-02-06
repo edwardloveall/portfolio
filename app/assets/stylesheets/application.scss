@@ -1,23 +1,22 @@
 @charset "utf-8";
 
-@import 'reset';
-@import 'bourbon';
-@import '~bourbon-neat/core/neat';
-@import 'grid-settings';
-@import 'variables';
-@import 'mixins';
+@use "sass:math";
 
-@import 'base';
-@import 'elements';
-@import 'logo';
-@import 'navigation';
-@import 'featured-projects';
-@import 'projects';
-@import 'songs';
-@import 'copy';
-@import 'links';
-@import 'hotline_webring';
-@import 'about';
-@import 'footer';
+@import "reset";
+@import "variables";
+@import "mixins";
 
-@import 'ie';
+@import "base";
+@import "elements";
+@import "logo";
+@import "navigation";
+@import "featured-projects";
+@import "projects";
+@import "songs";
+@import "copy";
+@import "links";
+@import "hotline_webring";
+@import "about";
+@import "footer";
+
+@import "ie";

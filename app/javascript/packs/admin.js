@@ -7,5 +7,4 @@ require("@rails/activestorage").start();
 import "javascripts/draggable";
 
 // stylesheets
-import "bourbon";
 import "stylesheets/admin/admin";

@@ -27,7 +27,7 @@ section.project {
     text-align: left;
   }
 
-  @include grid-media($desktop) {
+  @media screen and (min-width: $max-width) {
     align-items: flex-start;
     flex-direction: row;
 

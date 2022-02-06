@@ -20,15 +20,15 @@ div.player {
   padding: $song-padding;
 
   div.scrubber {
-    padding-left: $song-height / 2;
+    padding-left: math.div($song-height, 2);
     position: relative;
   }
 
   div.track,
   div.progress {
     height: $song-height;
-    border-bottom-right-radius: $song-height / 2;
-    border-top-right-radius: $song-height / 2;
+    border-bottom-right-radius: math.div($song-height, 2);
+    border-top-right-radius: math.div($song-height, 2);
   }
 
   div.track {
@@ -40,38 +40,42 @@ div.player {
   }
 
   a.button {
-    @include size($song-height);
-
-    background: $white url('~images/play.svg') no-repeat center center;
+    background: $white url("~images/play.svg") no-repeat center center;
     border: 2px solid $dark-gray;
     border-radius: 50%;
     box-sizing: border-box;
     cursor: pointer;
     display: block;
+    height: $song-height;
     position: absolute;
+    width: $song-height;
     z-index: 1;
   }
 
   a.button.playing {
-    background-image: url('~images/pause.svg');
+    background-image: url("~images/pause.svg");
   }
 
   span.remaining {
-    @include position(absolute, $medium-font-size * 0.7 0 0 0px);
+    bottom: 0;
     box-sizing: border-box;
     font-family: $ui-font-family;
-    font-feature-settings: 'tnum';
+    font-feature-settings: "tnum";
     font-size: $medium-font-size;
     font-style: normal;
+    left: 0px;
     padding-right: $medium-font-size * 0.8;
     pointer-events: none;
+    position: absolute;
+    right: 0;
     text-align: right;
+    top: $medium-font-size * 0.7;
     width: 100%;
     z-index: 1;
   }
 }
 
-@include grid-media($desktop) {
+@media screen and (min-width: $max-width) {
   section.song {
     align-items: flex-start;
     flex-direction: row;

@@ -1,5 +1,5 @@
 .links {
-  margin: modular-scale(-1, $base-spacing);
+  margin: math.div($base-spacing, $modular-scale-1);
   text-align: center;
 
   h4 {

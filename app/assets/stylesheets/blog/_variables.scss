@@ -8,8 +8,9 @@ $light-gray: mix($blue, #ededed, $bias);
 $post-text-color: $dark-gray;
 
 // Fonts
+$font-stack-monaco: "Monaco", "Consolas", "Lucida Console", monospace;
 $post-font-family: $serif;
-$mono: 'source-code-pro', $font-stack-monaco;
+$mono: "source-code-pro", $font-stack-monaco;
 
 // Fonts Sizes
 $small-font-size: 14px;

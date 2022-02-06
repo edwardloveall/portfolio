@@ -1,13 +1,15 @@
 @charset "utf-8";
 
-@import '../reset';
-@import 'normalize.css';
-@import 'bourbon';
-@import 'variables';
+@use "sass:math";
 
-@import 'base';
-@import 'nav';
-@import 'forms';
-@import 'actions';
-@import 'draggable';
-@import 'resource-list';
+@import "../reset";
+@import "normalize.css";
+@import "../variables";
+@import "variables";
+
+@import "base";
+@import "nav";
+@import "forms";
+@import "actions";
+@import "draggable";
+@import "resource-list";

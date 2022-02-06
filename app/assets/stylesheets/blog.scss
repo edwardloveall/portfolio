@@ -1,19 +1,18 @@
 @charset "utf-8";
 
-@import 'reset';
-@import 'bourbon';
-@import '~bourbon-neat/core/neat';
-@import 'grid-settings';
-@import 'variables';
-@import 'blog/variables';
-@import 'mixins';
+@use "sass:math";
 
-@import 'base';
-@import 'logo';
-@import 'pagination';
-@import 'footer';
+@import "reset";
+@import "variables";
+@import "blog/variables";
+@import "mixins";
 
-@import 'blog/base';
-@import 'blog/elements';
-@import 'blog/posts';
-@import 'blog/tomorrow-theme';
+@import "base";
+@import "logo";
+@import "pagination";
+@import "footer";
+
+@import "blog/base";
+@import "blog/elements";
+@import "blog/posts";
+@import "blog/tomorrow-theme";

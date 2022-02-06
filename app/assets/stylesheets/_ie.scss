@@ -1,6 +1,6 @@
 body.ie {
   header {
-    background: url('~images/logo.gif') no-repeat center;
+    background: url("~images/logo.gif") no-repeat center;
   }
 
   header h1 {
@@ -12,7 +12,8 @@ body.ie.v11,
 body.ie.v10 {
   height: 1vh;
 
-  main, header {
+  main,
+  header {
     flex: 1 0 auto;
   }
 
@@ -22,8 +23,12 @@ body.ie.v10 {
   }
 
   img {
-    @include position(absolute, 0 0 0 0);
+    bottom: 0;
+    left: 0;
     margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
   }
 
   section.project .info {

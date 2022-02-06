@@ -12,14 +12,15 @@ $ok-color: $emerald;
 $background-color: white;
 $border-color: mix($background-color, $accent-color, 80%);
 
-$sans-serif: 'proxima-nova', $font-stack-helvetica;
+$font-stack-helvetica: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+$sans-serif: "proxima-nova", $font-stack-helvetica;
 $font-family-base: $sans-serif;
 $font-size-base: 16px;
 $font-size-small: $font-size-base * 0.8;
 
 $max-width: 700px;
-$column-width: $max-width / 12;
+$column-width: math.div($max-width, 12);
 $base-spacing: 1em;
-$small-spacing: modular-scale(-1, 1em);
-$large-spacing: modular-scale(1, 1em);
+$small-spacing: math.div(1em, $modular-scale-1);
+$large-spacing: 1em * $modular-scale-1;
 $border-radius: 5px;

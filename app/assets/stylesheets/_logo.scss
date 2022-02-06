@@ -26,8 +26,8 @@ $orbit-values: (1, 4, 0.68, 58.4%, 105.2%),
 
 header.main {
   box-sizing: border-box;
-  height: modular-scale(1, $logo-height);
-  margin: $large-spacing auto modular-scale(1, $base-spacing);
+  height: $logo-height * $modular-scale-1;
+  margin: $large-spacing auto $base-spacing * $modular-scale-1;
   padding-top: $base-spacing * 1.1;
   position: relative;
   text-align: center;
@@ -59,13 +59,13 @@ div.orbit {
   @each $i, $size, $delay, $top-offset, $orbit-diameter in $orbit-values {
     &.orbit-#{$i} {
       $delay: $rotation-period * -$delay;
-      $orbit-diameter-px: $logo-width * ($orbit-diameter / 100%);
+      $orbit-diameter-px: $logo-width * math.div($orbit-diameter, 100%);
 
       animation: $rotation-period ease-in-out $delay infinite orbitPosition,
         $rotation-period step-end $delay infinite orbitDepth;
       position: absolute;
       top: $top-offset;
-      left: ($logo-width - $orbit-diameter-px) / 2;
+      left: math.div(($logo-width - $orbit-diameter-px), 2);
       width: $orbit-diameter;
 
       &:after {

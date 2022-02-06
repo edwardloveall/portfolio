@@ -43,7 +43,7 @@ section.project {
   margin-bottom: $huge-spacing;
 }
 
-@include grid-media($desktop) {
+@media screen and (min-width: $max-width) {
   .featured-projects {
     flex-direction: row;
   }
