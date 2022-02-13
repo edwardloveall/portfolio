@@ -14,19 +14,19 @@ form {
   div.field_with_errors {
     label,
     span.error {
-      color: $warning-color;
+      color: var(--warning-color);
     }
 
     input[type="email"],
     input[type="text"],
     input[type="password"],
     textarea {
-      border-color: $warning-color;
+      border-color: var(--warning-color);
     }
   }
 
   label {
-    color: $dove-gray;
+    color: var(--text-color);
     display: block;
     font-size: $font-size-small;
     letter-spacing: 1px;
@@ -36,12 +36,14 @@ form {
   input[type="text"],
   input[type="password"],
   textarea {
+    border: 1px solid var(--border-color);
+    background-color: var(--background-color);
+    color: var(--text-color);
     font: $font-size-small monospace;
-    border: 1px solid $border-color;
     width: 100%;
 
     &:focus {
-      border-color: $accent-color;
+      border-color: var(--accent-color);
       outline: none;
     }
   }
@@ -57,10 +59,10 @@ form {
   input[type="submit"],
   button,
   input[type="file"]:before {
-    background-color: $link-color;
-    border: 1px solid darken(transparentize($accent-alt-color, 0.1), 10%);
-    box-shadow: 0 2px 0 darken(transparentize($accent-alt-color, 0.7), 10%);
-    color: white;
+    background-color: var(--link-color);
+    border: 1px solid var(--border-color-dark);
+    box-shadow: 0 2px 0 var(--shadow-color-dark);
+    color: var(--background-color);
     cursor: pointer;
     padding: 0.5em 2em;
     text-align: center;

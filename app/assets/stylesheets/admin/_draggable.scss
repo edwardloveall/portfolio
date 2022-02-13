@@ -1,5 +1,5 @@
 li.ui-sortable-helper {
-  box-shadow: 0 0 5px rgba(black, 0.3);
+  box-shadow: 0 0 5px var(--shadow-color);
   border-radius: $border-radius;
   padding: 0 $small-spacing;
 }

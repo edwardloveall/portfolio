@@ -1,15 +1,15 @@
 a.add {
-  color: $ok-color;
+  color: var(--ok-color);
 
   &:hover {
-    color: darken($ok-color, 10%)
+    color: var(--ok-color-hover);
   }
 }
 
 a.delete {
-  color: $warning-color;
+  color: var(--warning-color);
 
   &:hover {
-    color: darken($warning-color, 10%)
+    color: var(--warning-color-hover);
   }
 }
