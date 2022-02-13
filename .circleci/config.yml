@@ -3,13 +3,13 @@ jobs:
   build:
     parallelism: 1
     docker:
-      - image: circleci/ruby:2.6.5-node
+      - image: cimg/ruby:3.0.3-node
         environment:
           RAILS_ENV: test
           RACK_ENV: test
           PGHOST: localhost
           PGUSER: portfolio
-      - image: circleci/postgres:11.3
+      - image: cimg/postgres:14.0
         environment:
           POSTGRES_USER: portfolio
           POSTGRES_DB: portfolio_test
