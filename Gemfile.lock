@@ -255,7 +255,7 @@ GEM
     regexp_parser (2.2.0)
     rexml (3.2.5)
     rouge (3.27.0)
-    rspec-core (3.10.1)
+    rspec-core (3.10.2)
       rspec-support (~> 3.10.0)
     rspec-expectations (3.10.1)
       diff-lcs (>= 1.2.0, < 2.0)
@@ -272,7 +272,7 @@ GEM
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
     rspec-support (3.10.3)
-    rspec_junit_formatter (0.4.1)
+    rspec_junit_formatter (0.5.1)
       rspec-core (>= 2, < 4, != 2.12.0)
     rubocop (1.24.0)
       parallel (~> 1.10)
@@ -377,7 +377,7 @@ DEPENDENCIES
   redcarpet
   rouge
   rspec-rails
-  rspec_junit_formatter (= 0.4.1)
+  rspec_junit_formatter (= 0.5.1)
   rubocop
   shoulda-matchers
   simple_form

@@ -30,7 +30,7 @@ group :development, :test do
   gem "i18n-tasks"
   gem "pry-byebug"
   gem "pry-rails"
-  gem "rspec_junit_formatter", "0.4.1"
+  gem "rspec_junit_formatter", "0.5.1"
   gem "rspec-rails"
   gem "rubocop", require: false
 end
