@@ -1,6 +1,6 @@
 footer {
-  background-color: $dark-gray;
-  color: $medium-light-gray;
+  background-color: var(--background-color-footer);
+  color: var(--text-color-footer);
   font: $footer-font;
   padding: $base-spacing;
   text-align: center;

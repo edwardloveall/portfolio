@@ -1,6 +1,6 @@
 body {
-  background-color: $background-color;
-  color: $body-text-color;
+  background-color: var(--background-color);
+  color: var(--text-color);
   font: $body-font;
   line-height: $line-height;
 }
@@ -24,7 +24,7 @@ h4 {
 
 hr {
   border: 0;
-  border-bottom: 1px solid $light-blue-gray;
+  border-bottom: 1px solid var(--border-color);
   margin: $big-spacing auto;
   max-width: $padded-mobile-width;
 }

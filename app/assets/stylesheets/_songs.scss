@@ -32,16 +32,17 @@ div.player {
   }
 
   div.track {
-    background-color: $medium-light-gray;
+    background-color: var(--song-background-color);
   }
 
   div.progress {
-    background-color: $dark-gray;
+    background-color: var(--song-progress-color);
   }
 
   a.button {
-    background: $white url("~images/play.svg") no-repeat center center;
-    border: 2px solid $dark-gray;
+    background: var(--button-color) url("~images/play.svg") no-repeat center
+      center;
+    border: 2px solid var(--song-progress-color);
     border-radius: 50%;
     box-sizing: border-box;
     cursor: pointer;

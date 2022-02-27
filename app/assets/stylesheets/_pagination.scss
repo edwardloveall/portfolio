@@ -4,11 +4,11 @@ nav.pagination {
   text-align: center;
 
   a {
-    color: $accent-color;
+    color: var(--accent-color);
     flex-grow: 1;
 
     &:hover {
-      color: $dark-gray;
+      color: var(--text-color);
     }
   }
 

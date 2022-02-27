@@ -25,30 +25,30 @@ $orbit-values: (1, 4, 0.68, 58.4%, 105.2%),
 (20, 8, 0.97, 22%, 97.8%);
 
 header.main {
+  align-items: center;
   box-sizing: border-box;
+  display: flex;
   height: $logo-height * $modular-scale-1;
-  margin: $large-spacing auto $base-spacing * $modular-scale-1;
-  padding-top: $base-spacing * 1.1;
-  position: relative;
-  text-align: center;
-
-  img {
-    margin: 0 auto;
-  }
-
-  .link-target {
-    @include block-link;
-  }
+  justify-content: center;
+  margin: $base-spacing * $modular-scale-1 0;
+  overflow: hidden;
 }
 
 h1 {
-  background: transparent url("~images/logo-text.svg") no-repeat center;
-  color: transparent;
   display: inline-block;
   font-size: 0;
   height: $logo-height;
   position: relative;
   width: $logo-width;
+
+  > a {
+    @include block-link;
+    align-items: center;
+    color: var(--logo-color);
+    display: flex;
+    justify-content: center;
+    z-index: 0;
+  }
 }
 
 div.orbit {
@@ -77,7 +77,7 @@ div.orbit {
 }
 
 div.orbit:after {
-  background-color: $accent-color;
+  background-color: var(--accent-color);
   border-radius: 50%;
   content: "";
   display: block;

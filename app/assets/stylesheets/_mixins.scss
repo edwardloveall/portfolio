@@ -1,5 +1,5 @@
 @mixin header-link-style {
-  color: $header-text-color;
+  color: var(--header-text-color);
   font: $header-font;
   letter-spacing: $letter-spacing-header;
   text-align: center;
@@ -16,7 +16,7 @@
 }
 
 @mixin title-card {
-  background-color: $white;
+  background-color: var(--background-color);
   border: $border;
   margin-bottom: $base-spacing;
   padding: $small-spacing 0;

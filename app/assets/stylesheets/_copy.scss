@@ -5,7 +5,7 @@
     text-decoration: underline;
 
     &:hover {
-      color: $dark-gray;
+      color: var(--link-hover-color);
     }
   }
 

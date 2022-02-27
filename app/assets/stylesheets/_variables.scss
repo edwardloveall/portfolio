@@ -1,19 +1,55 @@
 // Colors
 $white: #fff;
+$black: #0b0b0c;
 $light-blue-gray: #e8ebed;
 $light-gray: #fdfdfd;
 $medium-light-gray: #ededed;
 $medium-gray: #afafaf;
 $dark-gray: #3c3e42;
+$very-dark-gray: #1f1f1f;
 $red: #e95555;
 
-$accent-color: $red;
-$body-text-color: $medium-gray;
-$header-text-color: $dark-gray;
-$background-color: $light-gray;
-$secondary-background-color: $light-gray;
-$background-color-ui: $white;
-$border-color: $medium-light-gray;
+:root {
+  --accent-color: #{$red};
+  --alt-background-color: #{$dark-gray};
+  --alt-text-color: #{$medium-light-gray};
+  --background-color: #{$light-gray};
+  --background-color-alt: #{$medium-light-gray};
+  --background-color-contrast: #{$dark-gray};
+  --background-color-footer: #{$dark-gray};
+  --button-color: #{$white};
+  --border-color: #{$medium-light-gray};
+  --header-text-color: #{$dark-gray};
+  --link-hover-color: #{$dark-gray};
+  --logo-color: #{$dark-gray};
+  --song-background-color: #{$medium-light-gray};
+  --song-progress-color: #{$dark-gray};
+  --text-color: #{$dark-gray};
+  --text-color-alt: #{$medium-gray};
+  --text-color-contrast: #{$white};
+  --text-color-footer: #{$white};
+
+  @media (prefers-color-scheme: dark) {
+    --accent-color: #{$red};
+    --alt-background-color: #{$black};
+    --alt-text-color: #{$medium-light-gray};
+    --background-color: #{$very-dark-gray};
+    --background-color-alt: #{$dark-gray};
+    --background-color-contrast: #{$white};
+    --background-color-footer: #{$black};
+    --border-color: #{$dark-gray};
+    --button-color: #{$medium-light-gray};
+    --header-text-color: #{$medium-light-gray};
+    --link-hover-color: #{$medium-light-gray};
+    --logo-color: #{$medium-light-gray};
+    --song-background-color: #{$black};
+    --song-progress-color: #{$dark-gray};
+    --text-color: #{$medium-light-gray};
+    --text-color-alt: #{$medium-light-gray};
+    --text-color-contrast: #{$black};
+    --text-color-footer: #{$white};
+  }
+}
 
 // Fonts
 $font-stack-helvetica: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
@@ -46,11 +82,6 @@ $small-header-font: 600 $small-header-font-size $header-font-family;
 $body-font: italic 400 $body-font-size $body-font-family;
 $footer-font: 400 $footer-font-size $footer-font-family;
 
-// Forms
-$form-box-shadow: inset 0 1px 3px rgba(#000, 0.06);
-$form-box-shadow-focus: $form-box-shadow,
-  0 0 5px adjust-color($accent-color, $lightness: -5%, $alpha: -0.3);
-
 // Modular Scale
 $ratio: 1.618; // golden ratio
 $modular-scale-1: $ratio;
@@ -73,8 +104,9 @@ $song-height: 44px;
 $song-padding: $base-spacing;
 $featured-project-height: 260px;
 $project-width: 254px;
+$chevron-size: 52px;
 
 // Other
-$border: 1px solid $border-color;
+$border: 1px solid var(--border-color);
 $duration: 0.2s;
 $timing: ease;

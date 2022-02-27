@@ -7,7 +7,9 @@ nav.main {
 
   a {
     @include header-link-style;
-    flex-grow: 0;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
     padding: $base-spacing;
   }
 
@@ -15,12 +17,12 @@ nav.main {
     flex-direction: row;
 
     a.active:after {
-      background: url("~images/chevron.svg") no-repeat center;
+      border-left: math.div($chevron-size, 4) solid transparent;
+      border-right: math.div($chevron-size, 4) solid transparent;
+      border-top: math.div($chevron-size, 4) solid var(--header-text-color);
       content: "";
-      display: block;
-      height: $small-spacing;
       margin-top: $base-spacing * $modular-scale-1;
-      width: 100%;
+      transform: scaleY(0.8);
     }
   }
 }
