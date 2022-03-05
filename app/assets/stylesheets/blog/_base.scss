@@ -1,7 +1,7 @@
 body {
-  background-color: $background-color;
-  color: $post-text-color;
-  font-family: $post-font-family;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: $serif;
   font-size: $base-font-size;
   line-height: $line-height;
 }
@@ -9,5 +9,5 @@ body {
 main {
   display: block;
   margin: 0 auto;
-  max-width: $max-width;
+  max-width: $blog-max-width;
 }

@@ -30,6 +30,6 @@ aside.meta {
   text-align: center;
 
   a {
-    color: $medium-gray;
+    color: var(--deemphasized-text-color);
   }
 }
