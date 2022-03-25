@@ -27,19 +27,24 @@ RSpec.describe "Posts requests" do
 
   it "has entry attributes" do
     travel_to Time.zone.local(2020, 1, 1, 0, 0, 0)
-    post = create(:post, title: "First post!")
+    internal_post = create(
+      :internal_post,
+      title: "First post!",
+      slug: "first-post",
+      body: "Hello, world!"
+    )
+    post = create(:post, postable: internal_post)
     create(:post)
-    post_body = MarkdownRenderer.to_html(post.body).html_safe
+    body_html = MarkdownRenderer.to_html("Hello, world!").html_safe
 
     get feed_url
 
     entry = xml[:rss][:channel][:item].first
-
     expect(entry[:title]).to eq("First post!")
-    expect(entry[:link]).to eq(post_url(post.slug, subdomain: "blog"))
-    expect(entry[:description]).to eq(post_body)
+    expect(entry[:link]).to eq(internal_post_url("first-post", subdomain: "blog"))
+    expect(entry[:description]).to eq(body_html)
     expect(entry[:pubDate]).to eq("Wed, 01 Jan 2020 00:00:00 +0000")
-    expect(entry[:guid]).to eq(post.guid)
+    expect(entry[:guid]).to eq(internal_post.guid)
   end
 
   it "reports the guid as a non-permalink" do
@@ -49,7 +54,6 @@ RSpec.describe "Posts requests" do
 
     xml = Nokogiri::XML(response.body)
     guid = xml.at("guid")
-
     expect(guid.attribute("isPermaLink").value).to eq("false")
   end
 

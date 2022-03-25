@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_27_205932) do
-
+ActiveRecord::Schema[7.0].define(version: 2022_03_24_181744) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,7 +19,7 @@ ActiveRecord::Schema.define(version: 2021_12_27_205932) do
     t.string "record_type", null: false
     t.bigint "record_id", null: false
     t.bigint "blob_id", null: false
-    t.datetime "created_at", null: false
+    t.datetime "created_at", precision: nil, null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
@@ -32,7 +31,7 @@ ActiveRecord::Schema.define(version: 2021_12_27_205932) do
     t.text "metadata"
     t.bigint "byte_size", null: false
     t.string "checksum"
-    t.datetime "created_at", null: false
+    t.datetime "created_at", precision: nil, null: false
     t.string "service_name", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
@@ -44,65 +43,71 @@ ActiveRecord::Schema.define(version: 2021_12_27_205932) do
   end
 
   create_table "authorizations", id: :serial, force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.string "client_id", null: false
     t.string "scope"
     t.string "code"
-    t.datetime "code_expires_at"
+    t.datetime "code_expires_at", precision: nil
     t.string "token"
-    t.datetime "token_expires_at"
+    t.datetime "token_expires_at", precision: nil
     t.integer "user_id"
     t.index ["user_id"], name: "index_authorizations_on_user_id"
   end
 
-  create_table "posts", id: :serial, force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "internal_posts", id: :serial, force: :cascade do |t|
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.string "title"
     t.text "body"
     t.string "slug"
     t.string "tumblr_guid"
   end
 
+  create_table "posts", force: :cascade do |t|
+    t.string "postable_type", default: "InternalPost"
+    t.bigint "postable_id"
+    t.index ["postable_type", "postable_id"], name: "index_posts_on_postable"
+  end
+
   create_table "projects", id: :serial, force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.string "title"
     t.string "logo_file_name"
     t.string "logo_content_type"
     t.integer "logo_file_size"
-    t.datetime "logo_updated_at"
+    t.datetime "logo_updated_at", precision: nil
     t.string "role"
     t.string "website"
     t.text "description"
-    t.datetime "featured_at"
+    t.datetime "featured_at", precision: nil
     t.string "slug"
     t.integer "position"
-    t.datetime "published_at"
+    t.datetime "published_at", precision: nil
     t.index ["slug"], name: "index_projects_on_slug", unique: true
     t.index ["title"], name: "index_projects_on_title", unique: true
   end
 
   create_table "songs", id: :serial, force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.string "title"
     t.text "description"
     t.string "mp3_file_name"
     t.string "mp3_content_type"
     t.integer "mp3_file_size"
-    t.datetime "mp3_updated_at"
+    t.datetime "mp3_updated_at", precision: nil
     t.integer "position"
     t.string "ogg_file_name"
     t.string "ogg_content_type"
     t.integer "ogg_file_size"
-    t.datetime "ogg_updated_at"
+    t.datetime "ogg_updated_at", precision: nil
   end
 
   create_table "users", id: :serial, force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.string "email", null: false
     t.string "password_digest", null: false
     t.text "me"

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   constraints(subdomain: /blog.*/) do
     get '/', to: 'posts#index'
     get '/rss', to: 'posts#index', defaults: { format: :rss }
-    get '/:slug', to: 'posts#show', as: :post
+    get "/:slug", to: "internal_posts#show", as: :internal_post
     resources :posts, only: [:index]
   end
 
@@ -27,7 +27,7 @@ Rails.application.routes.draw do
         post :sort
       end
     end
-    resources :posts, except: [:show]
+    resources :internal_posts, except: [:show]
   end
 
   get '/about' => 'high_voltage/pages#show', id: 'about'

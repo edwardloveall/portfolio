@@ -9,13 +9,7 @@ xml.rss version: "2.0" do
     xml.description "Edward Loveall's Blog"
 
     @posts.each do |post|
-      xml.item do
-        xml.title post.title
-        xml.link post_url(post.slug, subdomain: "blog")
-        xml.description convert_markdown(post.body)
-        xml.pubDate post.created_at.rfc822
-        xml.guid post.guid, isPermaLink: false
-      end
+      xml << render(post.postable, xml: xml)
     end
   end
 end

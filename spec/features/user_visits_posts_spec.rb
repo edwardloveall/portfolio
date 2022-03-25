@@ -17,16 +17,17 @@ RSpec.feature 'User visits posts' do
     expect(page).to have_link('Newer', href: root_path)
   end
 
-  scenario 'and visits a specific post' do
-    post = create(:post)
+  scenario "and visits a specific post" do
+    internal_post = create(:internal_post, title: "Title")
+    post = create(:post, postable: internal_post)
 
-    visit root_url(subdomain: 'blog')
-    click_on(post.title)
+    visit root_url(subdomain: "blog")
+    click_on("Title")
 
-    expect(current_url).to eq(post_url(subdomain: 'blog', slug: post.slug))
-    within('article h2') do
-      expect(page).to have_content(post.title)
-    end
+    expect(current_url).to eq(
+      internal_post_url(subdomain: "blog", slug: internal_post.slug)
+    )
+    expect(page).to have_selector("article h2", text: "Title")
   end
 
   scenario 'can visit main site from footer' do

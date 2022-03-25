@@ -1,4 +1,6 @@
-<%= render @posts %>
+<% @posts.each do |post| %>
+  <%= render post.postable %>
+<% end %>
 <nav class="pagination">
   <%= link_to_previous_page @posts, 'Newer', class: :previous %>
   <%= link_to_next_page @posts, 'Older', class: :next %>

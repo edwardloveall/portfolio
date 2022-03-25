@@ -1,0 +1,15 @@
+<%= link_to "Add post", new_admin_internal_post_path, class: :add %>
+<ul class="posts resource-list">
+  <% @internal_posts.each do |post| %>
+    <%= content_tag(:li, id: dom_id(post)) do %>
+      <%= link_to post.title, edit_admin_internal_post_path(post) %>
+      <%= link_to(
+        t("helpers.submit.internal_post.delete"),
+        [:admin, post],
+        method: :delete,
+        class: :delete,
+        data: { confirm: "Are you sure?" }
+      ) %>
+    <% end %>
+  <% end %>
+</ul>

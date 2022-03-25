@@ -2,10 +2,10 @@
   <h2 class="title"><%= title %></h2>
   <% if current_user %>
     <div class="links">
-      <%= link_to 'Posts', admin_posts_path %>
-      <%= link_to 'Projects', admin_projects_path %>
-      <%= link_to 'Songs', admin_songs_path %>
-      <%= link_to 'Sign Out', admin_session_path, method: :delete %>
+      <%= link_to "Internal Posts", admin_internal_posts_path %>
+      <%= link_to "Projects", admin_projects_path %>
+      <%= link_to "Songs", admin_songs_path %>
+      <%= link_to "Sign Out", admin_session_path, method: :delete %>
     </div>
   <% end %>
 </nav>
