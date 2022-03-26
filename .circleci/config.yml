@@ -1,9 +1,9 @@
-version: 2
+version: 2.1
 jobs:
   build:
     parallelism: 1
     docker:
-      - image: cimg/ruby:3.0.3-node
+      - image: cimg/ruby:3.0.3-browsers
         environment:
           RAILS_ENV: test
           RACK_ENV: test
@@ -17,6 +17,11 @@ jobs:
 
     steps:
       - checkout
+      - run:
+          name: Setup Chrome
+          command: |
+            wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+            sudo apt install ./google-chrome-stable_current_amd64.deb
       - run:
           name: Create Directories
           command: mkdir -p test-results
