@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  layout 'blog'
+  layout "blog"
 
   def index
     page = params[:page] || 1

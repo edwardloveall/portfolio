@@ -17,6 +17,22 @@ feature "User visits posts" do
     expect(page).to have_link("Newer", href: root_path)
   end
 
+  scenario "sees styled posts", :js do
+    title_red = "rgba(233, 85, 85, 1)"
+    time_font_size = "12px"
+    body_font_style = "normal"
+    post = create(:post, postable: create(:internal_post, title: "Title"))
+
+    visit root_url(subdomain: "blog")
+
+    title = page.find("article h2 a", text: "Title")
+    timestamp = page.find("article aside time")
+    body_paragraph = page.find("article p", match: :first)
+    expect(title).to match_style("color" => title_red)
+    expect(timestamp).to match_style("font-size" => time_font_size)
+    expect(body_paragraph).to match_style("font-style" => body_font_style)
+  end
+
   scenario "can visit main site from footer" do
     visit root_url(subdomain: "blog")
 
@@ -30,7 +46,24 @@ feature "User visits posts" do
 end
 
 feature "User visits a specific post" do
-  scenario "and sees a post rendered with markdown" do
+  scenario "sees a styled post", :js do
+    title_red = "rgba(233, 85, 85, 1)"
+    time_font_size = "12px"
+    body_font_style = "normal"
+    post = create(:post, postable: create(:internal_post, title: "Title"))
+
+    visit root_url(subdomain: "blog")
+    click_on("Title")
+
+    title = page.find("article h2 a", text: "Title")
+    timestamp = page.find("article aside time")
+    body_paragraph = page.find("article p", match: :first)
+    expect(title).to match_style("color" => title_red)
+    expect(timestamp).to match_style("font-size" => time_font_size)
+    expect(body_paragraph).to match_style("font-style" => body_font_style)
+  end
+
+  scenario "sees a post rendered with markdown" do
     internal_post = create(
       :internal_post,
       title: "Title",
