@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_24_181744) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_26_141243) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -62,6 +62,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_24_181744) do
     t.text "body"
     t.string "slug"
     t.string "tumblr_guid"
+    t.text "teaser", default: "", null: false
   end
 
   create_table "posts", force: :cascade do |t|

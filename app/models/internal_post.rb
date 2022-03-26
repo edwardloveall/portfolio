@@ -2,8 +2,9 @@ class InternalPost < ApplicationRecord
   has_one :post, as: :postable
 
   validates :body, presence: true
-  validates :title, presence: true
   validates :slug, presence: true, uniqueness: true
+  validates :teaser, presence: true
+  validates :title, presence: true
 
   scope :newest_first, lambda { order(created_at: :desc) }
 

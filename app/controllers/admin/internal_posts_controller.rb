@@ -47,7 +47,7 @@ class Admin::InternalPostsController < AdminController
   private
 
   def internal_post_params
-    params.require(:internal_post).permit(:title, :body, :slug)
+    params.require(:internal_post).permit(:body, :slug, :teaser, :title)
   end
 
   def find_internal_post
