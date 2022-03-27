@@ -1,9 +1,5 @@
 import * as bowser from "./bowser";
 
-$(document).ready(function () {
-  $("body").addClass(browserInitials()).addClass(browserMajorVersion());
-});
-
 function browserInitials() {
   var name = bowser.name.toLowerCase();
   var words = name.split(" ");
@@ -22,3 +18,7 @@ function browserMajorVersion() {
 
   return "v" + major;
 }
+
+(function () {
+  document.body.classList.add(browserInitials(), browserMajorVersion());
+})();
