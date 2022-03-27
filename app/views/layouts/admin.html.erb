@@ -9,8 +9,8 @@
   <script>try{Typekit.load({ async: true });}catch(e){}</script>
   <title><%= title %></title>
   <%= favicon_link_tag('favicon.png') %>
-  <%= stylesheet_pack_tag :admin %>
-  <%= javascript_pack_tag :admin %>
+  <%= stylesheet_link_tag :admin, "data-turbo-track": "reload", defer: true %>
+  <%= javascript_include_tag :admin, "data-turbo-track": "reload", defer: true %>
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= body_class %>">

@@ -3,11 +3,13 @@
   "dependencies": {
     "@rails/activestorage": "^6.0.3-3",
     "@rails/ujs": "^6.0.3-3",
-    "@rails/webpacker": "5.4.3",
+    "esbuild": "^0.14.28",
+    "esbuild-sass-plugin": "^2.2.5",
     "normalize.css": "^8.0.1",
     "webpack-jquery-ui": "^2.0.1"
   },
-  "devDependencies": {
-    "webpack-dev-server": "^3.11.0"
+  "devDependencies": {},
+  "scripts": {
+    "build": "bin/assets"
   }
 }

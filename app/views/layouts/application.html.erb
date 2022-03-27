@@ -14,8 +14,8 @@
   <link href="https://github.com/edwardloveall" rel="me">
   <link rel="authorization_endpoint" href="<%= new_authorization_url %>">
   <link rel="token_endpoint" href="<%= tokens_url %>">
-  <%= stylesheet_pack_tag :application, 'data-turbolinks-track': 'reload' %>
-  <%= javascript_pack_tag :application, 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag :application, "data-turbo-track": "reload", defer: true %>
+  <%= javascript_include_tag :application, "data-turbo-track": "reload", defer: true %>
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= body_class %>">

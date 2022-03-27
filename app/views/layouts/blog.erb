@@ -10,8 +10,8 @@
   <title><%= title(title: @post&.title) %></title>
   <%= favicon_link_tag('favicon.png') %>
   <%= auto_discovery_link_tag(:rss, rss_url) %>
-  <%= stylesheet_pack_tag :blog, 'data-turbolinks-track': 'reload' %>
-  <%= javascript_pack_tag :blog, 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag :blog, "data-turbo-track": "reload", defer: true %>
+  <%= javascript_include_tag :blog, "data-turbo-track": "reload", defer: true %>
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= body_class %>">

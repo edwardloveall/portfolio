@@ -42,6 +42,10 @@ jobs:
           name: Run yarn
           command: yarn
 
+      - run:
+          name: Build assets
+          command: yarn build
+
       # Save dependency cache
       - save_cache:
           key: portfolio-gemfile-{{ checksum "Gemfile.lock" }}

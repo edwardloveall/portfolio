@@ -5,6 +5,8 @@
 /.bundle
 /.env
 /.foreman
+/app/assets/builds/*
+!/app/assets/builds/.keep
 /coverage/*
 /db/*.sqlite3
 /log/*
