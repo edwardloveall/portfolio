@@ -6,7 +6,7 @@ class InternalPost < ApplicationRecord
   validates :teaser, presence: true
   validates :title, presence: true
 
-  scope :newest_first, lambda { order(created_at: :desc) }
+  scope :newest_first, -> { order(created_at: :desc) }
 
   def guid
     if tumblr_guid.nil?

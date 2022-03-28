@@ -2,10 +2,6 @@ require "rails_helper"
 
 RSpec.feature "Admin internal post management" do
   feature "admin creates an internal post" do
-    scenario "js test", :js do
-      visit root_path
-    end
-
     scenario "appears on the admin page" do
       sign_in(create(:user))
       attributes = attributes_for(:internal_post, title: "My Title")
