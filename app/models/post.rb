@@ -1,24 +1,35 @@
 class Post < ApplicationRecord
   belongs_to :postable, polymorphic: true
 
-  delegate :created_at, :updated_at, to: :postable
+  delegate :created_at, :guid, :updated_at, to: :postable
 
-  scope :newest_first, -> do
-    includes(:postable).
-    joins(<<~SQL).
-      JOIN internal_posts
+  scope :with_internal_posts, -> do
+    joins(<<~SQL)
+      LEFT JOIN internal_posts
       ON internal_posts.id = posts.postable_id
       AND posts.postable_type = 'InternalPost'
     SQL
-    merge(InternalPost.newest_first)
   end
 
-  def guid
-    tumblr_guid = postable.tumblr_guid
-    if tumblr_guid.nil?
-      "com.edwardloveall.blog.#{postable.slug}"
-    else
-      "http://blog.edwardloveall.com/post/#{tumblr_guid}"
-    end
+  scope :with_external_posts, -> do
+    joins(<<~SQL)
+      LEFT JOIN external_posts
+      ON external_posts.id = posts.postable_id
+      AND posts.postable_type = 'ExternalPost'
+    SQL
+  end
+
+  scope :newest_first, -> do
+    select(<<~SQL).
+      posts.*,
+      COALESCE(
+        internal_posts.created_at,
+        external_posts.posted_on
+      ) AS created_at
+    SQL
+    includes(:postable).
+    with_internal_posts.
+    with_external_posts.
+    order(created_at: :desc)
   end
 end

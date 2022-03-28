@@ -1,0 +1,12 @@
+<article class="post">
+  <h2><%= link_to external_post.title, external_post.url %></h2>
+  <aside class="meta">
+    <%= link_to external_post.url do %>
+      Posted
+      <time datetime="<%= timestamp(external_post.posted_on) %>">
+        <%= pretty_date(external_post.posted_on) %>
+      </time>
+    <% end %>
+  </aside>
+  <p><%= external_post.teaser %></p>
+</article>

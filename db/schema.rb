@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_26_141243) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_27_214156) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -53,6 +53,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_26_141243) do
     t.datetime "token_expires_at", precision: nil
     t.integer "user_id"
     t.index ["user_id"], name: "index_authorizations_on_user_id"
+  end
+
+  create_table "external_posts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.date "posted_on", null: false
+    t.string "title", null: false
+    t.text "teaser", null: false
+    t.text "url", null: false
   end
 
   create_table "internal_posts", id: :serial, force: :cascade do |t|

@@ -28,6 +28,7 @@ Rails.application.routes.draw do
       end
     end
     resources :internal_posts, except: [:show]
+    resources :external_posts, except: [:show]
   end
 
   get '/about' => 'high_voltage/pages#show', id: 'about'

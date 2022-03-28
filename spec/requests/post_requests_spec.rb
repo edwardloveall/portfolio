@@ -25,26 +25,52 @@ RSpec.describe "Posts requests" do
     expect(channel[:description]).to eq("Edward Loveall's Blog")
   end
 
-  it "has entry attributes" do
-    travel_to Time.zone.local(2020, 1, 1, 0, 0, 0)
-    internal_post = create(
-      :internal_post,
-      title: "First post!",
-      slug: "first-post",
-      body: "Hello, world!"
-    )
-    post = create(:post, postable: internal_post)
-    create(:post)
-    body_html = MarkdownRenderer.to_html("Hello, world!").html_safe
+  context "for an internal post" do
+    it "has entry attributes" do
+      travel_to Time.zone.local(2020, 1, 1, 0, 0, 0)
+      internal_post = create(
+        :internal_post,
+        title: "First post!",
+        slug: "first-post",
+        body: "Hello, world!"
+      )
+      post = create(:post, postable: internal_post)
+      create(:post, :internal)
+      body_html = MarkdownRenderer.to_html("Hello, world!").html_safe
 
-    get feed_url
+      get feed_url
 
-    entry = xml[:rss][:channel][:item].first
-    expect(entry[:title]).to eq("First post!")
-    expect(entry[:link]).to eq(internal_post_url("first-post", subdomain: "blog"))
-    expect(entry[:description]).to eq(body_html)
-    expect(entry[:pubDate]).to eq("Wed, 01 Jan 2020 00:00:00 +0000")
-    expect(entry[:guid]).to eq(internal_post.guid)
+      entry = xml[:rss][:channel][:item].first
+      expect(entry[:title]).to eq("First post!")
+      expect(entry[:link]).to eq(internal_post_url("first-post", subdomain: "blog"))
+      expect(entry[:description]).to eq(body_html)
+      expect(entry[:pubDate]).to eq("Wed, 01 Jan 2020 00:00:00 +0000")
+      expect(entry[:guid]).to eq(internal_post.guid)
+    end
+  end
+
+  context "for an external post" do
+    it "has entry attributes" do
+      travel_to Time.zone.local(2020, 1, 1, 0, 0, 0)
+      external_post = create(
+        :external_post,
+        title: "Post elsewhere",
+        url: "https://other.com",
+        teaser: "Read over there",
+        posted_on: Date.new(2021, 1, 1)
+      )
+      post = create(:post, postable: external_post)
+      post = create(:post, :external)
+
+      get feed_url
+
+      entry = xml[:rss][:channel][:item].first
+      expect(entry[:title]).to eq("Post elsewhere")
+      expect(entry[:link]).to eq("https://other.com")
+      expect(entry[:description]).to eq("Read over there")
+      expect(entry[:pubDate]).to eq("Fri, 01 Jan 2021 00:00:00 +0000")
+      expect(entry[:guid]).to eq(external_post.url)
+    end
   end
 
   it "reports the guid as a non-permalink" do

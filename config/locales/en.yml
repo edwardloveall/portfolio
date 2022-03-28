@@ -3,6 +3,9 @@ en:
     formats:
       default: "%m/%d/%Y"
       with_weekday: "%a %m/%d/%y"
+      # Rails .rfc822 format doesn't include the leading zero on the date for
+      # Date objects :(
+      rfc822_with_leading_zero_date: "%a, %d %b %Y %T %z"
   flashes:
     project:
       create:
@@ -22,6 +25,10 @@ en:
     submit:
       authorization:
         create: Authorize
+      external_post:
+        create: Create Post
+        update: Update Post
+        delete: Delete Post
       internal_post:
         create: Create Post
         update: Update Post

@@ -1,0 +1,12 @@
+<%= simple_form_for([:admin, @external_post]) do |form| %>
+  <%= form.error_notification %>
+
+  <fieldset>
+    <legend>Create an External Post</legend>
+    <%= form.input :title %>
+    <%= form.input :posted_on, html5: true %>
+    <%= form.input :url %>
+    <%= form.input :teaser %>
+  </fieldset>
+  <%= form.submit %>
+<% end %>
