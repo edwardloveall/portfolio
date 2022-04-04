@@ -44,4 +44,8 @@ module ApplicationHelper
   def pretty_datetime(time)
     time.strftime("%B #{time.day.ordinalize}, %Y - #{time.hour % 12}:%M %P")
   end
+
+  def uri_host(url)
+    URI(url).host
+  end
 end

@@ -1,14 +1,12 @@
-<article class="post">
-  <h2>
-    <%= link_to internal_post.title, internal_post_path(internal_post.slug) %>
-  </h2>
-  <aside class="meta">
-    <%= link_to internal_post_path(internal_post) do %>
-      Posted
-      <time datetime="<%= timestamp(internal_post.created_at) %>">
-        <%= pretty_date(internal_post.created_at) %>
-      </time>
-    <% end %>
-  </aside>
-  <%= convert_markdown(internal_post.body) %>
-</article>
+<h2>
+  <%= link_to internal_post.title, internal_post_path(internal_post.slug) %>
+</h2>
+<aside class="meta">
+  <%= link_to internal_post_path(internal_post.slug) do %>
+    Posted
+    <time datetime="<%= timestamp(internal_post.created_at) %>">
+      <%= pretty_date(internal_post.created_at) %>
+    </time>
+  <% end %>
+</aside>
+<p><%= internal_post.teaser %></p>

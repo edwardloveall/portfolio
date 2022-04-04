@@ -98,4 +98,14 @@ RSpec.describe ApplicationHelper do
       expect(result).to eq('June 10th, 2016 - 1:02 pm')
     end
   end
+
+  describe "#uri_host" do
+    it "returns the host of a URL" do
+      url = "https://example.com/path?param=0#anchor"
+
+      host = helper.uri_host(url)
+
+      expect(host).to eq("example.com")
+    end
+  end
 end

@@ -25,7 +25,7 @@ RSpec.feature "Admin external post management" do
 
       visit root_url(subdomain: :blog)
 
-      expect(page).to have_selector("article.post h2", text: "My Title")
+      expect(page).to have_selector("li.post-teaser h2", text: "My Title")
     end
   end
 

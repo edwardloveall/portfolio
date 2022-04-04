@@ -1,33 +1,17 @@
 require "rails_helper"
 
 feature "User visits posts" do
-  scenario "and sees next page pagination links" do
-    create_list(:post, 11)
-
-    visit root_url(subdomain: "blog")
-
-    expect(page).to have_link("Older", href: root_path(page: 2))
-  end
-
-  scenario "and sees previous page pagination links" do
-    create_list(:post, 11)
-
-    visit root_url(subdomain: "blog", page: 2)
-
-    expect(page).to have_link("Newer", href: root_path)
-  end
-
   scenario "sees styled posts", :js do
     title_red = "rgba(233, 85, 85, 1)"
-    time_font_size = "12px"
+    time_font_size = "20px"
     body_font_style = "normal"
     post = create(:post, postable: create(:internal_post, title: "Title"))
 
     visit root_url(subdomain: "blog")
 
-    title = page.find("article h2 a", text: "Title")
-    timestamp = page.find("article aside time")
-    body_paragraph = page.find("article p", match: :first)
+    title = page.find("li.post-teaser h2 a", text: "Title")
+    timestamp = page.find("li.post-teaser aside time")
+    body_paragraph = page.find("li.post-teaser p", match: :first)
     expect(title).to match_style("color" => title_red)
     expect(timestamp).to match_style("font-size" => time_font_size)
     expect(body_paragraph).to match_style("font-style" => body_font_style)
@@ -48,7 +32,7 @@ end
 feature "User visits a specific post" do
   scenario "sees a styled post", :js do
     title_red = "rgba(233, 85, 85, 1)"
-    time_font_size = "12px"
+    time_font_size = "20px"
     body_font_style = "normal"
     post = create(:post, postable: create(:internal_post, title: "Title"))
 
