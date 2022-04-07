@@ -48,6 +48,7 @@ li.post-teaser {
   }
 
   span.external-site::before {
-    content: "—";
+    content: "|";
+    margin: 0 $small-spacing;
   }
 }

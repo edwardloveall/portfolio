@@ -5,7 +5,9 @@
     <time datetime="<%= timestamp(external_post.posted_on) %>">
       <%= pretty_date(external_post.posted_on) %>
     </time>
-    <span class="external-site"><%= uri_host(external_post.url) %></span>
+    <span class="external-site">
+      <%= uri_host(external_post.url) %>
+    </span>
   <% end %>
 </aside>
 <p><%= external_post.teaser %></p>
