@@ -111,6 +111,6 @@ RSpec.describe "Posts requests" do
   end
 
   def feed_url
-    "#{root_url(subdomain: :blog)}rss"
+    URI.join(root_url(subdomain: "blog"), "rss").to_s
   end
 end

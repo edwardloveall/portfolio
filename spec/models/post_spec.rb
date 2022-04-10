@@ -21,5 +21,35 @@ describe Post do
 
       expect(posts).to eq([post1, post2, post3, post4])
     end
+
+    it "avoids n+1 queries for associated postable objects" do
+      sql_count = 3 # load posts + preload all external + preload all internal
+      create_list(:post, 2, :internal)
+      create_list(:post, 2, :external)
+      counter = SqlCounter.new
+
+      ActiveSupport::Notifications.subscribed(counter, "sql.active_record") do
+        posts = Post.newest_first
+        posts.each(&:postable)
+      end
+
+      expect(counter.count).to eq(sql_count)
+    end
+  end
+
+  class SqlCounter
+    def initialize
+      @events = []
+    end
+
+    def call(*args)
+      event = ActiveSupport::Notifications::Event.new(*args)
+      return if event.payload[:name] == "SCHEMA"
+      @events << event
+    end
+
+    def count
+      @events.count
+    end
   end
 end
