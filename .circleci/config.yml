@@ -3,7 +3,7 @@ jobs:
   build:
     parallelism: 1
     docker:
-      - image: cimg/ruby:3.0.3-browsers
+      - image: cimg/ruby:3.0.4-browsers
         environment:
           RAILS_ENV: test
           RACK_ENV: test
