@@ -30,5 +30,8 @@ Style/FrozenStringLiteralComment:
 Style/NegatedIf:
   Enabled: false
 
+Style/PercentLiteralDelimiters:
+  Enabled: false
+
 Style/StringLiterals:
   EnforcedStyle: double_quotes
