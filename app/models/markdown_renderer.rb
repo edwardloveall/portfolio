@@ -53,9 +53,9 @@ class MarkdownRenderer
       @css_class = css_class
     end
 
-    def stream(tokens, &b)
+    def stream(tokens, &block)
       yield %(<pre class="#{@css_class}"><code>)
-      Rouge::Formatters::HTML.new.stream(tokens, &b)
+      Rouge::Formatters::HTML.new.stream(tokens, &block)
       yield "</code></pre>"
     end
   end

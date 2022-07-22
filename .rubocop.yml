@@ -7,6 +7,9 @@ AllCops:
     - Gemfile.lock
   NewCops: enable
 
+Layout/MultilineOperationIndentation:
+  Enabled: false
+
 Metrics/BlockLength:
   Exclude:
     - "config/environments/**/*"
@@ -17,6 +20,9 @@ Metrics/BlockLength:
     - "spec/models/**/*"
     - "spec/requests/**/*"
     - "spec/routing/**/*"
+
+Style/ClassAndModuleChildren:
+  Enabled: false
 
 Style/Documentation:
   Enabled: false
