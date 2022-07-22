@@ -15,7 +15,7 @@ Capybara.register_driver :headless_chrome do |app|
 end
 
 Capybara.configure do |config|
-  config.app_host = 'http://lvh.me:8080'
+  config.app_host = "http://lvh.me:8080"
   config.always_include_port = true
   config.javascript_driver = :headless_chrome
   config.server_host = "lvh.me"
