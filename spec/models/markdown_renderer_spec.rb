@@ -1,6 +1,6 @@
 require 'active_support'
 require 'active_support/core_ext/string/strip'
-load 'app/models/markdown_renderer.rb'
+require "app/models/markdown_renderer"
 
 describe MarkdownRenderer do
   describe '#to_html' do
