@@ -1,0 +1,16 @@
+---
+- name: Base server setup
+  hosts: bootstrap
+  become: true
+
+  roles:
+    - role: setup_system
+      vars:
+        hostname: portfolio
+
+    - role: create_user
+      vars:
+        username: "{{ base.username }}"
+        password: "{{ vault_user_password_hash }}"
+        group: "{{ base.username }}"
+        ssh_key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_rsa.pub') }}"
