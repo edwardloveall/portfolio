@@ -14,3 +14,9 @@
         password: "{{ vault_user_password_hash }}"
         group: "{{ base.username }}"
         ssh_key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_rsa.pub') }}"
+
+- name: Provision Server
+  hosts: normal
+
+  roles:
+    - role: ssh
