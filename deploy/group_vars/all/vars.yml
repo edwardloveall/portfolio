@@ -1,3 +1,4 @@
 ---
 base:
   username: deployer
+  password_hash: "{{ vault_user_password_hash }}"
