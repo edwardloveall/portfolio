@@ -19,4 +19,7 @@
   hosts: normal
 
   roles:
+    - role: timezone
+      vars:
+        zone_name: America/New_York
     - role: ssh
