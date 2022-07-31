@@ -1,0 +1,35 @@
+---
+- name: install packages
+  become: true
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - "{{ asdf_packages }}"
+
+- name: install asdf
+  become: false
+  git:
+    clone: true
+    repo: "{{ asdf_repo_url }}"
+    dest: "{{ asdf_install_dir }}"
+    version: "{{ asdf_version }}"
+
+- name: configure asdf
+  block:
+    - name: install plugins
+      become: false
+      command: "asdf plugin add {{ item }}"
+      args:
+        creates: "{{ asdf_install_dir }}/plugins/{{ item }}"
+      with_items:
+        - "{{ asdf_plugins }}"
+
+    - name: update plugins
+      become: false
+      command: "asdf plugin-update {{ item }}"
+      with_items:
+        - "{{ asdf_plugins }}"
+  environment:
+    ASDF_DIR: "{{ ansible_env.HOME }}/.asdf"
+    PATH: "{{ ansible_env.HOME }}/.asdf/shims:{{ ansible_env.HOME }}/.asdf/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"

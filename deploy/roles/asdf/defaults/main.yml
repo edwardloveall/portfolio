@@ -1,0 +1,13 @@
+---
+asdf_version: v0.10.2
+asdf_repo_url: "https://github.com/asdf-vm/asdf.git"
+asdf_install_dir: "{{ ansible_env.HOME }}/.asdf"
+
+asdf_plugins:
+  - nodejs
+  - ruby
+  - yarn
+
+# base dependencies
+asdf_packages:
+  - git
