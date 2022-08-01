@@ -2,12 +2,10 @@
 - name: Base server setup
   hosts: bootstrap
   become: true
-
   roles:
     - role: setup_system
       vars:
         hostname: portfolio
-
     - role: create_user
       vars:
         username: "{{ base.username }}"
@@ -17,7 +15,6 @@
 
 - name: Provision Server
   hosts: normal
-
   roles:
     - role: timezone
       vars:
