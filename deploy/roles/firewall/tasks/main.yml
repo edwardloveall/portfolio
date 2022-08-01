@@ -1,0 +1,11 @@
+---
+- name: Allow ssh connections
+  community.general.ufw:
+    rule: allow
+    name: OpenSSH
+  become: true
+
+- name: Start the Firewall
+  ufw:
+    state: enabled
+  become: true

@@ -23,6 +23,7 @@
       vars:
         zone_name: America/New_York
     - role: ssh
+    - role: firewall
     - role: asdf
     - role: asdf_plugin
       vars:
