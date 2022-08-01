@@ -1,0 +1,66 @@
+---
+- name: Silence MOTD
+  ansible.builtin.copy:
+    content: ""
+    dest: "{{ ansible_env.HOME }}/.hushlogin"
+    group: "{{ base.username }}"
+    owner: "{{ base.username }}"
+    force: false
+    mode: 0555
+
+- name: Install desired packages that I use in my dotfiles
+  ansible.builtin.apt:
+    name: "{{ item }}"
+    state: present
+    update_cache: true
+    cache_valid_time: 3600
+  loop:
+    - stow
+    - fzf
+    - ripgrep
+    - exa
+  become: true
+
+- name: Check if git-delta is installed
+  ansible.builtin.command: dpkg-query -W git-delta
+  register: git_delta_check_deb
+  failed_when: git_delta_check_deb.rc > 1
+  changed_when: git_delta_check_deb.rc == 1
+  become: true
+
+- name: Install git-delta
+  ansible.builtin.apt:
+    deb: "https://github.com/dandavison/delta/releases/download/0.13.0/git-delta_0.13.0_amd64.deb"
+  when: git_delta_check_deb.rc == 1
+  become: true
+
+- name: Ensure known_hosts is present
+  ansible.builtin.copy:
+    content: ""
+    dest: "{{ ansible_env.HOME }}/.ssh/known_hosts"
+    group: "{{ base.username }}"
+    owner: "{{ base.username }}"
+    force: false
+    mode: 0777
+  become_user: "{{ base.username }}"
+
+- name: Remove old sourcehut known_hosts
+  ansible.builtin.command: "ssh-keygen -R git.sr.ht"
+  args:
+    creates: "{{ ansible_env.HOME }}/.ssh/known_hosts.old"
+
+- name: Add sourcehut key to known_hosts
+  ansible.builtin.shell: "ssh-keyscan -H git.sr.ht >> {{ ansible_env.HOME }}/.ssh/known_hosts"
+  changed_when: true
+
+- name: Download dotfiles
+  ansible.builtin.git:
+    repo: git@git.sr.ht:~edwardloveall/dotfiles
+    dest: "{{ ansible_env.HOME }}/dotfiles"
+    version: main
+
+- name: Install dotfiles
+  ansible.builtin.command: "{{ ansible_env.HOME }}/dotfiles/install.sh"
+  args:
+    chdir: "{{ ansible_env.HOME }}/dotfiles/"
+    creates: "{{ ansible_env.HOME }}/.zshrc"

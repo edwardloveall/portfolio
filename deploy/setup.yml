@@ -37,3 +37,4 @@
         plugin_name: yarn
     - role: postgres
     - role: nginx
+    - role: edward
