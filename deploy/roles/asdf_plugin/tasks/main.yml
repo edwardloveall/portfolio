@@ -9,6 +9,8 @@
 
     - name: "update {{ plugin_name }} plugin"
       ansible.builtin.command: "asdf plugin-update {{ plugin_name }}"
+      register: update
+      changed_when: update.stdout.find('From') != -1
   environment:
     ASDF_DIR: "{{ asdf_install_dir }}"
     PATH: "{{ asdf_install_dir }}/shims:{{ asdf_install_dir }}/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
