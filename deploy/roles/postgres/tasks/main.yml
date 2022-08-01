@@ -1,0 +1,16 @@
+---
+- name: Install packages
+  ansible.builtin.apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - postgresql
+    - postgresql-contrib
+  become: true
+
+- name: Start and enable server
+  ansible.builtin.service:
+    name: postgresql
+    state: started
+    enabled: true
+  become: true

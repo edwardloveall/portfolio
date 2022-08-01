@@ -34,3 +34,4 @@
     - role: asdf_plugin
       vars:
         plugin_name: yarn
+    - role: postgres
