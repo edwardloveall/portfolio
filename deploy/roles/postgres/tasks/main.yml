@@ -10,7 +10,11 @@
   become: true
 
 - name: Get postgres major version
-  ansible.builtin.shell: "ls /etc/postgresql | tail -n 1"
+  ansible.builtin.shell: >
+    set -o pipefail &&
+    ls /etc/postgresql | tail -n 1
+  args:
+    executable: /bin/zsh
   register: postgres_version
   changed_when: false
 
@@ -18,12 +22,24 @@
   ansible.builtin.template:
     src: pg_hba.conf
     dest: "/etc/postgresql/{{ postgres_version.stdout }}/main/pg_hba.conf"
+    mode: 0600
   become: true
+
+- name: Check if postgres user password is set
+  ansible.builtin.shell: >
+    set -o pipefail &&
+    echo 'select 1;' | PGPASSWORD={{ postgres.root_password }} psql -h localhost -U postgres postgres
+  args:
+    executable: /bin/zsh
+  register: postgres_password
+  changed_when: false
+  failed_when: false
 
 - name: Set postgres user password
   ansible.builtin.command: psql -c "ALTER USER postgres PASSWORD '{{ postgres.root_password }}';"
   become: true
   become_user: postgres
+  when: postgres_password.rc != 0
 
 - name: Start and enable server
   ansible.builtin.service:
