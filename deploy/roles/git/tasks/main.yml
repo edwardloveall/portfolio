@@ -12,5 +12,5 @@
 - name: Install git
   ansible.builtin.apt:
     name: git
-    state: latest
+    state: latest # noqa package-latest
   become: true
