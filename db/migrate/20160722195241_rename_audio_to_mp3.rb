@@ -1,4 +1,4 @@
-class RenameAudioToMp3 < ActiveRecord::Migration
+class RenameAudioToMp3 < ActiveRecord::Migration[4.2]
   def change
     rename_column :songs, :audio_file_name, :mp3_file_name
     rename_column :songs, :audio_content_type, :mp3_content_type
