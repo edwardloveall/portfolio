@@ -12,3 +12,34 @@
     repo: "{{ git_url }}"
     dest: "{{ location }}"
     version: main
+
+- name: Install language dependencies
+  ansible.builtin.apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - autoconf
+    - bison
+    - build-essential
+    - libssl-dev
+    - libyaml-dev
+    - libreadline6-dev
+    - zlib1g-dev
+    - libncurses5-dev
+    - libffi-dev
+    - libgdbm6
+    - libgdbm-dev
+    - libdb-dev
+    - libpq-dev
+  become: true
+
+- name: asdf install
+  ansible.builtin.shell: >
+    set -o pipefail &&
+    asdf install | grep -v "already installed"
+  args:
+    chdir: "{{ location }}"
+    executable: /bin/zsh
+  register: asdf_results
+  changed_when: asdf_results.stdout_lines | count > 0
+  failed_when: false
