@@ -2,3 +2,8 @@
 base:
   username: deployer
   password_hash: "{{ vault_user_password_hash }}"
+
+postgres:
+  username: deployer
+  password: "{{ vault_db_deployer_password }}"
+  root_password: "{{ vault_db_postgres_password }}"

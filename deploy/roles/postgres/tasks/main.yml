@@ -6,7 +6,24 @@
   with_items:
     - postgresql
     - postgresql-contrib
+    - acl
   become: true
+
+- name: Get postgres major version
+  ansible.builtin.shell: "ls /etc/postgresql | tail -n 1"
+  register: postgres_version
+  changed_when: false
+
+- name: Copy valid pg_hba.conf
+  ansible.builtin.template:
+    src: pg_hba.conf
+    dest: "/etc/postgresql/{{ postgres_version.stdout }}/main/pg_hba.conf"
+  become: true
+
+- name: Set postgres user password
+  ansible.builtin.command: psql -c "ALTER USER postgres PASSWORD '{{ postgres.root_password }}';"
+  become: true
+  become_user: postgres
 
 - name: Start and enable server
   ansible.builtin.service:
