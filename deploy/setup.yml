@@ -35,3 +35,8 @@
     - role: postgres
     - role: nginx
     - role: edward
+
+- name: Specific app dependencies
+  hosts: normal
+  roles:
+    - app_database
