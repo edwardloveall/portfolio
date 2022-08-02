@@ -39,4 +39,8 @@
 - name: Specific app dependencies
   hosts: normal
   roles:
-    - app_database
+    - role: app_database
+    - role: app_deploy
+      vars:
+        git_url: git@github.com:edwardloveall/portfolio.git
+        location: "{{ ansible_env.HOME }}/{{ app_name }}"

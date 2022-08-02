@@ -1,0 +1,14 @@
+---
+- name: Remove old github known_hosts
+  ansible.builtin.command: "ssh-keygen -R github.com"
+  changed_when: true
+
+- name: Add github key to known_hosts
+  ansible.builtin.shell: "ssh-keyscan -H github.com >> {{ ansible_env.HOME }}/.ssh/known_hosts"
+  changed_when: true
+
+- name: Download portfolio
+  ansible.builtin.git:
+    repo: "{{ git_url }}"
+    dest: "{{ location }}"
+    version: main
