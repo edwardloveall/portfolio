@@ -1,16 +1,29 @@
 ---
 - name: Check for database user
   ansible.builtin.shell: >
+    set -o pipefail &&
     echo "SELECT rolname FROM pg_catalog.pg_roles WHERE rolname = '{{ postgres.username }}'" | psql -U postgres
+  args:
+    executable: /bin/zsh
   register: postgres_user
   become: true
   become_user: postgres
-  ignore_errors: true
   changed_when: false
 
 - name: Create database user
   ansible.builtin.shell: >
-    echo "CREATE ROLE {{ postgres.username }} WITH SUPERUSER CREATEDB CREATEROLE INHERIT REPLICATION LOGIN PASSWORD '{{ postgres.password }}'" | psql -U postgres
+    set -o pipefail &&
+    echo "CREATE ROLE {{ postgres.username }} WITH
+    SUPERUSER
+    CREATEDB
+    CREATEROLE
+    INHERIT
+    REPLICATION
+    LOGIN
+    PASSWORD '{{ postgres.password }}'" |
+    psql -U postgres
+  args:
+    executable: /bin/zsh
   when: "postgres.username|string not in postgres_user.stdout"
   become: true
   become_user: postgres
