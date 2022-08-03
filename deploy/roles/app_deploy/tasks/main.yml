@@ -128,3 +128,12 @@
     src: systemd.service.j2
     dest: /etc/systemd/system/portfolio.service
   become: true
+
+- name: Start rails server
+  systemd:
+    state: restarted
+    name: portfolio
+    enabled: yes
+    daemon_reload: yes
+  notify: "Restart nginx"
+  become: true
