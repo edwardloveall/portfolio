@@ -47,6 +47,14 @@
   hosts: normal
   roles:
     - role: app_database
+    - role: app_nginx
+      vars:
+        user: "{{ base.username }}"
+        group: "{{ base.username }}"
+        https: "{{ https_enabled }}" # from inventory
+        location: "{{ ansible_env.HOME }}/{{ app_name }}"
+        app_name: portfolio
+        app_domain: edwardloveall.com
     - role: app_deploy
       vars:
         app_name: portfolio

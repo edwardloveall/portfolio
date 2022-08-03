@@ -1,0 +1,47 @@
+---
+- name: Copy non-https nginx configuration in place
+  ansible.builtin.template:
+    src: nginx.conf.j2
+    dest: "/etc/nginx/sites-available/{{ app_name }}.conf"
+    owner: "{{ user }}"
+    group: "{{ group }}"
+    mode: 0644
+  when: not https
+  become: true
+
+- name: Copy https nginx configuration in place
+  ansible.builtin.template:
+    src: nginx-https.conf.j2
+    dest: "/etc/nginx/sites-available/{{ app_name }}.conf"
+    owner: "{{ user }}"
+    group: "{{ group }}"
+    mode: 0644
+  when: https
+  become: true
+
+- name: Symlink default site
+  ansible.builtin.file:
+    src: "/etc/nginx/sites-available/{{ app_name }}.conf"
+    dest: "/etc/nginx/sites-enabled/{{ app_name }}"
+    state: link
+  become: true
+
+- name: Set nginx user
+  ansible.builtin.lineinfile:
+    dest: /etc/nginx/nginx.conf
+    regexp: "^user"
+    line: "user {{ user }};"
+    state: present
+  notify:
+    - Reload nginx
+    - Restart nginx
+  become: true
+
+# No need to restart nginx https is set to true because certbot will
+# install the certificates and then restart nginx
+- name: Restart nginx (when not running certbot)
+  ansible.builtin.command: "/bin/true"
+  notify:
+    - Reload nginx
+    - Restart nginx
+  when: not https
