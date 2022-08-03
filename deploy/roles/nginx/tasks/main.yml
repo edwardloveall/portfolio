@@ -42,3 +42,9 @@
     state: started
     enabled: true
   become: true
+
+- name: Allow nginx throught the firewall
+  community.general.ufw:
+    rule: allow
+    name: Nginx Full
+  become: true
