@@ -38,16 +38,18 @@
     regexp: "^user"
     line: "user {{ user }};"
     state: present
-  notify:
-    - Reload nginx
-    - Restart nginx
   become: true
 
-# No need to restart nginx https is set to true because certbot will
-# install the certificates and then restart nginx
-- name: Restart nginx (when not running certbot)
-  ansible.builtin.command: "/bin/true"
-  notify:
-    - Reload nginx
-    - Restart nginx
+- name: Reload nginx
+  ansible.builtin.service:
+    name: nginx
+    state: reloaded
   when: not https
+  become: true
+
+- name: Restart nginx
+  ansible.builtin.service:
+    name: nginx
+    state: restarted
+  when: not https
+  become: true

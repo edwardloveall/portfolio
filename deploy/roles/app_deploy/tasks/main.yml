@@ -107,7 +107,12 @@
   ansible.builtin.systemd:
     state: restarted
     name: portfolio
-  notify: "Restart nginx"
     enabled: true
     daemon_reload: true
+  become: true
+
+- name: Restart nginx
+  ansible.builtin.service:
+    name: nginx
+    state: restarted
   become: true
