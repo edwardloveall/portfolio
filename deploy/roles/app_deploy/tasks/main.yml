@@ -100,3 +100,13 @@
   args:
     chdir: "{{ location }}"
   when: migrations.stdout.find('up') == -1
+
+- name: Install node packages
+  community.general.yarn:
+    path: "{{ location }}"
+
+- name: Compile assets
+  ansible.builtin.command: "rails assets:precompile"
+  args:
+    chdir: "{{ location }}"
+  changed_when: true
