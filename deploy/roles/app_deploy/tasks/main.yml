@@ -43,3 +43,27 @@
   register: asdf_results
   changed_when: asdf_results.stdout_lines | count > 0
   failed_when: false
+
+- name: Fetch bundle config
+  ansible.builtin.command: bundle config list
+  register: bundler_config
+  changed_when: false
+
+- name: Configure bundler for deployment
+  ansible.builtin.command: bundle config set --local deployment 'true'
+  args:
+    chdir: "{{ location }}"
+  when: bundler_config.stdout.find('deployment') == -1
+
+- name: Configure bundler to only use production gems
+  ansible.builtin.command: bundle config set --local without 'development test'
+  args:
+    chdir: "{{ location }}"
+  when: bundler_config.stdout.find('without') == -1
+
+- name: Install gems
+  ansible.builtin.command: bundle
+  args:
+    chdir: "{{ location }}"
+  register: bundle_install
+  changed_when: bundle_install.stdout.find("Resolving dependencies") == -1

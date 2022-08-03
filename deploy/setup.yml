@@ -31,6 +31,9 @@
         plugin_name: nodejs
     - role: asdf_plugin
       vars:
+        plugin_name: python
+    - role: asdf_plugin
+      vars:
         plugin_name: yarn
     - role: postgres
     - role: nginx
@@ -44,3 +47,6 @@
       vars:
         git_url: git@github.com:edwardloveall/portfolio.git
         location: "{{ ansible_env.HOME }}/{{ app_name }}"
+  environment:
+    ASDF_DIR: "{{ ansible_env.HOME }}/.asdf"
+    PATH: "{{ ansible_env.HOME }}/.asdf/shims:{{ ansible_env.HOME }}/.asdf/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:./bin"
