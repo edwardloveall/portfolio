@@ -46,6 +46,8 @@
 
 - name: Fetch bundle config
   ansible.builtin.command: bundle config list
+  args:
+    chdir: "{{ location }}"
   register: bundler_config
   changed_when: false
 
