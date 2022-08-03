@@ -45,8 +45,15 @@
     - role: app_database
     - role: app_deploy
       vars:
+        app_name: portfolio
         git_url: git@github.com:edwardloveall/portfolio.git
         location: "{{ ansible_env.HOME }}/{{ app_name }}"
+        blog_host: blog.edwardloveall.com
   environment:
+    APPLICATION_HOST: "{{ postgres.username }}"
     ASDF_DIR: "{{ ansible_env.HOME }}/.asdf"
     PATH: "{{ ansible_env.HOME }}/.asdf/shims:{{ ansible_env.HOME }}/.asdf/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:./bin"
+    PGUSER: "{{ postgres.username }}"
+    PGPASSWORD: "{{ postgres.password }}"
+    RAILS_ENV: production
+    SECRET_KEY_BASE: "{{ rails.secret }}"

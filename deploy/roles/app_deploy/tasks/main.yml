@@ -67,3 +67,36 @@
     chdir: "{{ location }}"
   register: bundle_install
   changed_when: bundle_install.stdout.find("Resolving dependencies") == -1
+
+- name: Check if database exists
+  ansible.builtin.command: psql -lqt
+  register: database
+  changed_when: false
+
+- name: Create database
+  ansible.builtin.command: "rails db:create"
+  args:
+    chdir: "{{ location }}"
+  when: database.stdout.find("portfolio_production") == -1
+
+- name: Check if database is migrated
+  ansible.builtin.shell: >
+    set -o pipefail &&
+    rails db:migrate:status | awk -F ' ' '{print $1}'
+  args:
+    chdir: "{{ location }}"
+    executable: /bin/zsh
+  register: migrations
+  changed_when: false
+
+- name: Migrate database
+  ansible.builtin.command: "rails db:migrate"
+  args:
+    chdir: "{{ location }}"
+  when: migrations.stdout.find('up') != -1
+
+- name: Prime database
+  ansible.builtin.command: "rails db:setup"
+  args:
+    chdir: "{{ location }}"
+  when: migrations.stdout.find('up') == -1
