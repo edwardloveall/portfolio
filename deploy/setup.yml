@@ -57,11 +57,18 @@
         app_domain: edwardloveall.com
     - role: app_deploy
       vars:
-        app_name: portfolio
+        analytics_key: "{{ rails.analytics_key }}"
+        app_domain: edwardloveall.com
+        app_secret: "{{ rails.secret }}"
+        blog_domain: blog.edwardloveall.com
         git_url: git@github.com:edwardloveall/portfolio.git
         location: "{{ ansible_env.HOME }}/{{ app_name }}"
+        pgpassword: "{{ postgres.password }}"
+        pguser: "{{ postgres.username }}"
+        user: "{{ base.username }}"
+        app_name: portfolio
   environment:
-    APPLICATION_HOST: "{{ postgres.username }}"
+    APPLICATION_HOST: edwardloveall.com
     BLOG_HOST: blog.edwardloveall.com
     ASDF_DIR: "{{ ansible_env.HOME }}/.asdf"
     PATH: "{{ ansible_env.HOME }}/.asdf/shims:{{ ansible_env.HOME }}/.asdf/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:./bin"

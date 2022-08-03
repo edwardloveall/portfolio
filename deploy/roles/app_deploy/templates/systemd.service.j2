@@ -1,0 +1,25 @@
+# Inspiration: https://github.com/puma/puma/blob/master/docs/systemd.md
+
+[Unit]
+Description=Portfolio Puma HTTP Server
+After=network.target
+
+[Service]
+Type=simple
+User={{ user }}
+WorkingDirectory={{ location }}
+Environment=PATH=/home/{{user}}/.asdf/shims:/home/{{user}}/.asdf/bin:/usr/local/sbin:/usr/local/bin:/usr/bin
+Environment=ANALYTICS_KEY={{ analytics_key }}
+Environment=ANALYTICS_KEY_BLOG={{ analytics_key }}
+Environment=APPLICATION_HOST={{ app_domain }}
+Environment=ASSET_HOST={{ app_domain }}
+Environment=BLOG_HOST={{ blog_domain }}
+Environment=PGPASSWORD={{ pgpassword }}
+Environment=PGUSER={{ pguser }}
+Environment=RAILS_ENV=production
+Environment=SECRET_KEY_BASE={{ app_secret }}
+ExecStart={{ location }}/bin/puma -C {{ location }}/config/puma.rb
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
