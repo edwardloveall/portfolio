@@ -37,6 +37,10 @@
         plugin_name: yarn
     - role: postgres
     - role: nginx
+      vars:
+        user: "{{ base.username }}"
+        group: "{{ base.username }}"
+        https: "{{ https_enabled }}" # from inventory
     - role: edward
 
 - name: Specific app dependencies

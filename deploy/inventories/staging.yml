@@ -11,3 +11,5 @@ all:
       ansible_ssh_port: 2222
       ansible_user: "{{ base.username }}"
       host_key_checking: false
+  vars:
+    https_enabled: false

@@ -5,6 +5,37 @@
     state: present
   become: true
 
+- name: Copy nginx config files
+  ansible.builtin.copy:
+    src: "{{ item }}"
+    dest: /etc/nginx
+    owner: "{{ user }}"
+    group: "{{ group }}"
+    mode: 0644
+  with_items:
+    - nginx.conf
+    - config
+  become: true
+
+- name: Generate DH param (2048 bits)
+  community.crypto.openssl_dhparam:
+    path: /etc/nginx/dhparam.pem
+    size: 2048
+  become: true
+  when: https
+
+- name: Create a directory if it does not exist
+  ansible.builtin.file:
+    path: "/etc/nginx/{{ item }}"
+    state: directory
+    owner: "{{ user }}"
+    group: "{{ group }}"
+    mode: 0644
+  with_items:
+    - sites-available
+    - sites-enabled
+  become: true
+
 - name: Start nginx
   ansible.builtin.service:
     name: nginx
