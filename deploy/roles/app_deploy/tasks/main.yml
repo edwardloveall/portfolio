@@ -112,3 +112,13 @@
   args:
     chdir: "{{ location }}"
   changed_when: true
+
+- name: Create shared folders
+  file:
+    path: "{{ item }}"
+    state: directory
+    mode: "755"
+  with_items:
+    - "{{ location }}/shared"
+    - "{{ location }}/shared/pids"
+    - "{{ location }}/shared/sockets"
