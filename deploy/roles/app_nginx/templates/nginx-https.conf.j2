@@ -1,5 +1,5 @@
 upstream {{ app_name }} {
-  server localhost:3000 fail_timeout=0;
+  server unix:{{ location }}/shared/sockets/puma.sock fail_timeout=0;
 }
 
 server {
