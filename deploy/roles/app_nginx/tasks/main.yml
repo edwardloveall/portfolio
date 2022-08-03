@@ -19,11 +19,17 @@
   when: https
   become: true
 
-- name: Symlink default site
+- name: Symlink site
   ansible.builtin.file:
     src: "/etc/nginx/sites-available/{{ app_name }}.conf"
     dest: "/etc/nginx/sites-enabled/{{ app_name }}"
     state: link
+  become: true
+
+- name: Remove default symlink
+  ansible.builtin.file:
+    dest: "/etc/nginx/sites-enabled/default"
+    state: absent
   become: true
 
 - name: Set nginx user
