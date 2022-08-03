@@ -87,7 +87,7 @@
   changed_when: true
 
 - name: Create shared folders
-  file:
+  ansible.builtin.file:
     path: "{{ item }}"
     state: directory
     mode: "755"
@@ -97,16 +97,17 @@
     - "{{ location }}/shared/sockets"
 
 - name: Install portfolio systemd unit file
-  template:
+  ansible.builtin.template:
     src: systemd.service.j2
     dest: /etc/systemd/system/portfolio.service
+    mode: 0644
   become: true
 
 - name: Start rails server
-  systemd:
+  ansible.builtin.systemd:
     state: restarted
     name: portfolio
-    enabled: yes
-    daemon_reload: yes
   notify: "Restart nginx"
+    enabled: true
+    daemon_reload: true
   become: true
