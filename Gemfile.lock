@@ -207,7 +207,6 @@ GEM
       racc (~> 1.4)
     nokogiri (1.13.7-x86_64-linux)
       racc (~> 1.4)
-    normalize-rails (8.0.1)
     oath (1.1.0)
       bcrypt
       rails
@@ -381,7 +380,6 @@ DEPENDENCIES
   jsbundling-rails
   kaminari
   launchy
-  normalize-rails
   oath
   pg
   pry-byebug
