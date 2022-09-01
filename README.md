@@ -1,20 +1,12 @@
 # Portfolio
 
-## Start the app on the server
+## Deployment
 
-```shell
-bundle exec pumactl start
-```
-
-## Restart the app on the server:
-
-```shell
-bin/deploy
-```
+This uses [Ansible](https://www.ansible.com/) for deployment. See the [deploy README](deploy/README.md) for more info.
 
 ## Maintenance mode
 
-```shell
+```sh
 rake maintenance:enable
 rake maintenance:disable
 ```
