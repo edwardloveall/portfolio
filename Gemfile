@@ -4,6 +4,7 @@ ruby "3.0.4"
 
 gem "autoprefixer-rails"
 gem "bullet"
+gem "cssbundling-rails"
 gem "dotenv-rails"
 gem "flutie"
 gem "high_voltage"

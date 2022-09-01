@@ -6,10 +6,12 @@
     "esbuild": "^0.14.28",
     "esbuild-sass-plugin": "^2.2.5",
     "normalize.css": "^8.0.1",
+    "sass": "^1.54.3",
     "webpack-jquery-ui": "^2.0.1"
   },
   "devDependencies": {},
   "scripts": {
-    "build": "bin/assets"
+    "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=assets",
+    "build:css": "sass ./app/assets/stylesheets:./app/assets/builds --no-source-map --load-path=node_modules"
   }
 }

@@ -40,8 +40,7 @@ div.player {
   }
 
   a.button {
-    background: var(--button-color) url("../images/play.svg") no-repeat center
-      center;
+    background: var(--button-color) url("play.svg") no-repeat center center;
     border: 2px solid var(--song-progress-color);
     border-radius: 50%;
     box-sizing: border-box;
@@ -54,7 +53,7 @@ div.player {
   }
 
   a.button.playing {
-    background-image: url("../images/pause.svg");
+    background-image: url("pause.svg");
   }
 
   span.remaining {
