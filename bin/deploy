@@ -2,15 +2,6 @@
 
 set -e
 
-export RAILS_ENV=production
-export BLOG_HOST=blog.edwardloveall.com
-
-cd /var/www/portfolio
-git checkout main
-git pull origin main
-bundle
-yarn
-bundle exec rake db:migrate
-bundle exec rake assets:precompile
-sudo service portfolio restart
-sudo service nginx restart
+cd deploy
+ansible-playbook -i inventories/production.yml setup.yml --start-at-task="app_deploy : *"
+cd -
