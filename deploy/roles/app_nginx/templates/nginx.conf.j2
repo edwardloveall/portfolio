@@ -13,7 +13,7 @@ map $sent_http_content_type $expires {
 
 server {
   listen 80;
-  server_name {{ app_domain }};
+  server_name {{ app_domain }} blog.{{ app_domain }};
   expires $expires;
 
   root {{ location }}/public;
