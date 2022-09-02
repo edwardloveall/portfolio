@@ -11,7 +11,7 @@
         username: "{{ base.username }}"
         password: "{{ base.password_hash }}"
         group: "{{ base.username }}"
-        ssh_key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_rsa.pub') }}"
+        ssh_key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/deployer.pub') }}"
 
 - name: Provision Server
   hosts: normal
