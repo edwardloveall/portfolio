@@ -1,8 +1,13 @@
 ---
-- name: Allow ssh connections
+- name: Install ufw
+  ansible.builtin.apt:
+    name: ufw
+    state: present
+  become: true
+
+- name: Allow ssh connections on custom port
   community.general.ufw:
     rule: allow
-    name: OpenSSH
     to_port: "{{ ssh_port }}"
   become: true
 
