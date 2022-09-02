@@ -29,3 +29,4 @@ yarn-debug.log*
 .yarn-integrity
 .vagrant
 .vault_pass
+deploy/inventories/production.yml
