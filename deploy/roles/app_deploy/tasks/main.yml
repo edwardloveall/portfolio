@@ -31,6 +31,7 @@
     - libgdbm-dev
     - libdb-dev
     - libpq-dev
+    - curl
   become: true
 
 - name: asdf install
