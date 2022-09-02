@@ -13,3 +13,4 @@ all:
       host_key_checking: false
   vars:
     https_enabled: false
+    custom_ssh_port: 22

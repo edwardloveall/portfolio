@@ -3,6 +3,7 @@
   community.general.ufw:
     rule: allow
     name: OpenSSH
+    to_port: "{{ ssh_port }}"
   become: true
 
 - name: Start the Firewall

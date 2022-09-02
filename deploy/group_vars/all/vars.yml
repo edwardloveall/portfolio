@@ -2,6 +2,7 @@
 base:
   username: deployer
   password_hash: "{{ vault_user_password_hash }}"
+  ssh_port: "{{ vault_ssh_port }}"
 
 postgres:
   username: deployer

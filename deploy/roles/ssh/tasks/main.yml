@@ -7,7 +7,7 @@
     state: present
   with_items:
     - regexp: "^Port"
-      line: "Port 22"
+      line: "Port {{ ssh_port }}"
     - regexp: "^PasswordAuthentication"
       line: "PasswordAuthentication no"
     - regexp: "^PermitRootLogin"

@@ -12,6 +12,9 @@
         password: "{{ base.password_hash }}"
         group: "{{ base.username }}"
         ssh_key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/deployer.pub') }}"
+    - role: ssh
+      vars:
+        ssh_port: "{{ custom_ssh_port }}"
 
 - name: Provision Server
   hosts: normal
@@ -19,9 +22,10 @@
     - role: timezone
       vars:
         zone_name: America/New_York
-    - role: ssh
     - role: git
     - role: firewall
+      vars:
+        ssh_port: "{{ custom_ssh_port }}"
     - role: asdf
     - role: asdf_plugin
       vars:
