@@ -15,6 +15,9 @@
     - role: ssh
       vars:
         ssh_port: "{{ custom_ssh_port }}"
+    - role: firewall
+      vars:
+        ssh_port: "{{ custom_ssh_port }}"
 
 - name: Provision Server
   hosts: normal
@@ -23,9 +26,6 @@
       vars:
         zone_name: America/New_York
     - role: git
-    - role: firewall
-      vars:
-        ssh_port: "{{ custom_ssh_port }}"
     - role: asdf
     - role: asdf_plugin
       vars:
