@@ -45,6 +45,12 @@
   changed_when: asdf_results.stdout_lines | count > 0
   failed_when: false
 
+- name: Install gem dependencies
+  ansible.builtin.apt:
+    name: imagemagick
+    state: present
+  become: true
+
 - name: Fetch bundle config
   ansible.builtin.command: bundle config list
   args:
