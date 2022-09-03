@@ -31,3 +31,32 @@ bin/deploy
 
 [Ansible]: https://www.ansible.com/
 [Vagrant]: https://www.vagrantup.com/
+
+## Getting content from an old server
+
+First you'll want to make a db backup on the server:
+
+```sh
+pg_dump portfolio_production | gzip > production-YYYY-MM-DD.bak.gz
+```
+
+Logout of the server and download the backup:
+
+Connect to the new server to grab the database backup. Make sure you forward the SSH agent so you can connect to the old server from the new server using your local computer's SSH credentials:
+
+```sh
+ssh -p 0000 -o ForwardAgent=yes user@server
+```
+
+Download, extract, and load the database backup:
+
+```sh
+sftp -P 0000 user@old-server:production-YYYY-MM-DD.bak.gz production-YYYY-MM-DD.bak.gz
+gunzip -c production-YYYY-MM-DD.bak.gz | psql portfolio_production
+```
+
+Finally, grab all the stored files (for projects, songs, etc):
+
+```sh
+sftp -r -P 0000 user@server:/path/to/portfolio/storage ~/portfolio/storage
+```
