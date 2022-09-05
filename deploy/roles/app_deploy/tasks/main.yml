@@ -34,16 +34,22 @@
     - curl
   become: true
 
-- name: asdf install
+- name: asdf status
   ansible.builtin.shell: >
     set -o pipefail &&
-    asdf install | grep -v "already installed"
+    asdf current | grep "Not installed"
   args:
     chdir: "{{ location }}"
     executable: /bin/zsh
-  register: asdf_results
-  changed_when: asdf_results.stdout_lines | count > 0
+  register: asdf_status
+  changed_when: false
   failed_when: false
+
+- name: asdf install
+  ansible.builtin.command: asdf install
+  args:
+    chdir: "{{ location }}"
+  when: asdf_status.stdout_lines | count > 0
 
 - name: Install gem dependencies
   ansible.builtin.apt:
