@@ -60,3 +60,66 @@ Finally, grab all the stored files (for projects, songs, etc):
 ```sh
 sftp -r -P 0000 user@server:/path/to/portfolio/storage ~/portfolio/storage
 ```
+
+## Getting LetsEncrypt certs from an old server
+
+Read this:
+
+<https://ivanderevianko.com/2019/03/migrate-letsencrypt-certificates-certbot-to-new-server>
+
+But also:
+
+### On old server
+
+Compress the certs and configs
+
+```sh
+sudo tar -chvzf certs.tar.gz /etc/letsencrypt/archive /etc/letsencrypt/renewal
+```
+
+### On new server
+
+Transfer the certs from the old machine
+
+```sh
+sftp -P 0000 old@ip.ad.dr.ess:certs.tar.gz certs.tar.gz
+```
+
+Un-tar them. If you do it from the root, they'll go to the correct place.
+
+```sh
+cd /
+sudo tar -xvf ~/certs.tar.gz
+```
+
+Make directories for the live domains
+
+```sh
+sudo mkdir -p /etc/letsencrypt/live/edwardloveall.com
+sudo mkdir -p /etc/letsencrypt/live/blog.edwardloveall.com
+```
+
+Check what the more recent cert is for each domain:
+
+```sh
+ls /etc/letsencrypt/archive/edwardloveall.com
+# shows something like cert18.pem
+```
+
+Link certs (note the `18` at the end of each of these):
+
+```sh
+sudo ln -s /etc/letsencrypt/archive/edwardloveall.com/cert18.pem /etc/letsencrypt/live/edwardloveall.com/cert.pem
+sudo ln -s /etc/letsencrypt/archive/edwardloveall.com/chain18.pem /etc/letsencrypt/live/edwardloveall.com/chain.pem
+sudo ln -s /etc/letsencrypt/archive/edwardloveall.com/fullchain18.pem /etc/letsencrypt/live/edwardloveall.com/fullchain.pem
+sudo ln -s /etc/letsencrypt/archive/edwardloveall.com/privkey18.pem /etc/letsencrypt/live/edwardloveall.com/privkey.pem
+```
+
+So the same for the blog (possibly with a different number):
+
+```sh
+sudo ln -s /etc/letsencrypt/archive/blog.edwardloveall.com/cert18.pem /etc/letsencrypt/live/blog.edwardloveall.com/cert.pem
+sudo ln -s /etc/letsencrypt/archive/blog.edwardloveall.com/chain18.pem /etc/letsencrypt/live/blog.edwardloveall.com/chain.pem
+sudo ln -s /etc/letsencrypt/archive/blog.edwardloveall.com/fullchain18.pem /etc/letsencrypt/live/blog.edwardloveall.com/fullchain.pem
+sudo ln -s /etc/letsencrypt/archive/blog.edwardloveall.com/privkey18.pem /etc/letsencrypt/live/blog.edwardloveall.com/privkey.pem
+```
