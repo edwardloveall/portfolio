@@ -44,7 +44,7 @@ jobs:
 
       - run:
           name: Build assets
-          command: yarn build
+          command: "bundle exec rails assets:precompile"
 
       # Save dependency cache
       - save_cache:
