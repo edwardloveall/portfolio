@@ -11,6 +11,14 @@
     to_port: "{{ ssh_port }}"
   become: true
 
+- name: Update SSH configuration to be more secure
+  ansible.builtin.lineinfile:
+    dest: /lib/systemd/system/ufw.service
+    regexp: "^After="
+    line: "After=netfilter-persistent.service"
+    state: present
+  become: true
+
 - name: Start the Firewall
   ufw:
     state: enabled
