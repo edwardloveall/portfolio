@@ -37,7 +37,7 @@ bin/deploy
 First you'll want to make a db backup on the server:
 
 ```sh
-pg_dump portfolio_production | gzip > production-YYYY-MM-DD.bak.gz
+pg_dump -U <role> -a portfolio_production | gzip > production-$(date +%F).bak.gz
 ```
 
 Logout of the server and download the backup:
