@@ -25,6 +25,11 @@
     - role: timezone
       vars:
         zone_name: America/New_York
+    - role: swap
+      vars:
+        swap_file_path: /swapfile
+        swap_file_size: 1G
+        swappiness: 1
     - role: git
     - role: asdf
     - role: asdf_plugin
