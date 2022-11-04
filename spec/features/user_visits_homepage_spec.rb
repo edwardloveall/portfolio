@@ -38,7 +38,7 @@ RSpec.feature 'User visits homepage' do
 
     within('section.contact') do
       expect(page).to have_link('Blog', href: root_url(subdomain: 'blog'))
-      expect(page).to have_link('Mastodon', href: 'https://mastodon.technology/@edwardloveall')
+      expect(page).to have_link('Mastodon', href: 'https://mastodon.lol/@edwardloveall')
       expect(page).to have_link('Email', href: email_href)
     end
   end
