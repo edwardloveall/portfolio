@@ -17,8 +17,8 @@ Rails.application.configure do
   # Enable server timing
   config.server_timing = true
 
-  config.hosts << "dev.local"
-  config.hosts << "blog.dev.local"
+  config.hosts << "local.test"
+  config.hosts << "blog.local.test"
 
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
