@@ -2,11 +2,8 @@
   <%= link_to internal_post.title, internal_post_path(internal_post.slug) %>
 </h2>
 <aside class="meta">
-  <%= link_to internal_post_path(internal_post.slug) do %>
-    Posted
-    <time datetime="<%= timestamp(internal_post.created_at) %>">
-      <%= pretty_date(internal_post.created_at) %>
-    </time>
-  <% end %>
+  <time datetime="<%= timestamp(internal_post.created_at) %>">
+    <%= link_to pretty_date(internal_post.created_at), internal_post_path(internal_post.slug) %>
+  </time>
 </aside>
 <p><%= internal_post.teaser %></p>

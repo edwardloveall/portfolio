@@ -1,13 +1,10 @@
 <h2><%= link_to external_post.title, external_post.url %></h2>
 <aside class="meta">
-  <%= link_to external_post.url do %>
-    Posted
-    <time datetime="<%= timestamp(external_post.posted_on) %>">
-      <%= pretty_date(external_post.posted_on) %>
-    </time>
-    <span class="external-site">
-      <%= uri_host(external_post.url) %>
-    </span>
-  <% end %>
+  <time datetime="<%= timestamp(external_post.posted_on) %>">
+    <%= link_to pretty_date(external_post.posted_on), external_post.url %>
+  </time>
+  <span class="external-site">
+    <%= uri_host(external_post.url) %>
+  </span>
 </aside>
 <p><%= external_post.teaser %></p>

@@ -25,6 +25,7 @@ article {
 }
 
 aside.meta {
+  color: var(--deemphasized-text-color);
   margin-bottom: $large-spacing;
   text-align: center;
 
@@ -47,8 +48,7 @@ li.post-teaser {
     text-align: left;
   }
 
-  span.external-site::before {
-    content: "|";
-    margin: 0 $small-spacing;
+  span.external-site {
+    margin-left: $small-spacing;
   }
 }
