@@ -34,13 +34,12 @@ RSpec.describe "Posts requests" do
         slug: "first-post",
         body: "Hello, world!"
       )
-      post = create(:post, postable: internal_post)
-      create(:post, :internal)
+      create(:post, postable: internal_post)
       body_html = MarkdownRenderer.to_html("Hello, world!").html_safe
 
       get feed_url
 
-      entry = xml[:rss][:channel][:item].first
+      entry = xml[:rss][:channel][:item]
       expect(entry[:title]).to eq("First post!")
       expect(entry[:link]).to eq(internal_post_url("first-post", subdomain: "blog"))
       expect(entry[:description]).to eq(body_html)
@@ -59,12 +58,11 @@ RSpec.describe "Posts requests" do
         teaser: "Read over there",
         posted_on: Date.new(2021, 1, 1)
       )
-      post = create(:post, postable: external_post)
-      post = create(:post, :external)
+      create(:post, postable: external_post)
 
       get feed_url
 
-      entry = xml[:rss][:channel][:item].first
+      entry = xml[:rss][:channel][:item]
       expect(entry[:title]).to eq("Post elsewhere")
       expect(entry[:link]).to eq("https://other.com")
       expect(entry[:description]).to eq("Read over there")
