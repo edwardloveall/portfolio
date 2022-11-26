@@ -2,8 +2,6 @@
   padding: $small-spacing;
 
   a {
-    text-decoration: underline;
-
     &:hover {
       color: var(--link-hover-color);
     }

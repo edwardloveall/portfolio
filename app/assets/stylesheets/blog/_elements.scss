@@ -17,7 +17,6 @@ h2 a {
 a {
   transition: color 0.1s ease;
   color: var(--accent-color);
-  text-decoration: none;
 
   &:hover {
     transition: color 0.3s ease;
