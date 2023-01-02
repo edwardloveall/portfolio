@@ -1,4 +1,5 @@
-ul.resource-list {
+ul.resource-list,
+ol.resource-list {
   display: flex;
   flex-direction: column;
   margin-top: $base-spacing;

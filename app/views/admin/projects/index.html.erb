@@ -1,13 +1,35 @@
 <%= link_to 'Add project', new_admin_project_path, class: :add %>
-<ul class="projects sortable resource-list" data-update-url="<%= sort_admin_projects_url %>">
+<ol
+  class="resource-list"
+  data-controller="drag-items sort-items"
+  data-drag-items-preview-class="drag-preview"
+  data-action="drag-items:success->sort-items#sort"
+  data-sort-items-url-value="<%= sort_admin_projects_url %>"
+  data-sort-items-sort-key-value="project"
+>
   <% @projects.each do |project| %>
-    <%= content_tag(:li, id: dom_id(project)) do %>
-      <%= link_to project.title, edit_admin_project_path(project) %>
+    <%= content_tag(
+      :li,
+      draggable: true,
+      data: {
+        drag_items_id: dom_id(project),
+        sort_items_id: project.id,
+        action: [
+          "dragstart->drag-items#dragstart",
+          "dragenter->drag-items#dragenter",
+          "dragover->drag-items#dragover",
+          "dragend->drag-items#dragend",
+          "drop->drag-items#drop",
+        ].join(" ")
+      }
+    ) do %>
+      <%= link_to project.title, edit_admin_project_path(project), draggable: false %>
       <%= link_to t('helpers.submit.project.delete'),
                   [:admin, project],
                   method: :delete,
                   class: :delete,
+                  draggable: false,
                   data: { confirm: 'Are you sure?' } %>
     <% end %>
   <% end %>
-</section>
+</ol>

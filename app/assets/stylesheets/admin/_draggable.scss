@@ -3,3 +3,11 @@ li.ui-sortable-helper {
   border-radius: $border-radius;
   padding: 0 $small-spacing;
 }
+
+.drag-preview {
+  border: 2px dashed currentcolor;
+}
+
+.dragging {
+  display: none !important;
+}
