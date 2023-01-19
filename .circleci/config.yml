@@ -1,4 +1,8 @@
 version: 2.1
+
+orbs:
+  browser-tools: circleci/browser-tools@1.4.1
+
 jobs:
   build:
     parallelism: 1
@@ -17,11 +21,8 @@ jobs:
 
     steps:
       - checkout
-      - run:
-          name: Setup Chrome
-          command: |
-            wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-            sudo apt install ./google-chrome-stable_current_amd64.deb
+      - browser-tools/install-chrome
+      - browser-tools/install-chromedriver
       - run:
           name: Create Directories
           command: mkdir -p test-results
