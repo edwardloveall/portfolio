@@ -92,7 +92,3 @@ export default class extends Controller {
     return event.dataTransfer.dropEffect === "move";
   }
 }
-
-// POST /admin/projects/sort
-//   project[]=1&project[]=2&project[]=3
-//   AKA: { project: [1, 2, 3] }

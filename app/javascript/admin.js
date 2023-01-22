@@ -12,6 +12,5 @@ import DragItemsController from "./controllers/drag_items_controller";
 import SortItemsController from "./controllers/sort_items_controller";
 
 window.Stimulus = Application.start();
-Stimulus.register("drag-item", DragItemController);
 Stimulus.register("drag-items", DragItemsController);
 Stimulus.register("sort-items", SortItemsController);
