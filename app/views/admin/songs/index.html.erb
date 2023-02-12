@@ -1,12 +1,34 @@
-<%= link_to 'Add song', new_admin_song_path, class: :add %>
-<ul class="songs sortable resource-list" data-update-url="<%= sort_admin_songs_url %>">
+<%= link_to "Add song", new_admin_song_path, class: :add %>
+<ul
+  class="songs resource-list"
+  data-controller="drag-items sort-items"
+  data-action="drag-items:success->sort-items#sort"
+  data-drag-items-preview-class="drag-preview"
+  data-sort-items-url-value="<%= sort_admin_songs_url %>"
+  data-sort-items-sort-key-value="song"
+>
   <% @songs.each do |song| %>
-    <%= content_tag(:li, id: dom_id(song)) do %>
-      <%= link_to song.title, edit_admin_song_path(song) %>
+    <%= content_tag(
+      :li,
+      draggable: true,
+      data: {
+        drag_items_id: dom_id(song),
+        sort_items_id: song.id,
+        action: [
+          "dragstart->drag-items#dragstart",
+          "dragenter->drag-items#dragenter",
+          "dragover->drag-items#dragover",
+          "dragend->drag-items#dragend",
+          "drop->drag-items#drop",
+        ].join(" ")
+      }
+    ) do %>
+      <%= link_to song.title, edit_admin_song_path(song), draggable: false %>
       <%= link_to t('helpers.submit.song.delete'),
                   [:admin, song],
                   method: :delete,
                   class: :delete,
+                  draggable: false,
                   data: { confirm: 'Are you sure?' } %>
     <% end %>
   <% end %>

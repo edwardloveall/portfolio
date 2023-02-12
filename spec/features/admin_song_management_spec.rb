@@ -38,9 +38,7 @@ RSpec.feature 'Admin song management' do
     song = create(:song)
 
     visit admin_songs_path
-    within("#song_#{song.id}") do
-      click_on I18n.t('helpers.submit.song.delete')
-    end
+    click_on "Delete Song"
 
     expect(page).not_to have_content(song.title)
   end
