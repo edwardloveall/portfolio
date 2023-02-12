@@ -5,7 +5,6 @@
     "@rails/activestorage": "^6.0.3-3",
     "@rails/ujs": "^6.0.3-3",
     "esbuild": "^0.14.28",
-    "jquery": "^3.6.1",
     "sass": "^1.54.3"
   },
   "devDependencies": {},
