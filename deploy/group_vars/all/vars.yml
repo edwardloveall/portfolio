@@ -10,5 +10,4 @@ postgres:
   root_password: "{{ vault_db_postgres_password }}"
 
 rails:
-  analytics_key: "{{ vault_analytics_key }}"
   secret: "{{ vault_rails_secret }}"

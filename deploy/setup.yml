@@ -66,7 +66,6 @@
         app_domain: edwardloveall.com
     - role: app_deploy
       vars:
-        analytics_key: "{{ rails.analytics_key }}"
         app_domain: edwardloveall.com
         app_secret: "{{ rails.secret }}"
         blog_domain: blog.edwardloveall.com
