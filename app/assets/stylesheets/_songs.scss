@@ -15,63 +15,13 @@ div.song-title {
 }
 
 div.player {
-  @include title-card;
+  border: $border;
+  margin-bottom: $base-spacing;
+  padding: $base-spacing;
 
-  padding: $song-padding;
-
-  div.scrubber {
-    padding-left: math.div($song-height, 2);
-    position: relative;
-  }
-
-  div.track,
-  div.progress {
-    height: $song-height;
-    border-bottom-right-radius: math.div($song-height, 2);
-    border-top-right-radius: math.div($song-height, 2);
-  }
-
-  div.track {
-    background-color: var(--background-color-alt);
-  }
-
-  div.progress {
-    background-color: var(--background-color-contrast);
-  }
-
-  a.button {
-    background: var(--button-color) url("play.svg") no-repeat center center;
-    border: 2px solid var(--song-progress-color);
-    border-radius: 50%;
-    box-sizing: border-box;
-    cursor: pointer;
+  audio {
     display: block;
-    height: $song-height;
-    position: absolute;
-    width: $song-height;
-    z-index: 1;
-  }
-
-  a.button.playing {
-    background-image: url("pause.svg");
-  }
-
-  span.remaining {
-    bottom: 0;
-    box-sizing: border-box;
-    font-family: $ui-font-family;
-    font-feature-settings: "tnum";
-    font-size: $medium-font-size;
-    font-style: normal;
-    left: 0px;
-    padding-right: $medium-font-size * 0.8;
-    pointer-events: none;
-    position: absolute;
-    right: 0;
-    text-align: right;
-    top: $medium-font-size * 0.7;
     width: 100%;
-    z-index: 1;
   }
 }
 

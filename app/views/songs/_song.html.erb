@@ -2,16 +2,7 @@
   <div class="song-title">
     <h3><%= link_to song.title, song %></h3>
   </div>
-  <div class="player">
-    <%= song_tag([song.mp3, song.ogg], controls: false) %>
-    <a class="button paused"></a>
-    <div class="scrubber">
-      <div class="track">
-        <div class="progress"></div>
-      </div>
-      <span class="remaining"></span>
-    </div>
-  </div>
+  <div class="player"><%= song_tag([song.mp3, song.ogg], controls: true) %></div>
   <article class="copy description">
     <%= convert_markdown(song.description) %>
   </article>
