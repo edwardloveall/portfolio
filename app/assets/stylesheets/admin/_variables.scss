@@ -41,8 +41,9 @@ $emerald-hover: darken($emerald, 10%);
   }
 }
 
-$font-stack-helvetica: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-$sans-serif: "proxima-nova", $font-stack-helvetica;
+$font-stack-geometric-humanist: Avenir, "Avenir Next LT Pro", Montserrat, Corbel,
+  "URW Gothic", source-sans-pro, sans-serif;
+$sans-serif: $font-stack-geometric-humanist;
 $font-family-base: $sans-serif;
 $font-size-base: 16px;
 $font-size-small: $font-size-base * 0.8;

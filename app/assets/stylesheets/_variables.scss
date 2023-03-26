@@ -46,12 +46,14 @@ $red: #e95555;
 }
 
 // Fonts
-$font-stack-helvetica: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-$font-stack-georgia: "Georgia", "Times", "Times New Roman", serif;
-$font-stack-mono: "source-code-pro", "Monaco", "Consolas", "Lucida Console",
-  monospace;
-$sans-serif: "proxima-nova", $font-stack-helvetica;
-$serif: "garamond-premier-pro-caption", $font-stack-georgia;
+$font-stack-geometric-humanist: Avenir, "Avenir Next LT Pro", Montserrat, Corbel,
+  "URW Gothic", source-sans-pro, sans-serif;
+$font-stack-old-style: "Iowan Old Style", "Palatino Linotype", "URW Palladio L",
+  P052, serif;
+$font-stack-monospace-code: ui-monospace, "Cascadia Code", "Source Code Pro",
+  Menlo, Consolas, "DejaVu Sans Mono", monospace;
+$sans-serif: $font-stack-geometric-humanist;
+$serif: $font-stack-old-style;
 
 $body-font-family: $serif;
 $header-font-family: $sans-serif;
