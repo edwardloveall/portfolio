@@ -1,3 +1,9 @@
+body.posts-index {
+  ol {
+    list-style-type: none;
+  }
+}
+
 article {
   margin: 0 $base-spacing $huge-spacing;
 
