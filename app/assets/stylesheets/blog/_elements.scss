@@ -31,6 +31,8 @@ ul {
 }
 
 li {
+  margin-bottom: $small-spacing;
+
   ul,
   ol {
     margin-bottom: 0;
