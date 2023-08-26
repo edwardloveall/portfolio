@@ -33,6 +33,7 @@ group :development, :test do
   gem "rspec_junit_formatter", "0.6.0"
   gem "rspec-rails"
   gem "rubocop", require: false
+  gem "solargraph"
 end
 
 group :test do
