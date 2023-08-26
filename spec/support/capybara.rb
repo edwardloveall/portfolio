@@ -3,14 +3,14 @@ Capybara.register_driver :chrome do |app|
 end
 
 Capybara.register_driver :headless_chrome do |app|
-  capabilities = Selenium::WebDriver::Chrome::Options.new(
+  options = Selenium::WebDriver::Chrome::Options.new(
     args: %w(headless disable-gpu)
   )
 
   Capybara::Selenium::Driver.new(
     app,
     browser: :chrome,
-    capabilities: capabilities
+    options: options
   )
 end
 
