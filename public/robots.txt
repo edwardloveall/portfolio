@@ -10,3 +10,7 @@ Disallow: /
 # https://platform.openai.com/docs/gptbot
 User-agent: GPTBot
 Disallow: /
+
+# https://platform.openai.com/docs/plugins/bot
+User-agent: ChatGPT-User
+Disallow: /
