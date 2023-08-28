@@ -1,13 +1,13 @@
 <section class="featured-projects">
-  <%= render partial: 'featured', collection: @featured %>
+  <%= render partial: "featured", collection: @featured %>
 </section>
 
 <section class="other-projects links">
-  <h4>Other Projects</h4>
+  <h3>Other Projects</h3>
   <ul>
-    <%= render partial: 'project', collection: @regular %>
+    <%= render @regular %>
   </ul>
 </section>
 
-<%= render 'contact' %>
-<%= render 'hotline_webring' %>
+<%= render "contact" %>
+<%= render "hotline_webring" %>

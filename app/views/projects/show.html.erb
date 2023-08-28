@@ -3,19 +3,19 @@
     <div class="img">
       <%= project_logo(@project) %>
     </div>
-    <h3><%= @project.title %></h3>
+    <h2><%= @project.title %></h2>
   </div>
   <div class="info">
     <div class="copy role">
-      <h4>Role</h4>
+      <h3>Role</h3>
       <p><%= @project.role %></p>
     </div>
     <div class="copy website">
-      <h4>Website</h4>
+      <h3>Website</h3>
       <%= link_to pretty_url(@project.website), @project.website %>
     </div>
     <article class="copy description">
-      <h4>Description</h4>
+      <h3>Description</h3>
       <%= convert_markdown(@project.description) %>
     </article>
   </div>

@@ -5,12 +5,9 @@ section.song {
 }
 
 div.song-title {
-  @include title-card;
-  text-align: center;
-  padding: $small-spacing;
-
-  h3 {
+  h2 {
     @include header-link-style;
+    margin-bottom: $base-spacing;
   }
 }
 

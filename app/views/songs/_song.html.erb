@@ -1,6 +1,6 @@
 <section class="song">
   <div class="song-title">
-    <h3><%= link_to song.title, song %></h3>
+    <h2><%= link_to song.title, song %></h2>
   </div>
   <div class="player"><%= song_tag([song.mp3, song.ogg], controls: true) %></div>
   <article class="copy description">
