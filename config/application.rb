@@ -18,5 +18,6 @@ module Portfolio
   class Application < Rails::Application
     config.load_defaults 7.0
     config.active_storage.variant_processor = :mini_magick
+    config.autoload_lib(ignore: %w[assets tasks])
   end
 end
