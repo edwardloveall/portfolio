@@ -52,6 +52,7 @@ en:
     application: Edward Loveall
     posts:
       index: Edward Loveall
+    internal_posts:
       show: "%{title} - Edward Loveall"
     admin:
       sessions:

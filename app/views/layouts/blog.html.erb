@@ -5,7 +5,7 @@
   <meta name="robots" content="noodp" />
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="initial-scale=1" />
-  <title><%= title(title: @post&.title) %></title>
+  <title><%= title(title: @internal_post&.title) %></title>
   <%= favicon_link_tag('favicon.png') %>
   <%= auto_discovery_link_tag(:rss, rss_url) %>
   <%= stylesheet_link_tag :blog, "data-turbo-track": "reload", defer: true %>
