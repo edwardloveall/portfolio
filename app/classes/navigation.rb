@@ -1,5 +1,5 @@
-class Navigation < ActionView::Base
-  attr_reader :path
+class Navigation
+  Link = Struct.new(:path, :text, :attrs, keyword_init: true)
 
   def self.links(path = "/")
     new(path).links
@@ -10,18 +10,19 @@ class Navigation < ActionView::Base
   end
 
   def links
-    content_tag(:nav, class: :main) do
-      ["about", "projects", "music"].each do |page|
-        if active_page == page
-          concat(link_to(page.titleize, "/#{page}", class: :active))
-        else
-          concat(link_to(page.titleize, "/#{page}"))
-        end
+    active_attrs = {class: :active, aria: {current: true}}
+    ["about", "projects", "music"].map do |page|
+      if active_page == page
+        Link.new(path: "/#{page}", text: page.titleize, attrs: active_attrs)
+      else
+        Link.new(path: "/#{page}", text: page.titleize)
       end
     end
   end
 
   private
+
+  attr_reader :path
 
   def active_page
     @active ||= path.split("/")[1] || "projects"

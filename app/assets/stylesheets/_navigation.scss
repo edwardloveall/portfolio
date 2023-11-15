@@ -1,9 +1,15 @@
 nav.main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-bottom: $base-spacing * $modular-scale-1;
-  text-align: center;
+  ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: $base-spacing * $modular-scale-1;
+    text-align: center;
+  }
+
+  li {
+    list-style-type: none;
+  }
 
   a {
     @include header-link-style;
@@ -14,7 +20,9 @@ nav.main {
   }
 
   @media screen and (min-width: $max-width) {
-    flex-direction: row;
+    ul {
+      flex-direction: row;
+    }
 
     a.active:after {
       border-left: math.div($chevron-size, 4) solid transparent;

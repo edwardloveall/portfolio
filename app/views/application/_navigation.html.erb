@@ -1,1 +1,7 @@
-<%= Navigation.links(current_path) %>
+<nav class="main">
+  <ul>
+    <% Navigation.links(current_path).each do |link| %>
+      <li><%= link_to(link.text, link.path, link.attrs)%></li>
+    <% end %>
+  </ul>
+</nav>
