@@ -1,9 +1,15 @@
 .featured-projects {
-  @include outer-container;
-  align-items: stretch;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  ul {
+    @include outer-container;
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  h2 {
+    @include visually-hidden;
+  }
 }
 
 .project-container {
@@ -25,13 +31,11 @@
     justify-content: center;
   }
 
+  a,
   h2 {
-    @include header-link-style;
     padding-top: $small-spacing;
-
-    a {
-      display: block;
-    }
+    @include header-link-style;
+    display: block;
   }
 
   .link-target {
@@ -45,7 +49,9 @@ section.project {
 
 @media screen and (min-width: $max-width) {
   .featured-projects {
-    flex-direction: row;
+    ul {
+      flex-direction: row;
+    }
   }
 
   .project-container {

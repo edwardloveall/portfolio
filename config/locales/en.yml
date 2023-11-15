@@ -54,6 +54,8 @@ en:
       index: Edward Loveall
     internal_posts:
       show: "%{title} - Edward Loveall"
+    projects:
+      show: "%{project} - Edward Loveall"
     admin:
       sessions:
         new: Sign in
