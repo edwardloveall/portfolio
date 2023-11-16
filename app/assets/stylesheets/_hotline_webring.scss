@@ -12,9 +12,10 @@ section.hotline-webring {
   }
 
   h3 {
+    align-self: center;
     flex: 2 0 auto;
     margin: 0;
-    align-self: center;
+    order: 2;
   }
 
   a.navigate {
@@ -29,10 +30,12 @@ section.hotline-webring {
   a.previous {
     background-image: url("hlwr-prev.svg");
     background-position: center left;
+    order: 1;
   }
 
   a.next {
     background-image: url("hlwr-next.svg");
     background-position: center right;
+    order: 3;
   }
 }
