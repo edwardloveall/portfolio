@@ -2,6 +2,7 @@ $logo-height: 160px;
 $logo-width: 200px;
 $planet-size: 6px;
 $rotation-period: 10s;
+$delay-offest: -2;
 /* prettier-ignore */
 $orbit-values: (1, 4, 0.68, 58.4%, 105.2%),
 (2, 8, 0.03, 87.8%, 89.3%),
@@ -52,17 +53,18 @@ h1 {
 }
 
 div.orbit {
+  animation: $rotation-period ease-in-out 0s infinite orbitPosition,
+    $rotation-period step-end 0s infinite orbitDepth;
   pointer-events: none;
   transform: translateX(0%);
   z-index: 0;
 
   @each $i, $size, $delay, $top-offset, $orbit-diameter in $orbit-values {
     &.orbit-#{$i} {
-      $delay: $rotation-period * -$delay;
+      $delay: $rotation-period * -$delay + $delay-offest;
       $orbit-diameter-px: $logo-width * math.div($orbit-diameter, 100%);
 
-      animation: $rotation-period ease-in-out $delay infinite orbitPosition,
-        $rotation-period step-end $delay infinite orbitDepth;
+      animation-delay: $delay;
       position: absolute;
       top: $top-offset;
       left: math.div(($logo-width - $orbit-diameter-px), 2);
@@ -73,6 +75,12 @@ div.orbit {
         width: $size * 1px;
       }
     }
+  }
+}
+
+@media (prefers-reduced-motion) {
+  div.orbit {
+    animation-play-state: paused;
   }
 }
 
