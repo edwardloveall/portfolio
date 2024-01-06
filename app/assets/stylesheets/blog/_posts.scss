@@ -21,7 +21,8 @@ article {
     margin-top: $huge-spacing;
   }
 
-  img {
+  img,
+  video {
     display: block;
     margin: 0 auto 1em;
     max-width: 100%;
