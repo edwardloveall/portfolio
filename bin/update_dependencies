@@ -14,6 +14,10 @@ DRY_RUN = ARGV[0] == "--dry-run"
 class BundlerClient
   def self.outdated_gems
     output, _status = Open3.capture2("bundle outdated --only-explicit")
+    if output.include?("Bundle up to date!")
+      puts "Bundle up to date!"
+      exit 0
+    end
     index = output.lines.find_index { |line| line.start_with?("Gem") }
     output.lines[index+1..].map do |line|
       name, current_version, latest_version, operator, explicit_version = line.split(" ").first(5)
