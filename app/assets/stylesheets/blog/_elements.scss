@@ -85,3 +85,17 @@ blockquote {
     margin-bottom: 0;
   }
 }
+
+table {
+  border-collapse: collapse;
+  margin-bottom: $base-spacing;
+}
+
+th,
+td {
+  border: $border;
+}
+
+th {
+  padding: $padding;
+}
