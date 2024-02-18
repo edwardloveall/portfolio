@@ -1,9 +1,0 @@
-<section class="song">
-  <div class="song-title">
-    <h2><%= link_to song.title, song %></h2>
-  </div>
-  <div class="player"><%= song_tag([song.mp3, song.ogg], controls: true) %></div>
-  <article class="copy description">
-    <%= convert_markdown(song.description) %>
-  </article>
-</section>

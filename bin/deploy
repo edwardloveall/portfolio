@@ -1,7 +1,0 @@
-#!/bin/zsh
-
-set -e
-
-cd deploy
-ansible-playbook -i inventories/production.yml setup.yml --start-at-task="app_deploy : *"
-cd -

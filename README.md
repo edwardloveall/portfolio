@@ -1,12 +1,1 @@
-# Portfolio
-
-## Deployment
-
-This uses [Ansible](https://www.ansible.com/) for deployment. See the [deploy README](deploy/README.md) for more info.
-
-## Maintenance mode
-
-```sh
-rake maintenance:enable
-rake maintenance:disable
-```
+This used to be the code for <https://edwardloveall.com> which is now hosted at: <https://codeberg.org/edwardloveall/portfolio>
